@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Spectral:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+body{background:#e7e2d5;font-family:'Archivo',sans-serif;color:#2a2318}
+a{color:#c2703d}a:hover{color:#ad6233}
+.turn{display:flex;flex-wrap:wrap;gap:44px;padding:54px 60px 90px;align-items:flex-start;justify-content:center}
+.pagehint{width:100%;text-align:center;margin-bottom:8px}
+.pagehint h1{font-family:'Spectral',serif;font-size:32px;font-weight:800;color:#1e3a2b}
+.pagehint p{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a7a5a;letter-spacing:.04em;margin-top:8px}
+.opt{display:flex;flex-direction:column;gap:16px;align-items:center}
+.opthead{display:flex;align-items:center;gap:11px;align-self:stretch}
+.badge{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:12px;background:#1e3a2b;color:#f5f0e6;border-radius:8px;padding:5px 9px}
+.optttl{font-family:'Spectral',serif;font-size:19px;font-weight:700;color:#1e3a2b;line-height:1}
+.optsub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8a8072;letter-spacing:.03em;margin-top:3px}
+.device{width:414px;padding:13px;background:#0c0c0f;border-radius:58px;box-shadow:0 40px 90px rgba(20,15,8,.34),inset 0 0 0 2px #2a2a2f}
+.screen{position:relative;width:388px;height:840px;background:#f5f0e6;border-radius:46px;overflow:hidden}
+.scol{display:flex;flex-direction:column}
+.island{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:118px;height:33px;background:#000;border-radius:20px;z-index:999}
+.statusbar{height:52px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px 7px;font-size:14px;font-weight:600;color:#20180f;flex:none}
+.statusbar.over{position:absolute;top:0;left:0;right:0;z-index:900}
+.sb-ic{display:flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600}
+.batt{width:23px;height:12px;border:1.5px solid #20180f;border-radius:3px;position:relative;display:inline-block}
+.batt::after{content:'';position:absolute;right:-3px;top:3.5px;width:2px;height:4px;background:#20180f;border-radius:0 1px 1px 0}
+.batt i{position:absolute;left:1.5px;top:1.5px;bottom:1.5px;right:6px;background:#20180f;border-radius:1px}
+
+/* app header */
+.appbar{padding:4px 16px 8px;display:flex;align-items:center;gap:11px;flex:none}
+.chev{width:32px;height:32px;border-radius:10px;background:#eae3d3;display:flex;align-items:center;justify-content:center;color:#1e3a2b;font-size:18px;border:none;cursor:pointer;flex:none;text-decoration:none}
+.appttl{font-family:'Spectral',serif;font-weight:700;font-size:17px;color:#1e3a2b;line-height:1}
+.appsub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8a8072;letter-spacing:.03em;margin-top:3px}
+.wm{display:flex;align-items:center;gap:9px;font-family:'Spectral',serif;font-weight:700;font-size:19px;color:#1e3a2b}
+.wm .mk{width:26px;height:26px;border-radius:50%;border:2.5px solid #c2703d;display:flex;align-items:center;justify-content:center;flex:none}
+.wm .mk i{width:9px;height:9px;border-radius:50%;border:2.5px solid #c2703d}
+.hav{margin-left:auto;width:36px;height:36px;border-radius:50%;background:#c2703d;color:#f5f0e6;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;font-family:'IBM Plex Mono',monospace;text-decoration:none}
+.livepill{margin-left:auto;display:flex;align-items:center;gap:8px;background:#e8efdf;border-radius:999px;padding:5px 6px 5px 11px}
+.livedot{width:7px;height:7px;border-radius:50%;background:#3f7a4e;animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.avstack{display:flex}
+.av2{width:25px;height:25px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-left:-7px;border:2px solid #eaf1e2;font-family:'IBM Plex Mono',monospace}
+.av2.throw{animation:pulse 1.15s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 2px #3f7a4e}50%{box-shadow:0 0 0 5px rgba(63,122,78,0)}}
+.c-forest{background:#2f5c3f}.c-clay{background:#c2703d}.c-moss{background:#6b8c5a}.c-gold{background:#a08a5f}.c-brown{background:#8a6d3b}.c-leaf{background:#3f7a4e}
+
+/* progress + hole card */
+.segwrap{display:flex;gap:3px;padding:2px 16px 10px;flex:none}
+.seg{flex:1;height:5px;border-radius:3px;background:#e0d7c1}
+.seg.done{background:#6b8c5a}
+.seg.live{background:#c2703d}
+.holecard{margin:0 14px;background:#1e3a2b;color:#f5f0e6;border-radius:24px;padding:20px;position:relative;touch-action:pan-y;flex:none}
+.hc-top{display:flex;align-items:flex-start;gap:14px}
+.hc-l{flex:none}
+.hc-holelab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9db08f}
+.hc-num{font-family:'Spectral',serif;font-size:74px;font-weight:800;line-height:.78;margin-top:2px}
+.hc-par{font-family:'Spectral',serif;font-size:23px;font-weight:700;margin-top:6px}
+.hc-dist{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#cdbfa4;margin-top:4px;letter-spacing:.02em}
+.hc-gps{margin-left:auto;text-align:right;flex:none;background:rgba(245,240,230,.09);border-radius:16px;padding:13px 15px}
+.hc-gpsv{font-family:'Spectral',serif;font-size:34px;font-weight:800;line-height:.9;color:#f5f0e6}
+.hc-gpsu{font-size:14px;font-weight:600;color:#cdbfa4}
+.hc-gpsl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#9db08f;margin-top:5px}
+.provrow{display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.prov{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.prov::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+.prov.real{color:#bfe0c4;background:rgba(63,122,78,.3)}
+.prov.est{color:#e8cfa4;background:rgba(150,116,58,.35)}
+.swipetag{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#9db08f}
+.plist{flex:1;overflow-y:auto;padding:14px 14px 4px;display:flex;flex-direction:column;gap:10px}
+.prow{background:#fff;border:1px solid rgba(30,58,43,.1);border-radius:16px;padding:11px 12px 11px 13px;display:flex;align-items:center;gap:11px}
+.prow.flash{animation:flash 1.5s ease}
+@keyframes flash{0%{background:#f6e7db;border-color:#c2703d}100%{background:#fff}}
+.pav{width:36px;height:36px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:none;font-family:'IBM Plex Mono',monospace}
+.pinfo{min-width:0}
+.pname{font-weight:700;font-size:15px;color:#20180f;line-height:1}
+.pthru{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8a8072;margin-top:4px;letter-spacing:.02em}
+.pbadge{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;background:#eef1e8;color:#4a4234;min-width:34px;text-align:center}
+.pbadge.bird{background:#e8efdf;color:#3f7a4e}
+.pbadge.bog{background:#f6e7db;color:#c2703d}
+.pbadge.dbl{background:#efc9b4;color:#a8542a}
+.stepper{margin-left:auto;display:flex;align-items:center;gap:6px}
+.stepbtn{width:44px;height:44px;border-radius:50%;border:2px solid #1e3a2b;background:#fff;color:#1e3a2b;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;cursor:pointer;line-height:1;user-select:none;flex:none}
+.stepbtn:active{background:#1e3a2b;color:#fff;transform:scale(.93)}
+.pscore{font-family:'Spectral',serif;font-size:29px;font-weight:800;color:#1e3a2b;width:28px;text-align:center}
+.scfoot{padding:8px 14px 10px;display:flex;align-items:center;gap:9px;flex:none}
+.navbtn{width:54px;height:46px;border-radius:13px;border:1.5px solid rgba(30,58,43,.22);background:#fff;color:#1e3a2b;font-size:19px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;text-decoration:none}
+.navbtn.pri{background:#1e3a2b;color:#f5f0e6;border:none;flex:1;font-family:'Spectral',serif;font-size:15px;font-weight:700;gap:8px}
+.offline{display:flex;align-items:center;justify-content:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#8a8072;padding:0 0 12px;letter-spacing:.06em;flex:none}
+.offdot{width:6px;height:6px;border-radius:50%;background:#a08a5f}
+.toast2{position:absolute;bottom:96px;left:50%;transform:translateX(-50%) translateY(16px);background:#1e3a2b;color:#f5f0e6;padding:10px 18px;border-radius:999px;font-size:12px;font-weight:600;z-index:40;opacity:0;transition:.3s;pointer-events:none;box-shadow:0 12px 34px rgba(20,15,8,.32);font-family:'IBM Plex Mono',monospace;white-space:nowrap}
+.toast2.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* finder */
+.mapfill{position:absolute;inset:0;background:#e8e4d8;z-index:1}
+.mapcredit{position:absolute;left:9px;bottom:9px;z-index:450;font-family:'IBM Plex Mono',monospace;font-size:8px;color:rgba(30,25,15,.55);background:rgba(245,240,230,.75);padding:2px 7px;border-radius:5px}
+.topfade{position:absolute;top:0;left:0;right:0;height:150px;background:linear-gradient(180deg,rgba(245,240,230,.92),rgba(245,240,230,0));z-index:500;pointer-events:none}
+.locbar2{position:absolute;top:50px;left:12px;right:12px;z-index:620;display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.97);border:1px solid rgba(30,58,43,.12);border-radius:15px;padding:10px 12px;box-shadow:0 8px 26px rgba(30,25,15,.14)}
+.loc-pin2{color:#c2703d;font-size:15px;flex:none}
+.loc-main2{font-size:12px;color:#1e3a2b;flex:1;line-height:1.3}
+.loc-main2 b{font-weight:700}
+.loc-src2{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:6px;flex:none}
+.loc-src2.ok{color:#3f7a4e;background:#e8efdf}
+.loc-src2.weak{color:#8a6d3b;background:#f6ead8}
+.loc-set{background:none;border:none;color:#c2703d;font-weight:700;font-size:11px;cursor:pointer;flex:none;font-family:'IBM Plex Mono',monospace}
+.recenter{position:absolute;right:14px;z-index:610;width:44px;height:44px;border-radius:14px;background:#fff;border:1px solid rgba(30,58,43,.12);color:#1e3a2b;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(30,25,15,.16)}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:700;background:#f5f0e6;border-radius:24px 24px 0 0;box-shadow:0 -12px 42px rgba(30,25,15,.2);display:flex;flex-direction:column}
+.grabber{padding:9px 0 5px;display:flex;justify-content:center;cursor:grab;touch-action:none;flex:none}
+.grabber i{width:40px;height:5px;border-radius:3px;background:#cbc0a6}
+.sheethead{padding:2px 16px 12px;display:flex;align-items:center;gap:10px;flex:none}
+.sheettl{font-family:'Spectral',serif;font-size:19px;font-weight:700;color:#1e3a2b;line-height:1}
+.sheettl small{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8a8072;font-weight:500;display:block;margin-top:4px;letter-spacing:.02em}
+.filterbtn{margin-left:auto;background:#fff;border:1.5px solid rgba(30,58,43,.18);border-radius:12px;padding:9px 13px;font-weight:700;font-size:12px;color:#1e3a2b;display:flex;align-items:center;gap:6px;cursor:pointer;flex:none}
+.filterbtn b{background:#c2703d;color:#fff;border-radius:6px;font-size:9px;padding:1px 5px;font-family:'IBM Plex Mono',monospace}
+.sheetlist{flex:1;overflow-y:auto;padding:4px 12px 22px;display:flex;flex-direction:column;gap:10px}
+.ccard{display:flex;gap:12px;background:#fff;border:1px solid rgba(30,58,43,.1);border-radius:16px;padding:11px;cursor:pointer;align-items:center;text-decoration:none}
+.ccard.sel{border-color:#c2703d;box-shadow:0 0 0 2px rgba(194,112,61,.3)}
+.cthumb{width:54px;height:54px;border-radius:12px;flex:none;background-color:#dfd7c0;background-image:repeating-linear-gradient(45deg,rgba(30,58,43,.09) 0 7px,transparent 7px 14px);display:flex;align-items:center;justify-content:center;color:#1e3a2b;font-family:'Spectral',serif;font-weight:800;font-size:22px}
+.cinfo{flex:1;min-width:0}
+.cname2{font-family:'Spectral',serif;font-size:16px;font-weight:700;color:#20180f;line-height:1.08}
+.cmeta2{font-size:11px;color:#7a7061;margin-top:3px;font-weight:500}
+.cchips{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.cchip{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.02em;text-transform:uppercase;color:#41604d;background:#eef1e8;border-radius:6px;padding:3px 7px;font-weight:500}
+.crate2{text-align:right;flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:8px;align-self:stretch}
+.rv{display:flex;align-items:center;gap:3px;font-weight:800;font-size:14px;color:#1e3a2b}
+.rv .star{color:#c2703d}
+.cdist{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700;color:#c2703d}
+.filtersheet{position:absolute;inset:0;z-index:950;display:flex;flex-direction:column;justify-content:flex-end}
+.filterscrim{position:absolute;inset:0;background:rgba(20,15,8,.42)}
+.filterpanel{position:relative;background:#f5f0e6;border-radius:24px 24px 0 0;padding:18px 18px 22px;max-height:82%;overflow-y:auto}
+.fs-head{display:flex;align-items:center;margin-bottom:6px}
+.fs-title{font-family:'Spectral',serif;font-size:24px;font-weight:800;color:#1e3a2b}
+.fs-x{margin-left:auto;width:32px;height:32px;border-radius:9px;background:#eae3d3;border:none;font-size:16px;color:#1e3a2b;cursor:pointer}
+.fs-group{padding:16px 0;border-bottom:1px solid rgba(30,58,43,.1)}
+.fs-lab{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a08a5f;margin-bottom:11px}
+.fs-pills{display:flex;flex-wrap:wrap;gap:8px}
+.fpill{padding:9px 15px;border-radius:999px;border:1.5px solid rgba(30,58,43,.18);font-size:13px;font-weight:600;color:#4a4234;background:none;cursor:pointer;font-family:'IBM Plex Mono',monospace}
+.fpill.sel{background:#1e3a2b;color:#f5f0e6;border-color:#1e3a2b}
+.fs-apply{width:100%;margin-top:18px;padding:15px;background:#c2703d;color:#fff;border:none;border-radius:14px;font-weight:700;font-size:15px;cursor:pointer;font-family:'Archivo'}
+
+/* HOME */
+.hscroll{flex:1;overflow-y:auto;padding:2px 0 12px}
+.hgreet{padding:8px 16px 0}
+.hgreet .hi{font-family:'Spectral',serif;font-size:25px;font-weight:800;color:#1e3a2b;line-height:1}
+.hgreet .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8a7a5a;margin-top:6px;letter-spacing:.03em}
+.resume{margin:14px 16px 0;background:#1e3a2b;color:#f5f0e6;border-radius:20px;padding:17px 18px;display:flex;align-items:center;gap:14px;text-decoration:none}
+.resume .rz{flex:1;min-width:0}
+.rlab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#9db08f}
+.rname{font-family:'Spectral',serif;font-size:21px;font-weight:700;margin-top:5px}
+.rmeta{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#cdbfa4;margin-top:6px}
+.rgo{background:#c2703d;color:#fff;border:none;border-radius:13px;padding:12px 15px;font-weight:700;font-size:13px;font-family:'Spectral',serif;cursor:pointer;flex:none}
+.qrow{display:flex;gap:10px;padding:14px 16px 2px}
+.qbtn{flex:1;background:#fff;border:1px solid rgba(30,58,43,.1);border-radius:16px;padding:14px 8px;text-align:center;cursor:pointer;text-decoration:none;display:block}
+.qic{width:34px;height:34px;border-radius:50%;border:2.5px solid #c2703d;margin:0 auto 9px;display:flex;align-items:center;justify-content:center}
+.qic i{width:11px;height:11px;border-radius:50%;border:2.5px solid #c2703d}
+.qic.sq i{border-radius:2px}
+.qic.pl i{border-radius:50%;background:#c2703d;border:none;width:9px;height:9px}
+.ql{font-size:12px;font-weight:700;color:#1e3a2b}
+.hsec{display:flex;align-items:baseline;justify-content:space-between;padding:20px 16px 10px}
+.hsec .t{font-family:'Spectral',serif;font-size:18px;font-weight:700;color:#1e3a2b}
+.hsec .m{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#c2703d;font-weight:600;text-decoration:none}
+.hpad{padding:0 16px;display:flex;flex-direction:column;gap:10px}
+.rround{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(30,58,43,.1);border-radius:14px;padding:11px 13px}
+.rr-thumb{width:42px;height:42px;border-radius:10px;flex:none;background-color:#dfd7c0;background-image:repeating-linear-gradient(45deg,rgba(30,58,43,.09) 0 6px,transparent 6px 12px)}
+.rr-course{font-weight:700;font-size:14px;color:#20180f}
+.rr-date{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8a8072;margin-top:3px}
+.rr-score{margin-left:auto;text-align:right}
+.rr-tot{font-family:'Spectral',serif;font-size:19px;font-weight:700;color:#1e3a2b;line-height:1}
+.rr-rel{font-size:12px;font-weight:700;margin-top:3px}
+.rr-rel.under{color:#3f7a4e}.rr-rel.over{color:#c2703d}
+
+/* tab bar */
+.tabbar{height:64px;flex:none;background:#faf7ef;border-top:1px solid rgba(30,58,43,.1);display:flex;align-items:center;padding:6px 6px 12px}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;cursor:pointer}
+.tic{width:22px;height:22px;border-radius:50%;border:2px solid #b8ad97;display:flex;align-items:center;justify-content:center}
+.tic i{width:8px;height:8px;border-radius:50%;background:#b8ad97}
+.tic.sq i{border-radius:2px}
+.tl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:#8a8072;font-weight:600}
+.tab.on .tic{border-color:#1e3a2b}
+.tab.on .tic i{background:#c2703d}
+.tab.on .tl{color:#1e3a2b}
+
+/* SUMMARY */
+.sumscroll{flex:1;overflow-y:auto;padding:4px 0 20px}
+.sumhead{padding:10px 16px 2px}
+.sum-eye{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#a08a5f}
+.sum-title{font-family:'Spectral',serif;font-size:30px;font-weight:800;color:#1e3a2b;margin-top:6px;line-height:1}
+.winchip{margin:14px 16px 0;background:#1e3a2b;color:#f5f0e6;border-radius:999px;padding:11px 18px;display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px}
+.winchip .star{color:#e6b98f}
+.sumstats{display:flex;gap:10px;padding:16px}
+.sumstat{flex:1;background:#fff;border:1px solid rgba(30,58,43,.1);border-radius:14px;padding:14px 10px;text-align:center}
+.sumstat b{font-family:'Spectral',serif;font-size:26px;font-weight:800;color:#1e3a2b;display:block;line-height:1}
+.sumstat span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#8a7a5a;margin-top:7px;display:block}
+.sg-wrap{margin:2px 16px;overflow-x:auto;border:1px solid rgba(30,58,43,.1);border-radius:16px;background:#fff}
+.sg{min-width:648px}
+.sg-row{display:flex;align-items:center;border-bottom:1px solid rgba(30,58,43,.07)}
+.sg-row:last-child{border-bottom:none}
+.sg-head{background:#faf7ef}
+.sg-par{background:#faf7ef}
+.sg-name{width:92px;flex:none;padding:10px 12px;font-weight:700;font-size:13px;color:#20180f;position:sticky;left:0;background:#fff;z-index:2}
+.sg-head .sg-name{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#a08a5f;font-weight:500;background:#faf7ef}
+.sg-par .sg-name{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#a08a5f;font-weight:500;background:#faf7ef}
+.sg-c{width:28px;flex:none;text-align:center;padding:8px 0;font-size:13px;font-weight:600;color:#3a3226;font-family:'IBM Plex Mono',monospace;display:flex;align-items:center;justify-content:center}
+.sg-head .sg-c{font-size:10px;color:#a08a5f;font-weight:500}
+.sg-par .sg-c{color:#a08a5f}
+.sg-c.tot{width:42px;font-family:'Spectral',serif;font-weight:800;color:#1e3a2b;font-size:15px}
+.sg-c.rel{width:40px;font-weight:700;color:#3f7a4e}
+.sg-c .m{display:inline-flex;align-items:center;justify-content:center;width:23px;height:23px}
+.sg-c.bird .m{border-radius:50%;background:#e8efdf;color:#3f7a4e}
+.sg-c.bog .m{border-radius:5px;background:#f6e7db;color:#c2703d}
+.sg-c.dbl .m{border-radius:5px;background:#efc9b4;color:#a8542a}
+.sg-win{background:#f6e7db}
+.sg-win .sg-name{color:#c2703d;background:#f6e7db}
+.leg{display:flex;gap:16px;padding:13px 18px 4px;flex-wrap:wrap}
+.leg span{display:flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#6b6152}
+.m2{width:16px;height:16px;display:inline-block}
+.m2.bird2{border-radius:50%;background:#e8efdf;border:1px solid #3f7a4e}
+.m2.bog2{border-radius:4px;background:#f6e7db;border:1px solid #c2703d}
+.m2.dbl2{border-radius:4px;background:#efc9b4;border:1px solid #a8542a}
+.sumact{display:flex;gap:10px;padding:12px 16px 8px}
+.sumact .out{flex:1;background:#fff;border:1.5px solid rgba(30,58,43,.2);border-radius:13px;padding:14px;font-weight:700;font-size:14px;color:#1e3a2b;cursor:pointer;font-family:'Archivo'}
+.sumact .pri{flex:1.3;background:#c2703d;color:#fff;border:none;border-radius:13px;padding:14px;font-weight:700;font-size:14px;cursor:pointer;font-family:'Spectral',serif}
+
+/* STATS */
+.stscroll{flex:1;overflow-y:auto;padding:0 0 14px}
+.plhero{margin:6px 14px 0;background:#1e3a2b;border-radius:20px;padding:20px;display:flex;align-items:center;gap:16px;color:#f5f0e6}
+.plav{width:68px;height:68px;border-radius:50%;background:#c2703d;display:flex;align-items:center;justify-content:center;font-family:'Spectral',serif;font-size:26px;font-weight:800;flex:none;border:3px solid rgba(245,240,230,.28)}
+.plname{font-family:'Spectral',serif;font-size:23px;font-weight:700;line-height:1}
+.plhandle{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9db08f;margin-top:7px;letter-spacing:.02em}
+.plbadges{display:flex;gap:7px;margin-top:11px;flex-wrap:wrap}
+.plbadge{background:rgba(245,240,230,.12);border:1px solid rgba(245,240,230,.25);border-radius:999px;padding:4px 10px;font-size:10px;font-weight:700;font-family:'IBM Plex Mono',monospace}
+.statstrip{display:flex;gap:8px;overflow-x:auto;padding:14px 14px 2px}
+.ststat{flex:none;min-width:80px;background:#fff;border:1px solid rgba(30,58,43,.1);border-radius:14px;padding:13px 14px;text-align:center}
+.ststat b{font-family:'Spectral',serif;font-size:23px;font-weight:800;color:#1e3a2b;display:block;line-height:1}
+.ststat span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:#8a7a5a;margin-top:7px;display:block}
+.stpanel{margin:14px 14px 0;background:#fff;border:1px solid rgba(30,58,43,.1);border-radius:18px;padding:16px}
+.stph{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.stph .h{font-family:'Spectral',serif;font-size:17px;font-weight:700;color:#1e3a2b}
+.stph .m{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8a8072;letter-spacing:.03em}
+.chart2{display:flex;align-items:flex-end;gap:8px;height:128px}
+.col2{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.col2 i{width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#6b8c5a,#2f5c3f)}
+.col2.hl i{background:linear-gradient(180deg,#d98a52,#c2703d)}
+.col2 span{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#9a8f7d}
+.minigrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mcell{background:#f6f2e8;border-radius:12px;padding:14px}
+.mcell b{font-family:'Spectral',serif;font-size:25px;color:#1e3a2b;display:block;line-height:1}
+.mcell span{font-size:11px;color:#8a7a5a;font-weight:500;margin-top:5px;display:block}
+.mcell small{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#3f7a4e;display:block;margin-top:6px}
+.lbrow{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(30,58,43,.07)}
+.lbrow:last-child{border-bottom:none}
+.lbrank{font-family:'Spectral',serif;font-size:16px;font-weight:700;color:#a08a5f;width:20px;flex:none}
+.lbav{width:34px;height:34px;border-radius:50%;background:#2f5c3f;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:none;font-family:'IBM Plex Mono',monospace}
+.lbname{font-weight:700;font-size:13px;color:#20180f}
+.lbsub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8a8072;margin-top:2px}
+.lbrat{margin-left:auto;font-family:'Spectral',serif;font-size:16px;font-weight:700;color:#1e3a2b}
+.lbrow.me{background:#f6e7db;margin:2px -8px;padding:10px 8px;border-radius:10px;border-bottom:none}
+.baggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.bagd{background:#f6f2e8;border-radius:12px;padding:12px 6px;text-align:center}
+.bagimg{width:44px;height:44px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px}
+.bagn{font-size:11px;font-weight:700;color:#20180f}
+.bagb{font-family:'IBM Plex Mono',monospace;font-size:8px;color:#c2703d;text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+/* COURSE DETAIL */
+.cscroll{flex:1;overflow-y:auto}
+.cdhero{position:relative;height:210px;background-color:#3a4a3a;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.13) 0 12px,transparent 12px 24px);display:flex;align-items:flex-end}
+.cdhero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,24,.06),rgba(20,32,24,.82))}
+.phl2{position:absolute;top:14px;left:50%;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,230,.55);z-index:2}
+.cdback{position:absolute;top:14px;left:14px;z-index:5;width:36px;height:36px;border-radius:11px;background:rgba(20,15,8,.4);color:#f5f0e6;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none}
+.cdherob{position:relative;z-index:3;padding:18px;color:#f5f0e6;width:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.cdname{font-family:'Spectral',serif;font-size:28px;font-weight:800;line-height:1}
+.cdloc{font-size:12px;margin-top:8px;color:rgba(245,240,230,.85);font-weight:500}
+.cdrate{text-align:right;flex:none}
+.cdratev{font-family:'Spectral',serif;font-size:28px;font-weight:800;line-height:1}
+.cdratev .star{color:#e6b98f}
+.cdratesub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.06em;color:rgba(245,240,230,.85);margin-top:5px}
+.cdstatbar{display:flex;background:#fff;border-bottom:1px solid rgba(30,58,43,.1)}
+.cdstat{flex:1;padding:14px 6px;text-align:center;border-right:1px solid rgba(30,58,43,.08)}
+.cdstat:last-child{border-right:none}
+.cdstatv{font-family:'Spectral',serif;font-size:19px;font-weight:800;color:#1e3a2b;line-height:1}
+.cdstatl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#a08a5f;margin-top:5px}
+.cond2{margin:14px 16px 0;display:inline-flex;align-items:center;gap:8px;background:#e8efdf;color:#3f7a4e;font-weight:600;font-size:12px;padding:8px 13px;border-radius:999px}
+.cond2 .dot{width:7px;height:7px;border-radius:50%;background:#3f7a4e}
+.wxrow{display:flex;gap:14px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#41604d;margin:10px 16px 0}
+.cdcard{margin:14px 16px 0;background:#fff;border:1px solid rgba(30,58,43,.1);border-radius:16px;padding:16px}
+.cdh3{font-family:'Spectral',serif;font-size:18px;font-weight:700;color:#1e3a2b;margin-bottom:11px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.cddesc{font-size:13px;line-height:1.6;color:#4a4234}
+.srcbadge{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid transparent}
+.srcbadge::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+.srcbadge.mixed{color:#8a6d3b;background:#f6ead8;border-color:rgba(138,109,59,.25)}
+.htable{width:100%;border-collapse:collapse;font-size:12px}
+.htable th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#a08a5f;padding:7px 5px;border-bottom:2px solid rgba(30,58,43,.12);font-weight:500}
+.htable td{padding:8px 5px;border-bottom:1px solid rgba(30,58,43,.07);color:#3a3226;font-weight:500}
+.htable .hn{font-weight:700;color:#1e3a2b;width:32px}
+.htable .hp{font-family:'IBM Plex Mono',monospace}
+.htable tr.real .hp{color:#3f7a4e;font-weight:700}
+.htable tr.real .hp::after{content:'●';font-size:6px;vertical-align:super;margin-left:2px;opacity:.6}
+.elbar2{height:7px;border-radius:4px;background:#eef1e8;position:relative;min-width:50px}
+.elbar2 i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:linear-gradient(90deg,#6b8c5a,#c2703d)}
+.attrib2{font-size:9px;color:#8a8072;margin-top:10px;font-family:'IBM Plex Mono',monospace}
+.attrib2 a{color:#8a8072}
+.revsum{display:flex;gap:18px;align-items:center;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(30,58,43,.08)}
+.revbig{font-family:'Spectral',serif;font-size:42px;font-weight:800;color:#1e3a2b;line-height:1;text-align:center}
+.revbigsub{font-size:9px;color:#8a8072;font-family:'IBM Plex Mono',monospace;margin-top:4px}
+.revcats{flex:1;display:flex;flex-direction:column;gap:8px}
+.revcat{display:flex;align-items:center;gap:9px;font-size:11px;color:#4a4234;font-weight:500}
+.revcat .cl{width:56px;flex:none}
+.revcat .bar{flex:1;height:6px;border-radius:3px;background:#eef1e8;position:relative}
+.revcat .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:#c2703d}
+.revitem{padding:12px 0;border-bottom:1px solid rgba(30,58,43,.07)}
+.revitem:last-child{border-bottom:none}
+.revhead{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.revav{width:32px;height:32px;border-radius:50%;background:#2f5c3f;color:#f5f0e6;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;font-family:'IBM Plex Mono',monospace;flex:none}
+.revname{font-weight:700;font-size:13px;color:#20180f}
+.revmeta{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#8a8072;margin-top:2px}
+.revstars{margin-left:auto;color:#c2703d;font-size:12px;letter-spacing:1px}
+.revbody{font-size:12px;line-height:1.55;color:#4a4234}
+.inforow{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(30,58,43,.07);font-size:12px}
+.inforow:last-child{border-bottom:none}
+.infok{color:#8a7a5a;font-weight:500}
+.infov{color:#20180f;font-weight:600;text-align:right}
+.cdactions{padding:14px 16px 18px;display:flex;flex-direction:column;gap:9px}
+.cdstart{background:#c2703d;color:#fff;border:none;border-radius:13px;padding:15px;font-weight:700;font-size:15px;font-family:'Spectral',serif;cursor:pointer;text-align:center;text-decoration:none}
+.cddir{background:#fff;border:1.5px solid rgba(30,58,43,.2);color:#1e3a2b;border-radius:13px;padding:14px;font-weight:700;font-size:14px;cursor:pointer;text-align:center;text-decoration:none}
+/* IN THE BAG */
+.bgscroll{flex:1;overflow-y:auto;padding:0 0 16px}
+.bgstat{display:flex;gap:10px;padding:14px 16px 4px}
+.bgstatc{flex:1;background:#fff;border:1px solid rgba(30,58,43,.1);border-radius:14px;padding:13px;text-align:center}
+.bgstatc b{font-family:'Spectral',serif;font-size:23px;font-weight:800;color:#1e3a2b;display:block;line-height:1}
+.bgstatc span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:#8a7a5a;margin-top:6px;display:block}
+.bggroup{padding:18px 16px 0}
+.bggh{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#a08a5f;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.bglist{display:flex;flex-direction:column;gap:9px}
+.bagrow{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid rgba(30,58,43,.1);border-radius:14px;padding:10px 11px}
+.bdisc{width:40px;height:40px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:14px;flex:none}
+.binfo{flex:1;min-width:0}
+.bname{font-weight:700;font-size:14px;color:#20180f;line-height:1}
+.bbrand{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#c2703d;text-transform:uppercase;letter-spacing:.05em;margin-top:5px}
+.bflight{display:flex;gap:4px;flex:none}
+.bfn{width:25px;height:32px;border-radius:7px;background:#eef1e8;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.bfnv{font-size:12px;font-weight:700;color:#1e3a2b;line-height:1;font-family:'IBM Plex Mono',monospace}
+.bfnl{font-size:6px;letter-spacing:.03em;color:#9a8f7d;margin-top:2px;font-family:'IBM Plex Mono',monospace}
+.brm{width:30px;height:30px;border-radius:8px;border:none;background:#f0ece0;color:#8a8072;font-size:12px;cursor:pointer;flex:none}
+.brm:hover{background:#c2703d;color:#fff}
+.bgadd{margin:18px 16px 4px;width:calc(100% - 32px);padding:14px;border:1.5px dashed rgba(30,58,43,.28);border-radius:14px;background:none;color:#4d6b3e;font-weight:700;font-size:14px;cursor:pointer;font-family:'Archivo'}
+.bgadd:hover{border-color:#c2703d;color:#c2703d}
+</style>
+</helmet>
+<section class="turn">
+<div class="pagehint"><h1>Birdie Finder — iPhone</h1><p>The full round loop on your Paper / Forest / Clay system · Home → Find courses → Course detail → Live scorecard → Round summary → Stats → In the bag · steppers, swipe, the draggable sheet and the map are all live</p></div>
+
+<div class="opt"><div class="opthead"><span class="badge">01</span><div><div class="optttl">Home</div><div class="optsub">Resume round · quick actions · near you · recent</div></div></div>
+<div class="device"><div class="screen scol" id="home"><div class="island"></div>
+<div class="statusbar"><span>9:41</span><span class="sb-ic">5G<span class="batt"><i></i></span></span></div>
+<div class="appbar"><div class="wm"><span class="mk"><i></i></span>Birdie Finder</div><a class="hav" href="#stats">EW</a></div>
+<div class="hscroll">
+<div class="hgreet"><div class="hi">Good morning, Evan.</div><div class="sub">Sunny · 64°F · light SW wind · great scoring weather</div></div>
+<a class="resume" href="#play"><div class="rz"><div class="rlab">Round in progress</div><div class="rname">Pier Park · Blue</div><div class="rmeta">Thru 8 · You −1 · 4 playing · saved offline</div></div><span class="rgo">Resume ▸</span></a>
+<div class="qrow"><a class="qbtn" href="#courses"><span class="qic"><i></i></span><div class="ql">Find courses</div></a><a class="qbtn" href="#play"><span class="qic pl"><i></i></span><div class="ql">New round</div></a><a class="qbtn" href="#stats"><span class="qic sq"><i></i></span><div class="ql">My stats</div></a></div>
+<div class="hsec"><span class="t">Courses near you</span><a class="m" href="#courses">View all →</a></div>
+<div class="hpad"><sc-for list="{{ homeCourses }}" as="c" hint-placeholder-count="2"><a class="ccard" href="#courses"><div class="cthumb">{{ c.letter }}</div><div class="cinfo"><div class="cname2">{{ c.name }}</div><div class="cmeta2">{{ c.city }} · {{ c.dist }} mi · {{ c.holes }} holes</div><div class="cchips"><span class="cchip">{{ c.diff }}</span><span class="cchip">{{ c.terrain }}</span></div></div><div class="crate2"><div class="cdist">{{ c.dist }} mi</div><div class="rv"><span class="star">★</span>{{ c.rating }}</div></div></a></sc-for></div>
+<div class="hsec"><span class="t">Recent rounds</span><a class="m" href="#stats">All rounds →</a></div>
+<div class="hpad"><sc-for list="{{ homeRecent }}" as="r" hint-placeholder-count="2"><div class="rround"><div class="rr-thumb"></div><div><div class="rr-course">{{ r.course }}</div><div class="rr-date">{{ r.date }} · {{ r.holes }} holes</div></div><div class="rr-score"><div class="rr-tot">{{ r.total }}</div><div class="rr-rel {{ r.relCls }}">{{ r.relTxt }}</div></div></div></sc-for></div>
+</div>
+<div class="tabbar"><a class="tab on" href="#home"><span class="tic"><i></i></span><span class="tl">Home</span></a><a class="tab" href="#courses"><span class="tic"><i></i></span><span class="tl">Courses</span></a><a class="tab" href="#play"><span class="tic"><i></i></span><span class="tl">Play</span></a><a class="tab" href="#stats"><span class="tic sq"><i></i></span><span class="tl">Stats</span></a></div>
+</div></div></div>
+
+<div class="opt"><div class="opthead"><span class="badge">02</span><div><div class="optttl">Find courses</div><div class="optsub">Map-first · draggable sheet · location fix stated</div></div></div>
+<div class="device"><div class="screen" id="courses"><div class="island"></div>
+<div id="mapC" class="mapfill"></div><div class="mapcredit">© OpenStreetMap · CARTO</div><div class="topfade"></div>
+<div class="statusbar over"><span>9:41</span><span class="sb-ic">5G<span class="batt"><i></i></span></span></div>
+<div class="locbar2"><span class="loc-pin2">◉</span><div class="loc-main2">Near <b>{{ locLabel }}</b></div><span class="loc-src2 {{ locCls }}">{{ locSrc }}</span><button class="loc-set">Set</button></div>
+<button class="recenter" style="bottom:{{ recenterBottom }}">◎</button>
+<div class="sheet" style="height:{{ sheetH }}"><div class="grabber"><i></i></div><div class="sheethead"><div class="sheettl">Courses nearby<small>{{ cCount }} within reach · sorted by distance</small></div><button class="filterbtn" onClick="{{ toggleFilters }}">Filters<b>{{ filterCount }}</b></button></div><div class="sheetlist"><sc-for list="{{ coursesC }}" as="c" hint-placeholder-count="6"><div class="ccard {{ c.selCls }}" onClick="{{ c.pick }}"><div class="cthumb">{{ c.letter }}</div><div class="cinfo"><div class="cname2">{{ c.name }}</div><div class="cmeta2">{{ c.city }} · {{ c.holes }} holes · par {{ c.par }}</div><div class="cchips"><span class="cchip">{{ c.diff }}</span><span class="cchip">{{ c.terrain }}</span></div></div><div class="crate2"><div class="cdist">{{ c.dist }} mi</div><div class="rv"><span class="star">★</span>{{ c.rating }}</div></div></div></sc-for></div></div>
+<sc-if value="{{ filtersOpen }}" hint-placeholder-val="{{ false }}"><div class="filtersheet"><div class="filterscrim" onClick="{{ toggleFilters }}"></div><div class="filterpanel"><div class="fs-head"><div class="fs-title">Filters</div><button class="fs-x" onClick="{{ toggleFilters }}">✕</button></div><div class="fs-group"><div class="fs-lab">Distance</div><div class="fs-pills"><sc-for list="{{ distPills }}" as="p" hint-placeholder-count="4"><button class="fpill {{ p.selCls }}" onClick="{{ p.pick }}">{{ p.label }}</button></sc-for></div></div><div class="fs-group"><div class="fs-lab">Holes</div><div class="fs-pills"><button class="fpill">Any</button><button class="fpill">9</button><button class="fpill sel">18</button><button class="fpill">24+</button></div></div><div class="fs-group"><div class="fs-lab">Difficulty</div><div class="fs-pills"><button class="fpill sel">Beginner</button><button class="fpill sel">Intermediate</button><button class="fpill sel">Advanced</button><button class="fpill">Pro</button></div></div><div class="fs-group"><div class="fs-lab">Terrain</div><div class="fs-pills"><button class="fpill">Wooded</button><button class="fpill">Open / Field</button><button class="fpill">Elevation</button></div></div><button class="fs-apply" onClick="{{ toggleFilters }}">Show {{ cCount }} courses</button></div></div></sc-if>
+</div></div></div>
+
+<div class="opt"><div class="opthead"><span class="badge">03</span><div><div class="optttl">Live scorecard</div><div class="optsub">Full-bleed hole card · 44pt steppers · realtime group of 4</div></div></div>
+<div class="device"><div class="screen scol" id="play"><div class="island"></div>
+<div class="statusbar"><span>9:41</span><span class="sb-ic">5G<span class="batt"><i></i></span></span></div>
+<div class="appbar"><a class="chev" href="#home">‹</a><div><div class="appttl">Pier Park</div><div class="appsub">Blue · Par {{ totalPar }}</div></div><div class="livepill"><span class="livedot"></span><div class="avstack"><sc-for list="{{ avatarsA }}" as="a" hint-placeholder-count="4"><span class="av2 {{ a.colorCls }} {{ a.throwCls }}">{{ a.initial }}</span></sc-for></div></div></div>
+<div class="segwrap"><sc-for list="{{ segs }}" as="s" hint-placeholder-count="18"><i class="{{ s.cls }}"></i></sc-for></div>
+<div class="holecard" data-swipe="hole"><div class="hc-top"><div class="hc-l"><div class="hc-holelab">Hole</div><div class="hc-num">{{ holeNum }}</div><div class="hc-par">Par {{ par }}</div><div class="hc-dist">{{ distFt }} ft · Blue tee → basket</div></div><sc-if value="{{ gpsOn }}" hint-placeholder-val="{{ true }}"><div class="hc-gps"><div class="hc-gpsv">{{ gps }}<span class="hc-gpsu">ft</span></div><div class="hc-gpsl">GPS to basket</div></div></sc-if></div><div class="provrow"><sc-if value="{{ provOn }}" hint-placeholder-val="{{ true }}"><span class="prov {{ provCls }}">{{ provText }}</span></sc-if><span class="swipetag">‹ swipe holes ›</span></div></div>
+<div class="plist"><sc-for list="{{ rowsA }}" as="r" hint-placeholder-count="4"><div class="prow {{ r.flashCls }}"><span class="pav {{ r.colorCls }}">{{ r.initial }}</span><div class="pinfo"><div class="pname">{{ r.name }}</div><div class="pthru">{{ r.thru }}</div></div><span class="pbadge {{ r.badgeCls }}">{{ r.badge }}</span><div class="stepper"><button class="stepbtn" onClick="{{ r.dec }}">−</button><span class="pscore">{{ r.score }}</span><button class="stepbtn" onClick="{{ r.inc }}">+</button></div></div></sc-for></div>
+<div class="scfoot"><button class="navbtn" onClick="{{ prevHole }}">‹</button><sc-if value="{{ notFinish }}" hint-placeholder-val="{{ true }}"><button class="navbtn pri" onClick="{{ nextHole }}">Next hole →</button></sc-if><sc-if value="{{ finishMode }}" hint-placeholder-val="{{ false }}"><a class="navbtn pri" href="#summary">Finish round →</a></sc-if><button class="navbtn" onClick="{{ nextHole }}">›</button></div>
+<div class="offline"><span class="offdot"></span>Offline · saved locally · screen stays awake · haptics on</div>
+<div class="toast2 {{ toastCls }}">{{ toastText }}</div>
+</div></div></div>
+
+<div class="opt"><div class="opthead"><span class="badge">04</span><div><div class="optttl">Round summary</div><div class="optsub">Birdie / bogey grid · shareable image · save to profile</div></div></div>
+<div class="device"><div class="screen scol" id="summary"><div class="island"></div>
+<div class="statusbar"><span>9:41</span><span class="sb-ic">5G<span class="batt"><i></i></span></span></div>
+<div class="appbar"><a class="chev" href="#play">‹</a><div><div class="appttl">Round complete</div><div class="appsub">Pier Park · Blue · Jul 09</div></div></div>
+<div class="sumscroll">
+<div class="sumhead"><div class="sum-eye">Pier Park · Blue layout · 18 holes</div><div class="sum-title">Nice round.</div></div>
+<div style="padding:0 16px"><span class="winchip"><span class="star">★</span>{{ winnerName }} wins · {{ winnerRel }}</span></div>
+<div class="sumstats"><div class="sumstat"><b>{{ youTotal }}</b><span>Your score</span></div><div class="sumstat"><b>{{ youRel }}</b><span>vs par</span></div><div class="sumstat"><b>{{ youBirdies }}</b><span>Birdies</span></div><div class="sumstat"><b>{{ youPars }}</b><span>Pars</span></div></div>
+<div class="sg-wrap"><div class="sg"><div class="sg-row sg-head"><div class="sg-name">Player</div><sc-for list="{{ gridNums }}" as="n" hint-placeholder-count="18"><div class="sg-c">{{ n.v }}</div></sc-for><div class="sg-c tot">Tot</div><div class="sg-c rel">±</div></div><div class="sg-row sg-par"><div class="sg-name">Par</div><sc-for list="{{ parCells }}" as="p" hint-placeholder-count="18"><div class="sg-c">{{ p.v }}</div></sc-for><div class="sg-c tot">{{ totalPar }}</div><div class="sg-c rel"></div></div><sc-for list="{{ sumRows }}" as="pl" hint-placeholder-count="4"><div class="sg-row {{ pl.winCls }}"><div class="sg-name">{{ pl.name }}</div><sc-for list="{{ pl.cells }}" as="c" hint-placeholder-count="18"><div class="sg-c {{ c.cls }}"><span class="m">{{ c.v }}</span></div></sc-for><div class="sg-c tot">{{ pl.tot }}</div><div class="sg-c rel">{{ pl.rel }}</div></div></sc-for></div></div>
+<div class="leg"><span><i class="m2 bird2"></i>Birdie</span><span><i class="m2 bog2"></i>Bogey</span><span><i class="m2 dbl2"></i>Double+</span></div>
+<div class="sumact"><button class="out" onClick="{{ saveRound }}">Save to profile</button><button class="pri" onClick="{{ shareRound }}">Share round image ▸</button></div>
+</div>
+<div class="toast2 {{ toastCls }}">{{ toastText }}</div>
+</div></div></div>
+
+<div class="opt"><div class="opthead"><span class="badge">05</span><div><div class="optttl">Stats & profile</div><div class="optsub">Rating trend · C1/C2 putting · friends · in the bag</div></div></div>
+<div class="device"><div class="screen scol" id="stats"><div class="island"></div>
+<div class="statusbar"><span>9:41</span><span class="sb-ic">5G<span class="batt"><i></i></span></span></div>
+<div class="stscroll">
+<div class="plhero"><div class="plav">EW</div><div><div class="plname">Evan White</div><div class="plhandle">@evanwhite · PDGA #182044</div><div class="plbadges"><span class="plbadge">▲ 942 rating</span><span class="plbadge">129 rounds</span><span class="plbadge">42 courses</span></div></div></div>
+<div class="statstrip"><div class="ststat"><b>129</b><span>Rounds</span></div><div class="ststat"><b>54.2</b><span>Avg score</span></div><div class="ststat"><b>−7</b><span>Best round</span></div><div class="ststat"><b>3</b><span>Aces</span></div><div class="ststat"><b>42</b><span>Courses</span></div></div>
+<div class="stpanel"><div class="stph"><span class="h">Player rating</span><span class="m">Last 8 rounds</span></div><div class="chart2"><div class="col2"><i style="height:52%"></i><span>908</span></div><div class="col2"><i style="height:60%"></i><span>915</span></div><div class="col2"><i style="height:56%"></i><span>911</span></div><div class="col2"><i style="height:70%"></i><span>926</span></div><div class="col2"><i style="height:66%"></i><span>921</span></div><div class="col2"><i style="height:82%"></i><span>938</span></div><div class="col2"><i style="height:78%"></i><span>933</span></div><div class="col2 hl"><i style="height:94%"></i><span>942</span></div></div></div>
+<div class="stpanel"><div class="stph"><span class="h">This season</span></div><div class="minigrid"><div class="mcell"><b>61%</b><span>Circle 1 putting</span><small>▲ 4% vs 2025</small></div><div class="mcell"><b>28%</b><span>Circle 2 putting</span><small>▲ 6% vs 2025</small></div><div class="mcell"><b>72%</b><span>Fairway hits</span><small>▲ 3% vs 2025</small></div><div class="mcell"><b>48%</b><span>Parked / GIR</span><small>▲ 5% vs 2025</small></div></div></div>
+<div class="stpanel"><div class="stph"><span class="h">Recent rounds</span><a class="m" href="#courses" style="color:#c2703d;text-decoration:none">Find a course →</a></div><sc-for list="{{ statRecent }}" as="r" hint-placeholder-count="4"><div class="rround" style="border:none;border-bottom:1px solid rgba(30,58,43,.07);border-radius:0;padding:11px 0"><div class="rr-thumb"></div><div><div class="rr-course">{{ r.course }}</div><div class="rr-date">{{ r.date }} · {{ r.holes }} holes</div></div><div class="rr-score"><div class="rr-tot">{{ r.total }}</div><div class="rr-rel {{ r.relCls }}">{{ r.relTxt }}</div></div></div></sc-for></div>
+<div class="stpanel"><div class="stph"><span class="h">Friends leaderboard</span><span class="m">This month</span></div><div class="lbrow"><span class="lbrank">1</span><span class="lbav">TG</span><div><div class="lbname">Tyler G.</div><div class="lbsub">14 rounds · Milo McIver</div></div><span class="lbrat">▲ 978</span></div><div class="lbrow"><span class="lbrank">2</span><span class="lbav">MR</span><div><div class="lbname">Maria R.</div><div class="lbsub">11 rounds · Blue Lake</div></div><span class="lbrat">▲ 961</span></div><div class="lbrow me"><span class="lbrank">3</span><span class="lbav" style="background:#c2703d">EW</span><div><div class="lbname">Evan White (you)</div><div class="lbsub">9 rounds · Pier Park</div></div><span class="lbrat">▲ 942</span></div><div class="lbrow"><span class="lbrank">4</span><span class="lbav">JL</span><div><div class="lbname">Jordan L.</div><div class="lbsub">8 rounds · Horning's</div></div><span class="lbrat">▲ 930</span></div></div>
+<div class="stpanel"><div class="stph"><span class="h">In the bag</span><a class="m" href="#" style="color:#c2703d;text-decoration:none">Manage →</a></div><div class="baggrid"><div class="bagd"><div class="bagimg c-clay">13</div><div class="bagn">Destroyer</div><div class="bagb">Innova</div></div><div class="bagd"><div class="bagimg c-forest">13</div><div class="bagn">Wave</div><div class="bagb">Latitude 64</div></div><div class="bagd"><div class="bagimg c-moss">7</div><div class="bagn">FD</div><div class="bagb">Discmania</div></div><div class="bagd"><div class="bagimg c-gold">5</div><div class="bagn">Buzzz</div><div class="bagb">Discraft</div></div><div class="bagd"><div class="bagimg c-brown">4</div><div class="bagn">Roc3</div><div class="bagb">Innova</div></div><div class="bagd"><div class="bagimg c-leaf">2</div><div class="bagn">Judge</div><div class="bagb">Dynamic</div></div><div class="bagd"><div class="bagimg c-clay">4</div><div class="bagn">Zone</div><div class="bagb">Discraft</div></div><div class="bagd"><div class="bagimg c-forest">2</div><div class="bagn">Aviar</div><div class="bagb">Innova</div></div></div></div>
+</div>
+<div class="tabbar"><a class="tab" href="#home"><span class="tic"><i></i></span><span class="tl">Home</span></a><a class="tab" href="#courses"><span class="tic"><i></i></span><span class="tl">Courses</span></a><a class="tab" href="#play"><span class="tic"><i></i></span><span class="tl">Play</span></a><a class="tab on" href="#stats"><span class="tic sq"><i></i></span><span class="tl">Stats</span></a></div>
+</div></div></div>
+
+<div class="opt"><div class="opthead"><span class="badge">06</span><div><div class="optttl">Course detail</div><div class="optsub">Hero · stats · live conditions · hole-by-hole · reviews</div></div></div>
+<div class="device"><div class="screen scol" id="course"><div class="island"></div>
+<div class="statusbar"><span>9:41</span><span class="sb-ic">5G<span class="batt"><i></i></span></span></div>
+<div class="cscroll">
+<div class="cdhero"><span class="phl2">Course photo — signature hole</span><a class="cdback" href="#courses">‹</a><div class="cdherob"><div><div class="cdname">Pier Park</div><div class="cdloc">Portland, OR 97203 · 3.1 mi away</div></div><div class="cdrate"><div class="cdratev"><span class="star">★</span> 4.6</div><div class="cdratesub">128 reviews</div></div></div></div>
+<div class="cdstatbar"><div class="cdstat"><div class="cdstatv">18</div><div class="cdstatl">Holes</div></div><div class="cdstat"><div class="cdstatv">{{ totalPar }}</div><div class="cdstatl">Par</div></div><div class="cdstat"><div class="cdstatv">{{ courseLen }}</div><div class="cdstatl">Feet</div></div><div class="cdstat"><div class="cdstatv">Interm.</div><div class="cdstatl">Difficulty</div></div></div>
+<div style="padding:0 16px"><span class="cond2"><span class="dot"></span>Good conditions today</span></div>
+<div class="wxrow"><span>64°F</span><span>Partly cloudy</span><span>Wind 6 mph</span><span>Rain 24h 0.02"</span></div>
+<div class="cdcard"><div class="cdh3">About this course</div><p class="cddesc">Pier Park is an intermediate-friendly 18-hole layout in Portland, OR, playing {{ courseLen }} feet at par {{ totalPar }}. Towering firs frame tight, technical wooded lines, with a few open lanes where you can let the big discs fly.</p><div class="cchips" style="margin-top:14px"><span class="cchip">Wooded</span><span class="cchip">Concrete tees</span><span class="cchip">Restrooms</span><span class="cchip">Parking</span></div></div>
+<div class="cdcard"><div class="cdh3">Hole-by-hole <span class="srcbadge mixed">OSM + estimated</span></div><table class="htable"><thead><tr><th>Hole</th><th>Par</th><th>Dist</th><th>Elev</th><th>Difficulty</th></tr></thead><tbody><sc-for list="{{ courseHoles }}" as="h" hint-placeholder-count="18"><tr class="{{ h.rowCls }}"><td class="hn">{{ h.n }}</td><td class="hp">{{ h.par }}</td><td>{{ h.dist }} ft</td><td>{{ h.elev }}</td><td><div class="elbar2"><i style="width:{{ h.diff }}%"></i></div></td></tr></sc-for></tbody></table><div class="attrib2">Marked rows (●) surveyed via © <a href="#">OpenStreetMap</a>; the rest estimated.</div></div>
+<div class="cdcard"><div class="cdh3">Reviews</div><div class="revsum"><div><div class="revbig">4.6</div><div class="revbigsub">128 REVIEWS</div></div><div class="revcats"><div class="revcat"><span class="cl">Scenery</span><div class="bar"><i style="width:94%"></i></div></div><div class="revcat"><span class="cl">Upkeep</span><div class="bar"><i style="width:88%"></i></div></div><div class="revcat"><span class="cl">Signage</span><div class="bar"><i style="width:76%"></i></div></div><div class="revcat"><span class="cl">Difficulty</span><div class="bar"><i style="width:70%"></i></div></div></div></div><div class="revitem"><div class="revhead"><span class="revav">JM</span><div><div class="revname">Jordan M.</div><div class="revmeta">Played 24 times · Jun 2026</div></div><span class="revstars">★★★★★</span></div><p class="revbody">Still the gold standard for wooded golf in PDX. Immaculate even after heavy rain — bring extra discs for the OB lines.</p></div><div class="revitem"><div class="revhead"><span class="revav">SP</span><div><div class="revname">Sam P.</div><div class="revmeta">Played 11 times · May 2026</div></div><span class="revstars">★★★★☆</span></div><p class="revbody">Tight and technical but rewarding. Tee pads grip in all weather and the flow between holes is excellent.</p></div></div>
+<div class="cdcard"><div class="cdh3">Details</div><div class="inforow"><span class="infok">Type</span><span class="infov">Public · Free</span></div><div class="inforow"><span class="infok">Tees</span><span class="infov">Concrete</span></div><div class="inforow"><span class="infok">Baskets</span><span class="infov">MVP Black Hole</span></div><div class="inforow"><span class="infok">Hours</span><span class="infov">Dawn – Dusk</span></div><div class="inforow"><span class="infok">Est. round</span><span class="infov">~2h 15m</span></div><div class="attrib2">Live weather © <a href="#">Open-Meteo</a></div></div>
+<div class="cdactions"><a class="cdstart" href="#play">Start a scorecard ▸</a><a class="cddir" href="#">Get directions</a></div>
+</div>
+</div></div></div>
+
+<div class="opt"><div class="opthead"><span class="badge">07</span><div><div class="optttl">In the bag</div><div class="optsub">Manager · flight numbers · remove discs</div></div></div>
+<div class="device"><div class="screen scol" id="bag"><div class="island"></div>
+<div class="statusbar"><span>9:41</span><span class="sb-ic">5G<span class="batt"><i></i></span></span></div>
+<div class="appbar"><a class="chev" href="#stats">‹</a><div><div class="appttl">In the bag</div><div class="appsub">{{ bagCount }} discs · avg speed {{ bagAvg }}</div></div></div>
+<div class="bgscroll">
+<div class="bgstat"><div class="bgstatc"><b>{{ bagCount }}</b><span>Discs</span></div><div class="bgstatc"><b>{{ bagAvg }}</b><span>Avg speed</span></div><div class="bgstatc"><b>4</b><span>Categories</span></div></div>
+<sc-for list="{{ bagGroups }}" as="g" hint-placeholder-count="4"><div class="bggroup"><div class="bggh">{{ g.title }}<span>{{ g.count }}</span></div><div class="bglist"><sc-for list="{{ g.discs }}" as="d" hint-placeholder-count="3"><div class="bagrow"><div class="bdisc {{ d.colorCls }}">{{ d.speed }}</div><div class="binfo"><div class="bname">{{ d.name }}</div><div class="bbrand">{{ d.brand }}</div></div><div class="bflight"><sc-for list="{{ d.flight }}" as="fn" hint-placeholder-count="4"><div class="bfn"><span class="bfnv">{{ fn.v }}</span><span class="bfnl">{{ fn.l }}</span></div></sc-for></div><button class="brm" onClick="{{ d.remove }}">✕</button></div></sc-for></div></div></sc-for>
+<button class="bgadd" onClick="{{ addDisc }}">+ Add a disc</button>
+</div>
+</div></div></div>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:2200,&quot;height&quot;:1040},&quot;liveSim&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;showProvenance&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;showGps&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.players = [
+      {name:'You',initial:'Y',colorCls:'c-forest'},
+      {name:'Maya',initial:'M',colorCls:'c-clay'},
+      {name:'Diego',initial:'D',colorCls:'c-moss'},
+      {name:'Sam',initial:'S',colorCls:'c-gold'},
+    ];
+    this.pars  = [3,3,4,3,4,3,3,4,3,3,4,3,3,4,3,3,4,3];
+    this.dists = [285,240,415,300,430,255,270,395,310,245,405,290,265,420,275,250,410,300];
+    this.prov  = [1,1,1,0,1,1,0,1,1,1,0,1,1,1,0,1,1,1];
+    // mid-round live scores (holes 0-6 played)
+    const pre = { You:[3,4,4,3,4,3,3], Maya:[3,3,3,4,4,3,4], Diego:[4,3,4,3,5,4,3], Sam:[3,4,5,3,4,3,3] };
+    const scores = this.players.map(p=>{ const a=this.pars.slice(); pre[p.name].forEach((v,i)=>a[i]=v); return a; });
+    // completed round for the summary (deltas per hole)
+    const deltas = {
+      You:  [0,0,-1,0,-1,0,0,-1,0,0,-1,0,0,-1,0,0,0,0],
+      Maya: [0,0,0,-1,0,0,1,0,-1,0,0,0,0,0,0,0,-1,0],
+      Diego:[2,0,0,-1,1,0,1,0,0,0,0,0,0,1,0,-1,0,0],
+      Sam:  [0,-1,0,1,0,0,0,0,-1,0,-1,0,0,1,0,0,-1,1],
+    };
+    this.sumScores = this.players.map(p=> this.pars.map((par,i)=> par + deltas[p.name][i]));
+    this.courses = [
+      {id:'pier',name:'Pier Park',city:'Portland, OR',holes:18,par:58,rating:4.6,dist:3.1,diff:'Intermediate',terrain:'Wooded',lat:45.593,lng:-122.759},
+      {id:'vanl',name:'Vancouver Lake',city:'Vancouver, WA',holes:18,par:57,rating:4.1,dist:6.9,diff:'Intermediate',terrain:'Open / Field',lat:45.680,lng:-122.720},
+      {id:'lev',name:'Leverich Park',city:'Vancouver, WA',holes:18,par:54,rating:4.0,dist:7.4,diff:'Beginner',terrain:'Wooded',lat:45.650,lng:-122.660},
+      {id:'blue',name:'Blue Lake',city:'Fairview, OR',holes:18,par:60,rating:4.4,dist:8.7,diff:'Intermediate',terrain:'Open / Field',lat:45.552,lng:-122.457},
+      {id:'dab',name:'Dabney Meadows',city:'Troutdale, OR',holes:18,par:61,rating:4.5,dist:10.2,diff:'Advanced',terrain:'Wooded · Elevation',lat:45.510,lng:-122.352},
+      {id:'milo',name:'Milo McIver',city:'Estacada, OR',holes:18,par:62,rating:4.8,dist:12.4,diff:'Advanced',terrain:'Wooded · Elevation',lat:45.284,lng:-122.363},
+      {id:'tim',name:'Timber Park',city:'Estacada, OR',holes:9,par:27,rating:4.2,dist:13.0,diff:'Beginner',terrain:'Open / Field',lat:45.290,lng:-122.333},
+      {id:'horn',name:"Horning's Hideout",city:'North Plains, OR',holes:27,par:90,rating:4.9,dist:18.6,diff:'Pro',terrain:'Wooded · Elevation',lat:45.632,lng:-123.010},
+    ];
+    this.recent = [
+      {course:'Pier Park',date:'Jul 09, 2026',holes:18,total:55,rel:-5},
+      {course:'Blue Lake',date:'Jul 02, 2026',holes:18,total:62,rel:2},
+      {course:'Milo McIver',date:'Jun 24, 2026',holes:18,total:59,rel:-3},
+      {course:'Dabney Meadows',date:'Jun 18, 2026',holes:18,total:64,rel:3},
+    ];
+    this.elev = [8,-3,14,0,22,-6,4,-12,9,3,18,-4,7,-15,11,-2,16,-8];
+    this.bag = [
+      {name:'Destroyer',brand:'Innova',colorCls:'c-clay',cat:'Distance drivers',s:12,g:5,t:-1,f:3},
+      {name:'Wave',brand:'Latitude 64',colorCls:'c-forest',cat:'Distance drivers',s:13,g:6,t:-1,f:2},
+      {name:'Wraith',brand:'Innova',colorCls:'c-brown',cat:'Distance drivers',s:11,g:5,t:-1,f:3},
+      {name:'FD',brand:'Discmania',colorCls:'c-moss',cat:'Fairway drivers',s:7,g:6,t:-1,f:1},
+      {name:'Explorer',brand:'Latitude 64',colorCls:'c-leaf',cat:'Fairway drivers',s:7,g:5,t:0,f:2},
+      {name:'Buzzz',brand:'Discraft',colorCls:'c-gold',cat:'Midranges',s:5,g:4,t:-1,f:1},
+      {name:'Roc3',brand:'Innova',colorCls:'c-brown',cat:'Midranges',s:4,g:4,t:0,f:3},
+      {name:'Judge',brand:'Dynamic Discs',colorCls:'c-leaf',cat:'Putters & approach',s:2,g:4,t:0,f:1},
+      {name:'Zone',brand:'Discraft',colorCls:'c-clay',cat:'Putters & approach',s:4,g:3,t:0,f:3},
+      {name:'Aviar',brand:'Innova',colorCls:'c-forest',cat:'Putters & approach',s:2,g:3,t:0,f:1},
+    ];
+    this.me = {lat:45.517,lng:-122.651};
+    this.state = { scores, cur:7, throwing:1, flash:null, toastText:'', toastShow:false, sheetH:410, filtersOpen:false, dist:'any', selC:'pier', bag:this.bag.slice() };
+    this.markC={};
+  }
+
+  gpsFor(h){ return Math.round(this.dists[h]*0.55); }
+  relStr(n){ return n===0?'E':(n>0?'+'+n:'−'+Math.abs(n)); }
+  clamp(v){ return Math.max(1,Math.min(12,v)); }
+  haptic(){ if(navigator.vibrate){ try{navigator.vibrate(8);}catch(e){} } }
+  toast(t){ this.setState({toastText:t,toastShow:true}); clearTimeout(this._tt); this._tt=setTimeout(()=>this.setState({toastShow:false}),1800); }
+
+  inc(i){ const s=this.state.scores.map(a=>a.slice()); s[i][this.state.cur]=this.clamp(s[i][this.state.cur]+1); this.haptic(); this.setState({scores:s}); }
+  dec(i){ const s=this.state.scores.map(a=>a.slice()); s[i][this.state.cur]=this.clamp(s[i][this.state.cur]-1); this.haptic(); this.setState({scores:s}); }
+  nextHole(){ const cur=Math.min(17,this.state.cur+1); this.setState({cur}); this._gps=this.gpsFor(cur); this.setState({}); }
+  prevHole(){ const cur=Math.max(0,this.state.cur-1); this.setState({cur}); this._gps=this.gpsFor(cur); this.setState({}); }
+  pickC(id){ this.setState({selC:id}); const c=this.courses.find(x=>x.id===id); if(this.mapC&&c){ this.mapC.setView([c.lat,c.lng],13,{animate:true}); const m=this.markC[id]; if(m) m.openPopup(); } }
+  toggleFilters(){ this.setState({filtersOpen:!this.state.filtersOpen}); }
+  pickDist(v){ this.setState({dist:v}); }
+  saveRound(){ this.toast('Round saved to your profile ✓'); }
+  shareRound(){ this.toast('Round image saved to Photos ✓'); }
+  removeDisc(name){ this.setState({bag:this.state.bag.filter(d=>d.name!==name)}); this.toast('Removed from your bag'); }
+  addDisc(){ this.toast('Browse the disc catalog to add ▸'); }
+
+  tick(){
+    if(this.props.liveSim===false) return;
+    this._t=(this._t||0)+1;
+    if(this._gps===undefined) this._gps=this.gpsFor(this.state.cur);
+    this._gps=Math.max(28,this._gps-(2+Math.floor(Math.random()*6)));
+    const patch={ throwing:(this.state.throwing+1)%4 };
+    if(this._t%4===0){
+      const others=[1,2,3], pi=others[Math.floor(Math.random()*3)];
+      const s=this.state.scores.map(a=>a.slice());
+      const par=this.pars[this.state.cur];
+      const delta=[-1,0,0,1][Math.floor(Math.random()*4)];
+      s[pi][this.state.cur]=this.clamp(par+delta);
+      patch.scores=s; patch.flash=pi; patch.toastText=this.players[pi].name+' carded '+s[pi][this.state.cur]+' on '+(this.state.cur+1); patch.toastShow=true;
+      clearTimeout(this._ft); this._ft=setTimeout(()=>this.setState({flash:null,toastShow:false}),1700);
+    }
+    this.setState(patch);
+  }
+
+  initMaps(){
+    if(!window.L){ this._ml=(this._ml||0)+1; if(this._ml<40) setTimeout(()=>this.initMaps(),150); return; }
+    if(this._mapsInit) return; const el=document.getElementById('mapC'); if(!el) return; this._mapsInit=true;
+    this.mapC=L.map(el,{zoomControl:false,attributionControl:false,scrollWheelZoom:false}).setView([this.me.lat,this.me.lng],11);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd'}).addTo(this.mapC);
+    L.circle([this.me.lat,this.me.lng],{radius:600,color:'#c2703d',weight:1,opacity:.4,fillColor:'#c2703d',fillOpacity:.08}).addTo(this.mapC);
+    L.circleMarker([this.me.lat,this.me.lng],{radius:7,color:'#fff',weight:2,fillColor:'#c2703d',fillOpacity:1}).addTo(this.mapC).bindPopup('You are here — SE Portland, OR (GPS).');
+    this.courses.forEach(c=>{ const mm=L.circleMarker([c.lat,c.lng],{radius:8,color:'#1e3a2b',weight:2,fillColor:'#2f5c3f',fillOpacity:.9}).addTo(this.mapC).bindPopup('<b>'+c.name+'</b><br>'+c.city+' · '+c.holes+' holes · '+c.dist+' mi'); mm.on('click',()=>this.pickC(c.id)); this.markC[c.id]=mm; });
+    setTimeout(()=>{ if(this.mapC)this.mapC.invalidateSize(); },250);
+  }
+
+  initGestures(){
+    this._down=(e)=>{
+      if(e.target.closest('.grabber')){ this.drag={type:'sheet',startY:e.clientY,startH:this.state.sheetH}; e.preventDefault(); return; }
+      const s=e.target.closest('[data-swipe]'); if(s){ this.drag={type:s.dataset.swipe,startX:e.clientX}; }
+    };
+    this._move=(e)=>{ if(!this.drag) return; if(this.drag.type==='sheet'){ let h=this.drag.startH+(this.drag.startY-e.clientY); h=Math.max(120,Math.min(770,h)); this.setState({sheetH:h}); } };
+    this._up=(e)=>{ const d=this.drag; if(!d) return; this.drag=null;
+      if(d.type==='sheet'){ const snaps=[150,410,770]; let best=snaps[0]; snaps.forEach(s=>{ if(Math.abs(s-this.state.sheetH)<Math.abs(best-this.state.sheetH)) best=s; }); this.setState({sheetH:best}); }
+      else if(d.type==='hole'){ const dx=e.clientX-d.startX; if(dx>50)this.prevHole(); else if(dx<-50)this.nextHole(); }
+    };
+    document.addEventListener('pointerdown',this._down);
+    window.addEventListener('pointermove',this._move);
+    window.addEventListener('pointerup',this._up);
+  }
+
+  componentDidMount(){ this.initMaps(); this.initGestures(); this._iv=setInterval(()=>this.tick(),2200); }
+  componentWillUnmount(){ clearInterval(this._iv); clearTimeout(this._ft); clearTimeout(this._tt); document.removeEventListener('pointerdown',this._down); window.removeEventListener('pointermove',this._move); window.removeEventListener('pointerup',this._up); }
+
+  filteredCourses(){ const v=this.state.dist; return this.courses.filter(c=>v==='any'||c.dist<=Number(v)); }
+
+  renderVals(){
+    const st=this.state, cur=st.cur, par=this.pars[cur];
+    const provOn=this.props.showProvenance!==false, gpsOn=this.props.showGps!==false;
+    const totalPar=this.pars.reduce((a,b)=>a+b,0);
+    const sumTo=(arr,i)=>arr.slice(0,i+1).reduce((a,b)=>a+b,0);
+    const parTo=sumTo(this.pars,cur);
+    if(this._gps===undefined) this._gps=this.gpsFor(cur);
+    const segs=this.pars.map((p,i)=>({cls:i===cur?'seg live':(i<cur?'seg done':'seg')}));
+    const avatarsA=this.players.map((p,i)=>({initial:p.initial,colorCls:p.colorCls,throwCls:i===st.throwing?'throw':''}));
+    const badgeCls=d=> d<0?'bird':(d===1?'bog':(d>=2?'dbl':''));
+    const rowsA=this.players.map((p,i)=>{
+      const sc=st.scores[i][cur], d=sc-par, thruRel=sumTo(st.scores[i],cur)-parTo;
+      return { name:p.name, initial:p.initial, colorCls:p.colorCls, score:sc, thru:'Thru '+(cur+1)+' · '+this.relStr(thruRel), badge:this.relStr(d), badgeCls:badgeCls(d), flashCls:st.flash===i?'flash':'', inc:()=>this.inc(i), dec:()=>this.dec(i) };
+    });
+    // finder
+    const list=this.filteredCourses();
+    const coursesC=list.map(c=>({ ...c, letter:c.name[0], selCls:st.selC===c.id?'sel':'', pick:()=>this.pickC(c.id) }));
+    const homeCourses=this.courses.slice(0,2).map(c=>({ ...c, letter:c.name[0] }));
+    const distPills=[['Any','any'],['< 10 mi','10'],['< 25 mi','25'],['< 50 mi','50']].map(([label,v])=>({label,selCls:st.dist===v?'sel':'',pick:()=>this.pickDist(v)}));
+    // recent
+    const mapR=r=>({ course:r.course, date:r.date, holes:r.holes, total:r.total, relTxt:this.relStr(r.rel), relCls:r.rel<=0?'under':'over' });
+    const homeRecent=this.recent.slice(0,2).map(mapR), statRecent=this.recent.map(mapR);
+    // summary
+    const totals=this.sumScores.map(a=>a.reduce((x,y)=>x+y,0));
+    const best=Math.min(...totals);
+    const winIdx=totals.indexOf(best);
+    const gridNums=this.pars.map((p,i)=>({v:i+1}));
+    const parCells=this.pars.map(p=>({v:p}));
+    const sumRows=this.players.map((p,i)=>{
+      const cells=this.sumScores[i].map((s,h)=>{ const d=s-this.pars[h]; return {v:s, cls: d<0?'bird':(d===1?'bog':(d>=2?'dbl':''))}; });
+      const rel=totals[i]-totalPar;
+      return { name:p.name, cells, tot:totals[i], rel:this.relStr(rel), winCls:i===winIdx?'sg-win':'' };
+    });
+    const youBirdies=this.sumScores[0].filter((s,h)=>s-this.pars[h]<0).length;
+    const youPars=this.sumScores[0].filter((s,h)=>s-this.pars[h]===0).length;
+    // course detail
+    const courseHoles=this.pars.map((par,i)=>({ n:i+1, par, dist:this.dists[i], elev:(this.elev[i]>=0?'+':'−')+Math.abs(this.elev[i])+' ft', diff:Math.max(30,Math.min(95,Math.round(30+(this.dists[i]-240)/190*62))), rowCls:this.prov[i]?'real':'' }));
+    const courseLen=this.dists.reduce((a,b)=>a+b,0).toLocaleString('en-US');
+    // in the bag
+    const catOrder=['Distance drivers','Fairway drivers','Midranges','Putters & approach'];
+    const bagGroups=catOrder.map(t=>{ const ds=st.bag.filter(d=>d.cat===t).map(d=>({ name:d.name, brand:d.brand, colorCls:d.colorCls, speed:d.s, flight:[{v:d.s,l:'SPD'},{v:d.g,l:'GLD'},{v:d.t,l:'TRN'},{v:d.f,l:'FAD'}], remove:()=>this.removeDisc(d.name) })); return { title:t, count:ds.length, discs:ds }; }).filter(g=>g.count>0);
+    const bagCount=st.bag.length;
+    const bagAvg=(st.bag.reduce((a,d)=>a+d.s,0)/(st.bag.length||1)).toFixed(1);
+    return {
+      totalPar, holeNum:cur+1, par, distFt:this.dists[cur], gps:this._gps, gpsOn, provOn,
+      provCls:this.prov[cur]?'real':'est', provText:this.prov[cur]?'OSM layout':'Estimated distance',
+      segs, avatarsA, rowsA, prevHole:()=>this.prevHole(), nextHole:()=>this.nextHole(),
+      notFinish:cur!==17, finishMode:cur===17,
+      toastText:st.toastText, toastCls:st.toastShow?'show':'',
+      locLabel:'SE Portland, OR', locSrc:'GPS · ±20ft', locCls:'ok',
+      sheetH:st.sheetH+'px', recenterBottom:(st.sheetH+16)+'px',
+      cCount:list.length, filterCount:st.dist==='any'?1:2, filtersOpen:st.filtersOpen,
+      toggleFilters:()=>this.toggleFilters(), distPills, coursesC, homeCourses, homeRecent, statRecent,
+      gridNums, parCells, sumRows, winnerName:this.players[winIdx].name, winnerRel:this.relStr(best-totalPar),
+      youTotal:totals[0], youRel:this.relStr(totals[0]-totalPar), youBirdies, youPars,
+      saveRound:()=>this.saveRound(), shareRound:()=>this.shareRound(),
+      courseHoles, courseLen, bagGroups, bagCount, bagAvg, addDisc:()=>this.addDisc(),
+    };
+  }
+}
+</script>
+</body>
+</html>
