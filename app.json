@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Birdie Finder",
+    "slug": "birdie-finder",
+    "version": "1.0.0",
+    "scheme": "birdiefinder",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#f5f0e6",
+    "ios": {
+      "bundleIdentifier": "com.evanwwhite.birdiefinder",
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Birdie Finder uses your location to sort courses by distance and show live GPS-to-basket during a round."
+      },
+      "config": { "usesNonExemptEncryption": false }
+    },
+    "plugins": ["expo-router", "expo-location", "expo-font"],
+    "assetBundlePatterns": ["data/*", "assets/**/*"]
+  }
+}

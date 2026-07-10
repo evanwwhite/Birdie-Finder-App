@@ -1,0 +1,25 @@
+id,name,brand,category,speed,glide,turn,fade
+destroyer,Destroyer,Innova,Distance drivers,12,5,-1,3
+wraith,Wraith,Innova,Distance drivers,11,5,-1,3
+zeus,Zeus,Discraft,Distance drivers,12,5,-1,3
+shryke,Shryke,Innova,Distance drivers,13,6,-2,2
+tern,Tern,Innova,Distance drivers,12,6,-3,2
+hades,Hades,Discraft,Distance drivers,12,6,-3,2
+teebird,TeeBird,Innova,Fairway drivers,7,5,0,2
+firebird,Firebird,Innova,Fairway drivers,9,3,0,4
+undertaker,Undertaker,Discraft,Fairway drivers,9,5,-1,2
+leopard3,Leopard3,Innova,Fairway drivers,7,5,-2,1
+heat,Heat,Discraft,Fairway drivers,9,6,-3,1
+eagle,Eagle,Innova,Fairway drivers,7,4,-1,3
+buzzz,Buzzz,Discraft,Midranges,5,4,-1,1
+roc3,Roc3,Innova,Midranges,5,4,0,3
+mako3,Mako3,Innova,Midranges,5,5,0,0
+malta,Malta,Discraft,Midranges,5,4,1,3
+comet,Comet,Discraft,Midranges,4,5,-1,1
+hex,Hex,Axiom,Midranges,5,5,-1,1
+aviar,Aviar,Innova,Putters & approach,2,3,0,1
+luna,Luna,Discraft,Putters & approach,3,3,0,3
+zone,Zone,Discraft,Putters & approach,4,3,0,3
+judge,Judge,Dynamic Discs,Putters & approach,2,4,0,1
+envy,Envy,Axiom,Putters & approach,3,3,0,2
+pig,Pig,Innova,Putters & approach,4,1,0,3

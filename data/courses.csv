@@ -1,0 +1,13 @@
+id,name,city,state,lat,lng,holes,par,rating,difficulty,terrain
+pier-park,Pier Park,Portland,OR,45.6042,-122.7362,18,60,4.6,Intermediate,Wooded
+blue-lake,Blue Lake,Fairview,OR,45.5546,-122.4419,18,58,4.3,Beginner,Open
+lunchtime,Lunchtime DGC,Portland,OR,45.5122,-122.6587,9,27,4.0,Beginner,Mixed
+milo-mciver,Milo McIver,Estacada,OR,45.3018,-122.3762,27,84,4.8,Advanced,Wooded
+dabney,Dabney State Park,Troutdale,OR,45.5304,-122.3548,18,56,4.2,Intermediate,Mixed
+timber-park,Timber Park,Estacada,OR,45.2917,-122.3369,18,59,4.5,Advanced,Hilly
+leverich,Leverich Park,Vancouver,WA,45.6532,-122.6535,18,55,4.1,Beginner,Open
+orchard-park,Orchard Park,Hillsboro,OR,45.5444,-122.9310,9,28,3.9,Beginner,Open
+rockwood,Rockwood Central,Gresham,OR,45.5216,-122.4790,18,57,4.0,Intermediate,Mixed
+horning,Horning's Hideout,North Plains,OR,45.6704,-123.0125,18,62,4.7,Advanced,Wooded
+champoeg,Champoeg State Park,St. Paul,OR,45.2510,-122.8955,18,58,4.4,Intermediate,Open
+zumwalt,Camp Zumwalt,Battle Ground,WA,45.7810,-122.5340,18,61,4.3,Intermediate,Hilly

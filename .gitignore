@@ -1,0 +1,8 @@
+node_modules/
+.expo/
+.env
+ios/
+android/
+*.log
+.DS_Store
+birdie-finder-ios.zip
