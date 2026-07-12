@@ -16,7 +16,7 @@ export type SavedRound = {
 type RoundState = {
   live: null | {
     id: string; courseId: string; courseName: string; layout: string;
-    startedAt: string; players: Player[]; pars: number[];
+    startedAt: string; players: Player[]; pars: number[]; holes?: Hole[];
     scores: Record<string, Record<number, number>>; // playerId -> hole -> strokes
     cur: number; throwing: string;
   };
@@ -42,7 +42,7 @@ export const useRound = create<RoundState>()(
           live: {
             id: uid(), courseId: course.id, courseName: course.name, layout,
             startedAt: new Date().toISOString(), players,
-            pars: holes.map((h) => h.par),
+            pars: holes.map((h) => h.par), holes,
             scores: Object.fromEntries(players.map((p) => [p.id, {}])),
             cur: 1, throwing: players[0].id,
           },

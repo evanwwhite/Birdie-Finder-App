@@ -83,14 +83,16 @@ export default function CourseDetail() {
           <View style={{ padding: GUTTER, gap: 4 }}>
             <Serif size={28} weight="800" color={C.paper}>{course.name}</Serif>
             <Body size={13} color="#e8e2d2">{course.city}, {course.state}{course.distanceMi != null ? ` · ${course.distanceMi.toFixed(1)} mi away` : ''}</Body>
-            <Body size={13} weight="700" color={C.paper}>★ {course.rating.toFixed(1)} <Body size={12} color="#cfc9b8">/ 128 reviews</Body></Body>
+            {course.rating != null
+              ? <Body size={13} weight="700" color={C.paper}>★ {course.rating.toFixed(1)} <Body size={12} color="#cfc9b8">/ 128 reviews</Body></Body>
+              : <Body size={12} color="#cfc9b8">No ratings yet</Body>}
           </View>
         </View>
 
         <View style={{ paddingHorizontal: GUTTER }}>
           {/* stat bar */}
           <View style={[{ flexDirection: 'row', backgroundColor: C.card, borderRadius: R.card, borderWidth: 1, borderColor: C.border, marginTop: -18, paddingVertical: 12 }, shadow.card]}>
-            {[[String(course.holes), 'Holes'], [String(course.par), 'Par'], [dist.toLocaleString(), 'Feet'], [course.difficulty, 'Difficulty']].map(([v, l]) => (
+            {[[String(course.holes), 'Holes'], [`${course.par}${course.parEstimated ? '*' : ''}`, 'Par'], [dist.toLocaleString(), 'Feet'], [course.difficulty ?? '—', 'Difficulty']].map(([v, l]) => (
               <View key={l} style={{ flex: 1, alignItems: 'center', gap: 2 }}>
                 <Serif size={17} weight="800">{v}</Serif>
                 <Mono size={8} color={C.muted}>{l}</Mono>
@@ -110,7 +112,7 @@ export default function CourseDetail() {
 
           <Card title="About">
             <Body size={13} style={{ lineHeight: 19 }}>
-              {course.name} is a {course.holes}-hole, par-{course.par} {course.terrain.toLowerCase()} course in {course.city} — {course.difficulty.toLowerCase()}-friendly with honest signage and multiple tee options.
+              {course.name} is a {course.holes}-hole, par-{course.par}{course.terrain ? ` ${course.terrain.toLowerCase()}` : ''} course in {course.city}{course.difficulty ? ` — ${course.difficulty.toLowerCase()}-friendly` : ''} with honest signage and multiple tee options.
             </Body>
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 10 }}>
               {AMENITIES.map((a) => (
@@ -145,7 +147,7 @@ export default function CourseDetail() {
 
           <Card title="Reviews">
             <View style={{ flexDirection: 'row', gap: 14, alignItems: 'center' }}>
-              <Serif size={40} weight="800">{course.rating.toFixed(1)}</Serif>
+              <Serif size={40} weight="800">{course.rating != null ? course.rating.toFixed(1) : '—'}</Serif>
               <View style={{ flex: 1, gap: 5 }}>
                 {cats.map(([l, v]) => (
                   <View key={l} style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
@@ -188,7 +190,7 @@ export default function CourseDetail() {
         <Pressable onPress={start} style={{ flex: 1.4, backgroundColor: C.clay, borderRadius: 14, paddingVertical: 15, alignItems: 'center' }}>
           <Body size={15} weight="700" color={C.paper}>Start a scorecard ▸</Body>
         </Pressable>
-        <Pressable onPress={() => Linking.openURL(`maps://?daddr=${course.lat},${course.lng}`)}
+        <Pressable onPress={() => Linking.openURL(`https://maps.apple.com/?daddr=${course.lat},${course.lng}`)}
           style={{ flex: 1, borderRadius: 14, paddingVertical: 15, alignItems: 'center', borderWidth: 1.5, borderColor: C.forest }}>
           <Body size={15} weight="700" color={C.forest}>Directions</Body>
         </Pressable>

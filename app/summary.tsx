@@ -75,7 +75,7 @@ export default function Summary() {
             <View style={{ borderRightWidth: 1, borderColor: C.border }}>
               <Cell text="" head />
               <Cell text="Par" mono />
-              {rows.map((r) => <Cell key={r.id} text={r.name} bold win={r.id === winner.id} />)}
+              {rows.map((r) => <Cell key={r.id} text={r.name} bold wide win={r.id === winner.id} />)}
             </View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               <View>
@@ -125,12 +125,12 @@ export default function Summary() {
   );
 }
 
-function Cell({ text, head, mono, bold, win }: { text: string; head?: boolean; mono?: boolean; bold?: boolean; win?: boolean }) {
+function Cell({ text, head, mono, bold, win, wide }: { text: string; head?: boolean; mono?: boolean; bold?: boolean; win?: boolean; wide?: boolean }) {
   return (
-    <View style={{ width: head || mono || bold ? 34 : undefined, minWidth: 34, paddingHorizontal: 6, height: 36, alignItems: 'center', justifyContent: 'center', backgroundColor: win ? C.bogeyBg : 'transparent' }}>
+    <View style={{ width: wide ? undefined : 34, minWidth: wide ? 72 : 34, paddingHorizontal: wide ? 10 : 6, height: 36, alignItems: wide ? 'flex-start' : 'center', justifyContent: 'center', backgroundColor: win ? C.bogeyBg : 'transparent' }}>
       {head ? <Mono size={9} color={C.muted}>{text}</Mono>
         : mono ? <Mono size={10} color={C.muted2} caps={false}>{text}</Mono>
-        : <Body size={12} weight={bold ? '700' : '400'} color={C.textStrong}>{text}</Body>}
+        : <Body size={12} weight={bold ? '700' : '400'} color={C.textStrong} numberOfLines={1}>{text}</Body>}
     </View>
   );
 }

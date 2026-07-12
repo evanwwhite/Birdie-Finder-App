@@ -5,7 +5,7 @@ import { useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 import { Serif, Body, Mono } from '@/components/Type';
 import { C, GUTTER, R, shadow } from '@/theme/tokens';
-import { useBag } from '@/state/bag';
+import { useBag, seedBag } from '@/state/bag';
 import { loadDiscs } from '@/lib/seed';
 import { DiscCategory } from '@/lib/types';
 
@@ -22,8 +22,8 @@ function FlightBox({ label, value }: { label: string; value: number }) {
 
 export default function Bag() {
   const router = useRouter();
-  const { discs, remove, seedIfEmpty } = useBag();
-  useEffect(() => { loadDiscs().then((d) => seedIfEmpty(d.slice(0, 8))); }, []);
+  const { discs, remove } = useBag();
+  useEffect(() => { loadDiscs().then((d) => seedBag(d.slice(0, 8))); }, []);
 
   const avgSpeed = discs.length ? (discs.reduce((a, d) => a + d.speed, 0) / discs.length).toFixed(1) : '—';
   const nCats = new Set(discs.map((d) => d.category)).size;

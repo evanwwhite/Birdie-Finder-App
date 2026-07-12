@@ -34,15 +34,17 @@ export function CourseCard({ course, selected, onPress }: { course: Course; sele
       <Thumb letter={course.name[0]} />
       <View style={{ flex: 1, gap: 3 }}>
         <Serif size={16}>{course.name}</Serif>
-        <Body size={12} color={C.muted2}>{course.city} · {course.holes} holes · par {course.par}</Body>
-        <View style={{ flexDirection: 'row', gap: 6, marginTop: 2 }}>
-          <Chip label={course.difficulty} />
-          <Chip label={course.terrain} />
-        </View>
+        <Body size={12} color={C.muted2}>{course.city} · {course.holes} holes · par {course.par}{course.parEstimated ? ' (est.)' : ''}</Body>
+        {(course.difficulty || course.terrain) != null && (
+          <View style={{ flexDirection: 'row', gap: 6, marginTop: 2 }}>
+            {course.difficulty && <Chip label={course.difficulty} />}
+            {course.terrain && <Chip label={course.terrain} />}
+          </View>
+        )}
       </View>
       <View style={{ alignItems: 'flex-end', gap: 4 }}>
         {course.distanceMi != null && <Mono size={12} color={C.clay}>{course.distanceMi.toFixed(1)} mi</Mono>}
-        <Body size={12} weight="600" color={C.muted2}>★ {course.rating.toFixed(1)}</Body>
+        {course.rating != null && <Body size={12} weight="600" color={C.muted2}>★ {course.rating.toFixed(1)}</Body>}
       </View>
     </Pressable>
   );

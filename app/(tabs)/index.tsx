@@ -32,8 +32,7 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
-      const fix = await resolveLocation();
-      const courses = await loadCourses();
+      const [fix, courses] = await Promise.all([resolveLocation(), loadCourses()]);
       const sorted = courses
         .map((c) => ({ ...c, distanceMi: haversineMi(fix.lat, fix.lng, c.lat, c.lng) }))
         .sort((a, b) => a.distanceMi! - b.distanceMi!);

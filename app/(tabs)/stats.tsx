@@ -7,7 +7,7 @@ import { Avatar } from '@/components/Avatar';
 import { Thumb } from '@/components/CourseCard';
 import { C, GUTTER, R, shadow } from '@/theme/tokens';
 import { useRound } from '@/state/round';
-import { useBag } from '@/state/bag';
+import { useBag, seedBag } from '@/state/bag';
 import { loadDiscs } from '@/lib/seed';
 
 const RATINGS = [871, 866, 878, 882, 875, 889, 884, 893]; // last 8 rounds (placeholder until server rounds feed it)
@@ -41,7 +41,7 @@ export default function Stats() {
   const history = useRound((s) => s.history);
   const bag = useBag();
 
-  useEffect(() => { loadDiscs().then((d) => bag.seedIfEmpty(d.slice(0, 8))); }, []);
+  useEffect(() => { loadDiscs().then((d) => seedBag(d.slice(0, 8))); }, []);
 
   const max = Math.max(...RATINGS);
   return (

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, PanResponder, Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
+import { useIsFocused } from '@react-navigation/native';
 import { useKeepAwake } from 'expo-keep-awake';
 import * as Haptics from 'expo-haptics';
 import { Serif, Body, Mono } from '@/components/Type';
@@ -14,7 +15,8 @@ import { C, GUTTER, shadow } from '@/theme/tokens';
 import { useRound, playerTotals } from '@/state/round';
 import { loadCourses, holesFor } from '@/lib/seed';
 import { subscribeToRound, supabaseEnabled } from '@/lib/supabase';
-import { watchToBasket } from '@/lib/location';
+import { watchToBasket, resolveLocation } from '@/lib/location';
+import { haversineMi } from '@/lib/prng';
 import { Player } from '@/lib/types';
 
 const AVATAR_BG = [C.clay, C.forest2, C.moss, C.gold];
@@ -23,16 +25,23 @@ export default function Play() {
   useKeepAwake(); // screen stays awake during a live round
   const router = useRouter();
   const toast = useToast();
+  const focused = useIsFocused();
   const { live, startRound, setScore, applyRemoteScore, setHole, setThrowing, finishRound } = useRound();
   const [gpsFt, setGpsFt] = useState<number | null>(null);
   const flash = useRef<Record<string, Animated.Value>>({}).current;
 
   // No live round yet: start one at the nearest course with a default group.
+  // Only while this tab is focused — the tab stays mounted, so without the guard
+  // finishing a round would immediately auto-start a phantom new one.
   useEffect(() => {
-    if (live) return;
+    if (live || !focused) return;
+    let cancelled = false;
     (async () => {
-      const courses = await loadCourses();
-      const course = courses[0];
+      const [fix, courses] = await Promise.all([resolveLocation(), loadCourses()]);
+      if (cancelled || useRound.getState().live) return;
+      const course = [...courses].sort(
+        (a, b) => haversineMi(fix.lat, fix.lng, a.lat, a.lng) - haversineMi(fix.lat, fix.lng, b.lat, b.lng)
+      )[0];
       const players: Player[] = [
         { id: 'you', name: 'Evan', initials: 'EW' },
         { id: 'g1', name: 'Maya', initials: 'MK', guest: true },
@@ -41,7 +50,8 @@ export default function Play() {
       ];
       startRound(course, 'Blue', holesFor(course), players);
     })();
-  }, [live]);
+    return () => { cancelled = true; };
+  }, [live, focused]);
 
   // Realtime shared scorecard: real Supabase channel when configured,
   // otherwise the prototype's simulation (rotating "throwing" + teammate scores).
@@ -57,6 +67,7 @@ export default function Play() {
         }
       });
     }
+    if (!focused) return; // the simulation only runs while the Play screen is visible
     const t = setInterval(() => {
       const others = live.players.filter((p) => p.id !== 'you');
       const p = others[Math.floor(Math.random() * others.length)];
@@ -70,18 +81,18 @@ export default function Play() {
       }
     }, 7000);
     return () => clearInterval(t);
-  }, [live?.id, live?.cur]);
+  }, [live?.id, live?.cur, focused]);
 
   // Live GPS-to-basket readout for the current hole (target = course pin as placeholder for the OSM basket pin)
   useEffect(() => {
-    if (!live) return;
+    if (!live || !focused) return;
     let stop = () => {};
     loadCourses().then((cs) => {
       const c = cs.find((x) => x.id === live.courseId);
       if (c) stop = watchToBasket({ lat: c.lat, lng: c.lng }, setGpsFt);
     });
     return () => stop();
-  }, [live?.courseId, live?.cur]);
+  }, [live?.courseId, live?.cur, focused]);
 
   const pulse = (pid: string) => {
     if (!flash[pid]) flash[pid] = new Animated.Value(0);
@@ -106,7 +117,9 @@ export default function Play() {
 
   const n = live.pars.length;
   const par = live.pars[live.cur - 1];
-  const holeInfo = { distFt: 300 + par * 40, source: (live.cur % 3 !== 0 ? 'osm' : 'estimated') as 'osm' | 'estimated' };
+  // Real hole layout stored at startRound (same data course detail shows);
+  // fallback covers live rounds persisted before holes were stored.
+  const holeInfo = live.holes?.[live.cur - 1] ?? { distFt: 300 + par * 40, source: 'estimated' as const };
   const last = live.cur === n;
 
   const finish = () => {
@@ -155,7 +168,8 @@ export default function Play() {
             <Body size={12} color="#cfc9b8">{holeInfo.distFt} ft · {live.layout} tee → basket</Body>
           </View>
           <View style={{ alignItems: 'flex-end', justifyContent: 'center' }}>
-            <Serif size={40} weight="800" color={C.paper}>{gpsFt != null ? String(gpsFt) : '—'}</Serif>
+            {/* Only meaningful when you're actually on the course — beyond ~1 mi show a dash */}
+            <Serif size={40} weight="800" color={C.paper}>{gpsFt != null && gpsFt <= 5280 ? String(gpsFt) : '—'}</Serif>
             <Body size={13} color="#cfc9b8">ft</Body>
             <Mono size={9} color={C.moss}>GPS to basket</Mono>
           </View>

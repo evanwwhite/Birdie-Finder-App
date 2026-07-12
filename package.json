@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {
-    "start": "expo start",
-    "ios": "expo run:ios",
+    "start": "expo start --port 8002",
+    "ios": "expo run:ios --port 8002",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

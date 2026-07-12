@@ -20,13 +20,27 @@ export async function resolveLocation(): Promise<LocFix> {
   try {
     const { status } = await Location.requestForegroundPermissionsAsync();
     if (status === 'granted') {
-      const pos = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced });
-      const fix: LocFix = {
-        lat: pos.coords.latitude, lng: pos.coords.longitude,
-        provenance: 'gps', accuracyFt: Math.round((pos.coords.accuracy ?? 30) * 3.28084),
-      };
-      await AsyncStorage.setItem(KEY, JSON.stringify({ ts: Date.now(), v: fix }));
-      return fix;
+      // A fresh GPS fix can take 30–60s; never make the UI wait on it.
+      // Prefer the OS's cached position (instant), and cap the fresh fix at 4s.
+      const timeout = new Promise<null>((r) => setTimeout(() => r(null), 4000));
+      const pos =
+        (await Location.getLastKnownPositionAsync({ maxAge: TTL }).catch(() => null)) ??
+        (await Promise.race([Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced }), timeout]).catch(() => null));
+      if (pos) {
+        const fix: LocFix = {
+          lat: pos.coords.latitude, lng: pos.coords.longitude,
+          provenance: 'gps', accuracyFt: Math.round((pos.coords.accuracy ?? 30) * 3.28084),
+        };
+        await AsyncStorage.setItem(KEY, JSON.stringify({ ts: Date.now(), v: fix }));
+        return fix;
+      }
+      // Timed out: refresh the cache in the background for the next caller.
+      Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced })
+        .then((p) => AsyncStorage.setItem(KEY, JSON.stringify({ ts: Date.now(), v: {
+          lat: p.coords.latitude, lng: p.coords.longitude,
+          provenance: 'gps', accuracyFt: Math.round((p.coords.accuracy ?? 30) * 3.28084),
+        } })))
+        .catch(() => {});
     }
   } catch {}
   return DEFAULT;

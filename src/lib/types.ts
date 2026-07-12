@@ -1,8 +1,9 @@
 export type Course = {
   id: string; name: string; city: string; state: string;
-  lat: number; lng: number; holes: number; par: number;
-  rating: number; difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
-  terrain: string; distanceMi?: number;
+  lat: number; lng: number; holes: number;
+  par: number; parEstimated: boolean; // full directory has no par; holes×3 estimate, flagged for provenance
+  rating?: number; difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
+  terrain?: string; distanceMi?: number;
 };
 
 export type Hole = { hole: number; par: number; distFt: number; elevFt: number; source: 'osm' | 'estimated' };

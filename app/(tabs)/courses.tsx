@@ -1,21 +1,21 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Dimensions, FlatList, Modal, PanResponder, Pressable, View, Animated } from 'react-native';
+import { Dimensions, FlatList, Modal, PanResponder, Pressable, TextInput, View, Animated } from 'react-native';
 import MapView, { Circle, Marker } from 'react-native-maps';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Serif, Body, Mono } from '@/components/Type';
 import { CourseCard } from '@/components/CourseCard';
 import { ProvenancePill } from '@/components/Provenance';
-import { C, GUTTER, shadow } from '@/theme/tokens';
+import { C, F, GUTTER, shadow } from '@/theme/tokens';
 import { loadCourses } from '@/lib/seed';
-import { resolveLocation, fixLabel } from '@/lib/location';
+import { resolveLocation, setManualLocation, fixLabel } from '@/lib/location';
 import { haversineMi } from '@/lib/prng';
 import { Course, LocFix } from '@/lib/types';
 
 const H = Dimensions.get('window').height;
 const SNAPS = [H * 0.18, H * 0.45, H * 0.78]; // peek / half / full
 
-const DISTS = [10, 25, 50, 100] as const;
+const DISTS = [10, 25, 50, 100, 'Any'] as const;
 const HOLES = ['Any', '9', '18+'] as const;
 const DIFFS = ['Any', 'Beginner', 'Intermediate', 'Advanced'] as const;
 const TERRAINS = ['Any', 'Wooded', 'Open', 'Mixed', 'Hilly'] as const;
@@ -42,6 +42,8 @@ export default function Courses() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [selC, setSelC] = useState<string | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [settingLoc, setSettingLoc] = useState(false);
+  const [query, setQuery] = useState('');
   const [dist, setDist] = useState<(typeof DISTS)[number]>(50);
   const [holes, setHoles] = useState<(typeof HOLES)[number]>('Any');
   const [diff, setDiff] = useState<(typeof DIFFS)[number]>('Any');
@@ -62,15 +64,30 @@ export default function Courses() {
 
   useEffect(() => {
     (async () => {
-      const f = await resolveLocation();
+      const [f, all] = await Promise.all([resolveLocation(), loadCourses()]);
       setFix(f);
-      const all = await loadCourses();
       setCourses(all.map((c) => ({ ...c, distanceMi: haversineMi(f.lat, f.lng, c.lat, c.lng) })));
     })();
   }, []);
 
+  const applyFix = (f: LocFix) => {
+    setFix(f);
+    setCourses((cs) => cs.map((c) => ({ ...c, distanceMi: haversineMi(f.lat, f.lng, c.lat, c.lng) })));
+  };
+
+  // "Set" manual location (README §02): tap the map to place your location.
+  const onMapPress = async (e: any) => {
+    if (!settingLoc) return;
+    const { latitude, longitude } = e.nativeEvent.coordinate;
+    setSettingLoc(false);
+    applyFix(await setManualLocation({ lat: latitude, lng: longitude }));
+  };
+
+  // Name search spans the whole directory (ignores the distance filter) so a
+  // course anywhere in the country is findable; other filters still apply.
+  const q = query.trim().toLowerCase();
   const filtered = useMemo(() => courses
-    .filter((c) => c.distanceMi! <= dist)
+    .filter((c) => q ? `${c.name} ${c.city}`.toLowerCase().includes(q) : dist === 'Any' || c.distanceMi! <= dist)
     .filter((c) => holes === 'Any' || (holes === '9' ? c.holes === 9 : c.holes >= 18))
     .filter((c) => diff === 'Any' || c.difficulty === diff)
     .filter((c) => terrain === 'Any' || c.terrain === terrain)
@@ -80,12 +97,23 @@ export default function Courses() {
   const lbl = fix ? fixLabel(fix) : null;
 
   const recenter = () => {
-    if (!fix || !filtered.length) return;
+    if (!fix) return;
+    if (!filtered.length) {
+      // No courses match the filters — still center the map on the user.
+      map.current?.animateToRegion({ latitude: fix.lat, longitude: fix.lng, latitudeDelta: 0.2, longitudeDelta: 0.2 }, 400);
+      return;
+    }
+    // While searching, frame the results themselves — they may be far away.
+    const anchor = q ? [] : [{ latitude: fix.lat, longitude: fix.lng }];
     map.current?.fitToCoordinates(
-      [{ latitude: fix.lat, longitude: fix.lng }, ...filtered.slice(0, 4).map((c) => ({ latitude: c.lat, longitude: c.lng }))],
+      [...anchor, ...filtered.slice(0, 4).map((c) => ({ latitude: c.lat, longitude: c.lng }))],
       { edgePadding: { top: 120, bottom: 380, left: 60, right: 60 }, animated: true }
     );
   };
+
+  // Re-frame the map once the async location fix resolves (onMapReady fires
+  // before it does), and again when results appear/disappear or search changes.
+  useEffect(() => { if (fix) recenter(); }, [fix, filtered.length > 0, q]);
 
   return (
     <View style={{ flex: 1, backgroundColor: C.paper }}>
@@ -94,6 +122,7 @@ export default function Courses() {
         style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
         initialRegion={{ latitude: fix?.lat ?? 45.52, longitude: fix?.lng ?? -122.68, latitudeDelta: 0.35, longitudeDelta: 0.35 }}
         onMapReady={recenter}
+        onPress={onMapPress}
       >
         {fix && (
           <>
@@ -104,7 +133,8 @@ export default function Courses() {
               strokeColor="rgba(194,112,61,0.4)" fillColor="rgba(194,112,61,0.10)" />
           </>
         )}
-        {filtered.map((c) => (
+        {/* cap markers — the full directory is ~7k courses and the map can't take them all */}
+        {filtered.slice(0, 60).map((c) => (
           <Marker key={c.id} coordinate={{ latitude: c.lat, longitude: c.lng }}
             title={c.name} description={`${c.city} · ${c.holes} holes · ${c.distanceMi!.toFixed(1)} mi`}
             onPress={() => setSelC(c.id)}>
@@ -117,9 +147,12 @@ export default function Courses() {
       <SafeAreaView edges={['top']} pointerEvents="box-none">
         <View style={[{ marginHorizontal: GUTTER, marginTop: 6, backgroundColor: C.card, borderRadius: 14, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10, borderWidth: 1, borderColor: C.border }, shadow.float]}>
           <View style={{ flex: 1 }}>
-            <Body size={13} weight="600" color={C.textStrong}>Your location</Body>
-            {lbl && <ProvenancePill kind={lbl.ok ? 'ok' : 'weak'} label={lbl.text} />}
+            <Body size={13} weight="600" color={C.textStrong}>{settingLoc ? 'Tap the map to set your location' : 'Your location'}</Body>
+            {lbl && !settingLoc && <ProvenancePill kind={lbl.ok ? 'ok' : 'weak'} label={lbl.text} />}
           </View>
+          <Pressable onPress={() => setSettingLoc((v) => !v)} style={{ backgroundColor: settingLoc ? C.clay : C.tile2, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, borderWidth: 1, borderColor: C.border }}>
+            <Body size={12} weight="600" color={settingLoc ? C.paper : C.text}>{settingLoc ? 'Cancel' : 'Set'}</Body>
+          </Pressable>
           <Pressable onPress={recenter} style={{ backgroundColor: C.tile2, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, borderWidth: 1, borderColor: C.border }}>
             <Body size={12} weight="600">Recenter</Body>
           </Pressable>
@@ -131,10 +164,31 @@ export default function Courses() {
         <View {...pan.panHandlers} style={{ alignItems: 'center', paddingVertical: 10 }}>
           <View style={{ width: 42, height: 5, borderRadius: 3, backgroundColor: C.tile }} />
         </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: GUTTER, marginBottom: 10 }}>
+          <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: C.tile2, borderRadius: 12, borderWidth: 1, borderColor: C.border, paddingHorizontal: 12 }}>
+            <TextInput
+              value={query}
+              onChangeText={setQuery}
+              placeholder="Search courses by name or city"
+              placeholderTextColor={C.muted}
+              autoCorrect={false}
+              returnKeyType="search"
+              onFocus={() => Animated.spring(sheetH, { toValue: SNAPS[2], useNativeDriver: false, bounciness: 0 }).start()}
+              style={{ flex: 1, fontFamily: F.sans, fontSize: 14, color: C.text, paddingVertical: 10 }}
+            />
+            {query.length > 0 && (
+              <Pressable onPress={() => setQuery('')} hitSlop={8}>
+                <Body size={13} weight="700" color={C.muted2}>✕</Body>
+              </Pressable>
+            )}
+          </View>
+        </View>
         <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: GUTTER, marginBottom: 8 }}>
           <View style={{ flex: 1 }}>
-            <Serif size={19}>Courses nearby</Serif>
-            <Body size={12} color={C.muted2}>{filtered.length} within reach · sorted by distance</Body>
+            <Serif size={19}>{q ? 'Search results' : 'Courses nearby'}</Serif>
+            <Body size={12} color={C.muted2}>
+              {q ? `${filtered.length} course${filtered.length === 1 ? '' : 's'} match · sorted by distance` : `${filtered.length} within reach · sorted by distance`}
+            </Body>
           </View>
           <Pressable onPress={() => setFiltersOpen(true)} style={{ flexDirection: 'row', gap: 6, alignItems: 'center', backgroundColor: C.tile2, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 9, borderWidth: 1, borderColor: C.border }}>
             <Body size={13} weight="600">Filters</Body>
@@ -152,6 +206,18 @@ export default function Courses() {
           renderItem={({ item }) => (
             <CourseCard course={item} selected={item.id === selC} onPress={() => router.push(`/course/${item.id}`)} />
           )}
+          ListEmptyComponent={
+            <View style={{ alignItems: 'center', gap: 10, paddingVertical: 20 }}>
+              <Body size={13} color={C.muted2} style={{ textAlign: 'center' }}>
+                {q ? `No courses match “${query.trim()}”.` : `No courses${dist === 'Any' ? '' : ` within ${dist} mi`} match your filters.`}
+              </Body>
+              {!q && dist !== 'Any' && (
+                <Pressable onPress={() => setDist('Any')} style={{ backgroundColor: C.clay, borderRadius: 12, paddingHorizontal: 16, paddingVertical: 10 }}>
+                  <Body size={13} weight="700" color={C.paper}>Show nearest courses anyway</Body>
+                </Pressable>
+              )}
+            </View>
+          }
         />
       </Animated.View>
 
