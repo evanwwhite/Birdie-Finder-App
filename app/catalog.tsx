@@ -1,6 +1,6 @@
 // Disc catalog (seeded from all_discs.csv) — the "add a disc" flow from Bag.
 import React, { useEffect, useMemo, useState } from 'react';
-import { FlatList, Pressable, TextInput, View } from 'react-native';
+import { FlatList, Image, Pressable, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Serif, Body, Mono } from '@/components/Type';
@@ -8,7 +8,7 @@ import { useToast } from '@/components/Toast';
 import { C, GUTTER, R, shadow, F } from '@/theme/tokens';
 import { loadDiscs } from '@/lib/seed';
 import { useBag } from '@/state/bag';
-import { Disc } from '@/lib/types';
+import { Disc, stabilityLabel } from '@/lib/types';
 
 export default function Catalog() {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function Catalog() {
   const [q, setQ] = useState('');
   useEffect(() => { loadDiscs().then(setAll); }, []);
 
-  const list = useMemo(() => all.filter((d) => (d.name + d.brand).toLowerCase().includes(q.toLowerCase())), [all, q]);
+  const list = useMemo(() => all.filter((d) => (d.name + d.brand + d.category + stabilityLabel(d)).toLowerCase().includes(q.toLowerCase())), [all, q]);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: C.paper }} edges={['top']}>
@@ -36,12 +36,14 @@ export default function Catalog() {
           const owned = inBag.some((x) => x.id === d.id);
           return (
             <View style={[{ flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: C.card, borderRadius: R.card, borderWidth: 1, borderColor: C.border, padding: 10 }, shadow.card]}>
-              <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: C.tintGreen, alignItems: 'center', justifyContent: 'center' }}>
-                <Serif size={15} weight="800" color={C.forest2}>{String(d.speed)}</Serif>
+              <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: C.tintGreen, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                {d.pic
+                  ? <Image source={{ uri: d.pic }} style={{ width: 36, height: 36 }} resizeMode="cover" />
+                  : <Serif size={15} weight="800" color={C.forest2}>{String(d.speed)}</Serif>}
               </View>
               <View style={{ flex: 1 }}>
                 <Body size={14} weight="600" color={C.textStrong}>{d.name}</Body>
-                <Mono size={9} color={C.muted}>{d.brand} · {d.speed}/{d.glide}/{d.turn}/{d.fade}</Mono>
+                <Mono size={9} color={C.muted}>{d.brand} · {d.speed}/{d.glide}/{d.turn}/{d.fade} · {stabilityLabel(d)}</Mono>
               </View>
               <Pressable disabled={owned} onPress={() => { add(d); toast(`${d.name} added to your bag`); }}
                 style={{ backgroundColor: owned ? C.tile : C.clay, borderRadius: 10, paddingHorizontal: 14, paddingVertical: 9 }}>

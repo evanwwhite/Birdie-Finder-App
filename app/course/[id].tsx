@@ -6,10 +6,10 @@ import { Serif, Body, Mono } from '@/components/Type';
 import { ProvenancePill } from '@/components/Provenance';
 import { Avatar } from '@/components/Avatar';
 import { C, GUTTER, R, shadow } from '@/theme/tokens';
-import { loadCourses, holesFor } from '@/lib/seed';
+import { loadCourses, holesFor, enrichHoleElevations } from '@/lib/seed';
 import { fetchWeather, Weather } from '@/lib/weather';
 import { seeded } from '@/lib/prng';
-import { Course } from '@/lib/types';
+import { Course, Hole } from '@/lib/types';
 import { useRound } from '@/state/round';
 
 const AMENITIES = ['Restrooms', 'Water', 'Practice basket', 'Parking', 'Pro shop'];
@@ -32,16 +32,22 @@ export default function CourseDetail() {
   const startRound = useRound((s) => s.startRound);
   const [course, setCourse] = useState<Course | null>(null);
   const [wx, setWx] = useState<Weather | null>(null);
+  const [holes, setHoles] = useState<Hole[]>([]);
 
   useEffect(() => {
+    let alive = true;
     loadCourses().then(async (cs) => {
       const c = cs.find((x) => x.id === id) ?? cs[0];
+      if (!alive) return;
       setCourse(c);
+      const base = holesFor(c);
+      setHoles(base);
+      // real terrain elevation (Open-Meteo over OSM tee/basket coords), async on top
+      enrichHoleElevations(c, base).then((h) => alive && setHoles(h));
       setWx(await fetchWeather(c.lat, c.lng));
     });
+    return () => { alive = false; };
   }, [id]);
-
-  const holes = useMemo(() => (course ? holesFor(course) : []), [course]);
   const reviews = useMemo(() => {
     if (!course) return [];
     const rnd = seeded(course.id + 'rev');
@@ -136,7 +142,7 @@ export default function CourseDetail() {
                   {h.par}{h.source === 'osm' ? ' ●' : ''}
                 </Body>
                 <Body size={12} style={{ flex: 1 }}>{h.distFt} ft</Body>
-                <Body size={12} style={{ flex: 1 }}>{h.elevFt >= 0 ? `+${h.elevFt}` : h.elevFt} ft</Body>
+                <Body size={12} weight={h.elevSource === 'osm' ? '700' : '400'} color={h.elevSource === 'osm' ? C.birdieFg : C.text} style={{ flex: 1 }}>{h.elevFt >= 0 ? `+${h.elevFt}` : h.elevFt} ft{h.elevSource === 'osm' ? ' ●' : ''}</Body>
                 <View style={{ flex: 1.4, height: 6, borderRadius: 3, backgroundColor: C.tile, overflow: 'hidden' }}>
                   <View style={{ width: `${Math.min(100, (h.distFt / 640) * 100)}%`, height: 6, backgroundColor: C.moss }} />
                 </View>

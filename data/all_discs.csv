@@ -1,25 +1,1148 @@
-id,name,brand,category,speed,glide,turn,fade
-destroyer,Destroyer,Innova,Distance drivers,12,5,-1,3
-wraith,Wraith,Innova,Distance drivers,11,5,-1,3
-zeus,Zeus,Discraft,Distance drivers,12,5,-1,3
-shryke,Shryke,Innova,Distance drivers,13,6,-2,2
-tern,Tern,Innova,Distance drivers,12,6,-3,2
-hades,Hades,Discraft,Distance drivers,12,6,-3,2
-teebird,TeeBird,Innova,Fairway drivers,7,5,0,2
-firebird,Firebird,Innova,Fairway drivers,9,3,0,4
-undertaker,Undertaker,Discraft,Fairway drivers,9,5,-1,2
-leopard3,Leopard3,Innova,Fairway drivers,7,5,-2,1
-heat,Heat,Discraft,Fairway drivers,9,6,-3,1
-eagle,Eagle,Innova,Fairway drivers,7,4,-1,3
-buzzz,Buzzz,Discraft,Midranges,5,4,-1,1
-roc3,Roc3,Innova,Midranges,5,4,0,3
-mako3,Mako3,Innova,Midranges,5,5,0,0
-malta,Malta,Discraft,Midranges,5,4,1,3
-comet,Comet,Discraft,Midranges,4,5,-1,1
-hex,Hex,Axiom,Midranges,5,5,-1,1
-aviar,Aviar,Innova,Putters & approach,2,3,0,1
-luna,Luna,Discraft,Putters & approach,3,3,0,3
-zone,Zone,Discraft,Putters & approach,4,3,0,3
-judge,Judge,Dynamic Discs,Putters & approach,2,4,0,1
-envy,Envy,Axiom,Putters & approach,3,3,0,2
-pig,Pig,Innova,Putters & approach,4,1,0,3
+id,name,brand,category,speed,glide,turn,fade,stability,pic
+abc-discs-money-putter,Money Putter,ABC Discs,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0370363.webp
+above-ground-level-baobab,Baobab,Above Ground Level,Putters & approach,4,0,1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000122.webp
+above-ground-level-beech,Beech,Above Ground Level,Midranges,5,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000127.webp
+above-ground-level-cedar,Cedar,Above Ground Level,Fairway drivers,11,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000119.webp
+above-ground-level-douglas-fir,Douglas Fir,Above Ground Level,Putters & approach,4,3,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000196.webp
+above-ground-level-elm,Elm,Above Ground Level,Fairway drivers,9,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000532.webp
+above-ground-level-juniper,Juniper,Above Ground Level,Midranges,5,6,-2,1,,
+above-ground-level-koa,Koa,Above Ground Level,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000534.webp
+above-ground-level-locust,Locust,Above Ground Level,Fairway drivers,9,4,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000120.webp
+above-ground-level-madrone,Madrone,Above Ground Level,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000124.webp
+above-ground-level-magnolia,Magnolia,Above Ground Level,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000121.webp
+above-ground-level-manzanita,Manzanita,Above Ground Level,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000123.webp
+above-ground-level-ponderosa,Ponderosa,Above Ground Level,Putters & approach,3,4,-2,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000125.webp
+above-ground-level-redwood,Redwood,Above Ground Level,Distance drivers,12,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000173.webp
+above-ground-level-sequoia,Sequoia,Above Ground Level,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000533.webp
+above-ground-level-spruce,Spruce,Above Ground Level,Midranges,5,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000172.webp
+above-ground-level-sycamore,Sycamore,Above Ground Level,Fairway drivers,7,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000126.webp
+aquaflight-dragonfly,Dragonfly,AquaFlight,Midranges,5,4,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6568887.webp
+aquaflight-osprey,Osprey,AquaFlight,Distance drivers,12,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9525843.webp
+aquaflight-peace-frog,Peace Frog,AquaFlight,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9341386.webp
+aquaflight-pelican,Pelican,AquaFlight,Fairway drivers,6,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9280089.webp
+aquaflight-swift,Swift,AquaFlight,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8567408.webp
+axiom-discs-balance,Balance,Axiom Discs,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000503.webp
+axiom-discs-bokeh,Bokeh,Axiom Discs,Fairway drivers,7,6,0,1,,
+axiom-discs-crave,Crave,Axiom Discs,Fairway drivers,6.5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3183103.webp
+axiom-discs-defy,Defy,Axiom Discs,Distance drivers,11,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0001001.webp
+axiom-discs-delirium,Delirium,Axiom Discs,Distance drivers,14.5,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010106.webp
+axiom-discs-envy,Envy,Axiom Discs,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0125005.webp
+axiom-discs-excite,Excite,Axiom Discs,Distance drivers,14.5,5.5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2674911.webp
+axiom-discs-fireball,Fireball,Axiom Discs,Fairway drivers,9,3.5,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3763400.webp
+axiom-discs-hex,Hex,Axiom Discs,Midranges,5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000406.webp
+axiom-discs-insanity,Insanity,Axiom Discs,Fairway drivers,9,5,-2,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000038.webp
+axiom-discs-mayhem,Mayhem,Axiom Discs,Distance drivers,13,5,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1658060.webp
+axiom-discs-panic,Panic,Axiom Discs,Distance drivers,13,4,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0778090.webp
+axiom-discs-paradox,Paradox,Axiom Discs,Midranges,5,4,-4,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000138.webp
+axiom-discs-pitch,Pitch,Axiom Discs,Putters & approach,1,7,-0.5,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000418.webp
+axiom-discs-pixel,Pixel,Axiom Discs,Putters & approach,2,4,0,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000399.webp
+axiom-discs-proxy,Proxy,Axiom Discs,Putters & approach,3,3,-1,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1187247.webp
+axiom-discs-pyro,Pyro,Axiom Discs,Midranges,5,4,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010222.webp
+axiom-discs-rhythm,Rhythm,Axiom Discs,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000286.webp
+axiom-discs-tantrum,Tantrum,Axiom Discs,Distance drivers,14.5,5,-1.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4703999.webp
+axiom-discs-tenacity,Tenacity,Axiom Discs,Distance drivers,13,5,-2.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5643381.webp
+axiom-discs-thrill,Thrill,Axiom Discs,Distance drivers,11,4,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0007247.webp
+axiom-discs-time-lapse,Time-Lapse,Axiom Discs,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000376.webp
+axiom-discs-time-lapse-retooled,Time-Lapse (Retooled),Axiom Discs,Distance drivers,12,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000538.webp
+axiom-discs-trance,Trance,Axiom Discs,Fairway drivers,8,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000316.webp
+axiom-discs-uplink,Uplink,Axiom Discs,Midranges,5,5,-3,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000148.webp
+axiom-discs-vanish,Vanish,Axiom Discs,Fairway drivers,11,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5112997.webp
+axiom-discs-virus,Virus,Axiom Discs,Fairway drivers,9,5,-3.5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4645289.webp
+axiom-discs-wrath,Wrath,Axiom Discs,Fairway drivers,9,4.5,-0.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8613389.webp
+bernoulli-disc-golf-bernoulli-putter,Bernoulli Putter,Bernoulli Disc Golf,Putters & approach,2,5,0,1,,
+bernoulli-disc-golf-einstein,Einstein,Bernoulli Disc Golf,Midranges,5,4,-1,1,,
+bernoulli-disc-golf-hubble,Hubble,Bernoulli Disc Golf,Distance drivers,13,6,-3,2,,
+bernoulli-disc-golf-johnson,Johnson,Bernoulli Disc Golf,Fairway drivers,9,6,-3,1,,
+birdie-marvel,Marvel,Birdie,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000129.webp
+birdie-reach,Reach,Birdie,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000420.webp
+birdie-rise,Rise,Birdie,Midranges,5,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000458.webp
+birdie-weapon,Weapon,Birdie,Fairway drivers,8,5,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000480.webp
+clash-discs-berry,Berry,Clash Discs,Midranges,5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000209.webp
+clash-discs-butter,Butter,Clash Discs,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000213.webp
+clash-discs-candy,Candy,Clash Discs,Putters & approach,3,3,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000375.webp
+clash-discs-cherry,Cherry,Clash Discs,Midranges,5,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000463.webp
+clash-discs-cinnamon,Cinnamon,Clash Discs,Fairway drivers,9,5,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000352.webp
+clash-discs-cookie,Cookie,Clash Discs,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000273.webp
+clash-discs-fudge,Fudge,Clash Discs,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000332.webp
+clash-discs-ginger,Ginger,Clash Discs,Fairway drivers,9,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000214.webp
+clash-discs-guava,Guava,Clash Discs,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000466.webp
+clash-discs-lotus,Lotus,Clash Discs,Fairway drivers,8,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000353.webp
+clash-discs-mango,Mango,Clash Discs,Midranges,5,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000210.webp
+clash-discs-millet,Millet,Clash Discs,Distance drivers,7,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000465.webp
+clash-discs-peach,Peach,Clash Discs,Midranges,4,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000284.webp
+clash-discs-pepper,Pepper,Clash Discs,Fairway drivers,11,5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000211.webp
+clash-discs-popcorn,Popcorn,Clash Discs,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000207.webp
+clash-discs-sage,Sage,Clash Discs,Distance drivers,12,6,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000464.webp
+clash-discs-salt,Salt,Clash Discs,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000238.webp
+clash-discs-soda,Soda,Clash Discs,Fairway drivers,7,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000212.webp
+clash-discs-spice,Spice,Clash Discs,Fairway drivers,10,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000318.webp
+clash-discs-vanilla,Vanilla,Clash Discs,Fairway drivers,11,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000351.webp
+clash-discs-wild-honey,Wild Honey,Clash Discs,Distance drivers,12,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000237.webp
+climo-disc-golf-apogee,Apogee,Climo Disc Golf,Distance drivers,12,5,-2,1,,
+climo-disc-golf-belleair,Belleair,Climo Disc Golf,Midranges,5,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000495.webp
+climo-disc-golf-champ,Champ,Climo Disc Golf,Putters & approach,2,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000493.webp
+climo-disc-golf-cliff,Cliff,Climo Disc Golf,Putters & approach,2,3,0,1,,
+climo-disc-golf-coast,Coast,Climo Disc Golf,Midranges,6,6,-1,1,,
+climo-disc-golf-skyway,Skyway,Climo Disc Golf,Distance drivers,11,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000494.webp
+climo-disc-golf-streak,Streak,Climo Disc Golf,Fairway drivers,7,5,0,1,,
+crosslap-credo,Credo,Crosslap,Putters & approach,3,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4761531.webp
+crosslap-lucky,Lucky,Crosslap,Midranges,5,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8258813.webp
+crosslap-openwater,Openwater,Crosslap,Distance drivers,12,4,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000112.webp
+crosslap-shadowplay,Shadowplay,Crosslap,Putters & approach,3,3,-2,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000111.webp
+crosslap-vigil,Vigil,Crosslap,Fairway drivers,8,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000113.webp
+daredevil-discs-great-horned-owl,(Great Horned) Owl,Daredevil Discs,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3952594.webp
+daredevil-discs-albatross,Albatross,Daredevil Discs,Distance drivers,14,6,-2,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529007.webp
+daredevil-discs-beaver,Beaver,Daredevil Discs,Putters & approach,2,3,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1561860.webp
+daredevil-discs-big-horn,Big Horn,Daredevil Discs,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0120001.webp
+daredevil-discs-bigfoot,BigFoot,Daredevil Discs,Distance drivers,13,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0125001.webp
+daredevil-discs-buffalo,Buffalo,Daredevil Discs,Fairway drivers,9,4,-1,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8907140.webp
+daredevil-discs-caribou,Caribou,Daredevil Discs,Midranges,4,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6926629.webp
+daredevil-discs-grizzly,Grizzly,Daredevil Discs,Midranges,4,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0865915.webp
+daredevil-discs-mammoth,Mammoth,Daredevil Discs,Distance drivers,9,4,-1,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9410396.webp
+daredevil-discs-merlin,Merlin,Daredevil Discs,Distance drivers,14,5,-1,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529008.webp
+daredevil-discs-moose,Moose,Daredevil Discs,Midranges,4,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7768449.webp
+daredevil-discs-ogopogo,Ogopogo,Daredevil Discs,Fairway drivers,9,4,-2,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1969811.webp
+daredevil-discs-polar-bear,Polar Bear,Daredevil Discs,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7766446.webp
+daredevil-discs-sabertooth,Sabertooth,Daredevil Discs,Fairway drivers,9,4,0,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1448947.webp
+daredevil-discs-sasquatch,Sasquatch,Daredevil Discs,Distance drivers,13,5,-5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0125002.webp
+daredevil-discs-swift-fox,Swift Fox,Daredevil Discs,Fairway drivers,7,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8567409.webp
+daredevil-discs-timberwolf,Timberwolf,Daredevil Discs,Fairway drivers,8,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3107248.webp
+daredevil-discs-walrus,Walrus,Daredevil Discs,Midranges,4,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9019017.webp
+daredevil-discs-wolverine,Wolverine,Daredevil Discs,Fairway drivers,9,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9234286.webp
+daredevil-discs-woodchuck,Woodchuck,Daredevil Discs,Putters & approach,2,2,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2700353.webp
+daredevil-discs-yeti,Yeti,Daredevil Discs,Distance drivers,13,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0125003.webp
+dga-aftershock,Aftershock,DGA,Midranges,5,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1994394.webp
+dga-avalanche,Avalanche,DGA,Fairway drivers,9,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000326.webp
+dga-banzai,Banzai,DGA,Fairway drivers,8,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5135999.webp
+dga-blowfly,Blowfly,DGA,Putters & approach,2,2,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5039654.webp
+dga-breaker,Breaker,DGA,Midranges,3,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1981034.webp
+dga-gumbputt,Gumbputt,DGA,Putters & approach,2,2,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9772244.webp
+dga-hellfire,Hellfire,DGA,Fairway drivers,10,3,0,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8221371.webp
+dga-hurricane,Hurricane,DGA,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0583902.webp
+dga-hypercane,Hypercane,DGA,Distance drivers,13,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000082.webp
+dga-pipeline,Pipeline,DGA,Fairway drivers,8,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9991212.webp
+dga-quake,Quake,DGA,Midranges,5,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529004.webp
+dga-reef,Reef,DGA,Putters & approach,2,2,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2857241.webp
+dga-rift,Rift,DGA,Midranges,5,4,-1,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1864199.webp
+dga-riptide,Riptide,DGA,Fairway drivers,9,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8365242.webp
+dga-rogue,Rogue,DGA,Fairway drivers,11,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9765616.webp
+dga-sail,Sail,DGA,Fairway drivers,11,5,-5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5165205.webp
+dga-shockwave,Shockwave,DGA,Midranges,4,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8083168.webp
+dga-sonar,Sonar,DGA,Putters & approach,3,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000453.webp
+dga-squall,Squall,DGA,Midranges,6,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0011016.webp
+dga-steady,Steady,DGA,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0322776.webp
+dga-steady-bl,Steady BL,DGA,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0322776.webp
+dga-surf,Surf,DGA,Putters & approach,3,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000452.webp
+dga-tempest,Tempest,DGA,Distance drivers,13,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6878711.webp
+dga-torrent,Torrent,DGA,Distance drivers,14,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3235095.webp
+dga-tremor,Tremor,DGA,Midranges,6,5,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1130000.webp
+dga-tsunami,Tsunami,DGA,Fairway drivers,10,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0909327.webp
+dga-typhoon,Typhoon,DGA,Distance drivers,12,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4214218.webp
+dga-undertow,Undertow,DGA,Fairway drivers,10,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2662447.webp
+dga-vortex,Vortex,DGA,Fairway drivers,7,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000144.webp
+dino-discs-allosaurus,Allosaurus,Dino Discs,Distance drivers,12,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000530.webp
+dino-discs-brachiosaurus,Brachiosaurus,Dino Discs,Midranges,5,5,-4.5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000000.webp
+dino-discs-diplodocus,Diplodocus,Dino Discs,Midranges,5,5,0,-2,,
+dino-discs-pterodactyl,Pterodactyl,Dino Discs,Fairway drivers,10,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000528.webp
+dino-discs-spinosaurus,Spinosaurus,Dino Discs,Distance drivers,12,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000529.webp
+dino-discs-tyrannosaurus-rex,Tyrannosaurus Rex,Dino Discs,Distance drivers,14,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000527.webp
+discmania-tilt,<- Tilt,Discmania,Fairway drivers,9,1,1,6,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000252.webp
+discmania-astronaut,Astronaut,Discmania,Distance drivers,12,6,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000092.webp
+discmania-cd-oop,CD (OOP),Discmania,Fairway drivers,10,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2351310.webp
+discmania-cd1,CD1,Discmania,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000319.webp
+discmania-cd3-oop,CD3 (OOP),Discmania,Fairway drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2531311.webp
+discmania-cloudbreaker,Cloudbreaker,Discmania,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000242.webp
+discmania-dd,DD,Discmania,Fairway drivers,11,6,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000374.webp
+discmania-dd1,DD1,Discmania,Fairway drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000287.webp
+discmania-dd2,DD2,Discmania,Distance drivers,12,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010103.webp
+discmania-dd2-oop,DD2 (OOP),Discmania,Distance drivers,13,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6795646.webp
+discmania-dd3,DD3,Discmania,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000308.webp
+discmania-dd4,dd4,Discmania,Distance drivers,13,5,0,3,,
+discmania-ddx-oop,DDx (OOP),Discmania,Distance drivers,12,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6795647.webp
+discmania-enigma,Enigma,Discmania,Distance drivers,12,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010103.webp
+discmania-essence,Essence,Discmania,Fairway drivers,8,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000023.webp
+discmania-fd,FD,Discmania,Fairway drivers,7,6,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000143.webp
+discmania-fd1,FD1,Discmania,Fairway drivers,7,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000329.webp
+discmania-fd2-oop,FD2 (OOP),Discmania,Fairway drivers,7,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8360180.webp
+discmania-fd3,FD3,Discmania,Fairway drivers,9,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8360181.webp
+discmania-founder,Founder,Discmania,Midranges,5,6,-4,1,,
+discmania-function,Function,Discmania,Fairway drivers,8,6,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000436.webp
+discmania-genius,Genius,Discmania,Fairway drivers,7,5,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000033.webp
+discmania-glacier,Glacier,Discmania,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000523.webp
+discmania-instinct,Instinct,Discmania,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010203.webp
+discmania-link,Link,Discmania,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010105.webp
+discmania-logic,Logic,Discmania,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000099.webp
+discmania-maestro,Maestro,Discmania,Midranges,4,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000035.webp
+discmania-magician,Magician,Discmania,Fairway drivers,6,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000032.webp
+discmania-majesty,Majesty,Discmania,Distance drivers,13,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000074.webp
+discmania-md,MD,Discmania,Midranges,4,5,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6677127.webp
+discmania-md1,MD1,Discmania,Midranges,5,6,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000269.webp
+discmania-md2-oop,MD2 (OOP),Discmania,Midranges,4,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1830181.webp
+discmania-md3,MD3,Discmania,Midranges,5,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000135.webp
+discmania-md3x,MD3X,Discmania,Midranges,5,5,0,2,,
+discmania-md4,MD4,Discmania,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000447.webp
+discmania-md5,MD5,Discmania,Midranges,5,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000343.webp
+discmania-mentor,Mentor,Discmania,Fairway drivers,11,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000034.webp
+discmania-mermaid,Mermaid,Discmania,Fairway drivers,7,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000285.webp
+discmania-method,Method,Discmania,Midranges,5,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010112.webp
+discmania-mutant,Mutant,Discmania,Midranges,5,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000163.webp
+discmania-notion,Notion,Discmania,Putters & approach,2,3,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000449.webp
+discmania-origin,Origin,Discmania,Midranges,5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000036.webp
+discmania-p1,P1,Discmania,Putters & approach,2,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000251.webp
+discmania-p1x,P1X,Discmania,Putters & approach,2,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2227520.webp
+discmania-p2,P2,Discmania,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000271.webp
+discmania-p2x,P2X,Discmania,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000481.webp
+discmania-p3-oop,P3 (OOP),Discmania,Putters & approach,3,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9617057.webp
+discmania-p3x,P3X,Discmania,Putters & approach,3,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000421.webp
+discmania-paradigm,Paradigm,Discmania,Distance drivers,12,6,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000306.webp
+discmania-pd,PD,Discmania,Fairway drivers,10,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000265.webp
+discmania-pd2,PD2,Discmania,Distance drivers,12,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000400.webp
+discmania-pd3-oop,PD3 (OOP),Discmania,Fairway drivers,11,3,0,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000002.webp
+discmania-pdx-oop,PDx (OOP),Discmania,Fairway drivers,11,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5356888.webp
+discmania-premier-fd,Premier FD,Discmania,Fairway drivers,7,7,0,1,,
+discmania-rainmaker,Rainmaker,Discmania,Putters & approach,2,3,0,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000235.webp
+discmania-rockstar,Rockstar,Discmania,Fairway drivers,8,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000091.webp
+discmania-sensei,Sensei,Discmania,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000031.webp
+discmania-shogun,Shogun,Discmania,Putters & approach,2,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000089.webp
+discmania-splice,Splice,Discmania,Fairway drivers,9,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000162.webp
+discmania-spore,Spore,Discmania,Putters & approach,1,7,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000415.webp
+discmania-tactic,Tactic,Discmania,Putters & approach,4,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000001.webp
+discmania-tailor,Tailor,Discmania,Midranges,4,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000355.webp
+discmania-td,TD,Discmania,Fairway drivers,10,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000401.webp
+discmania-tdx-oop,TDx (OOP),Discmania,Fairway drivers,9,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2211476.webp
+discmania-vanguard,Vanguard,Discmania,Fairway drivers,9,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000358.webp
+discraft-anax,Anax,Discraft,Fairway drivers,10,6,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000012.webp
+discraft-apx,APX,Discraft,Putters & approach,2,2,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8913305.webp
+discraft-archer,Archer,Discraft,Midranges,5,4,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7381363.webp
+discraft-ares,Ares,Discraft,Distance drivers,12,6,-1,2,,
+discraft-athena,Athena,Discraft,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000266.webp
+discraft-avenger,Avenger,Discraft,Fairway drivers,10,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0830484.webp
+discraft-avenger-ss,Avenger SS,Discraft,Fairway drivers,10,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0901228.webp
+discraft-banger-gt,Banger GT,Discraft,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0656924.webp
+discraft-buzzz,Buzzz,Discraft,Midranges,5,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2380596.webp
+discraft-buzzz-gt,Buzzz GT,Discraft,Midranges,5,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1831526.webp
+discraft-buzzz-os,Buzzz OS,Discraft,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8292204.webp
+discraft-buzzz-ss,Buzzz SS,Discraft,Midranges,5,4,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8292205.webp
+discraft-captains-raptor,Captain's Raptor,Discraft,Fairway drivers,9,3,1,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000130.webp
+discraft-captains-thrasher,Captain's Thrasher,Discraft,Distance drivers,12,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000455.webp
+discraft-challenger,Challenger,Discraft,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9906131.webp
+discraft-challenger-os,Challenger OS,Discraft,Putters & approach,2,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9906141.webp
+discraft-challenger-ss,Challenger SS,Discraft,Putters & approach,2,3,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9906151.webp
+discraft-cicada,Cicada,Discraft,Fairway drivers,7,6,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000379.webp
+discraft-cigarra,Cigarra,Discraft,Fairway drivers,7,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000500.webp
+discraft-comet,Comet,Discraft,Midranges,4,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9711069.webp
+discraft-crank,Crank,Discraft,Distance drivers,13,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3183102.webp
+discraft-crank-ss,Crank SS,Discraft,Distance drivers,13,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3183101.webp
+discraft-crush,Crush,Discraft,Distance drivers,11,5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0002762.webp
+discraft-cyclone,Cyclone,Discraft,Fairway drivers,7,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4415042.webp
+discraft-drive,Drive,Discraft,Fairway drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000425.webp
+discraft-drone,Drone,Discraft,Midranges,5,3,1,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7429870.webp
+discraft-fierce,Fierce,Discraft,Putters & approach,3,4,-2,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000007.webp
+discraft-flash,Flash,Discraft,Fairway drivers,10,5,-2,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4045219.webp
+discraft-flick,Flick,Discraft,Distance drivers,12,3,1,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5107778.webp
+discraft-focus,Focus,Discraft,Putters & approach,2,2,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6155774.webp
+discraft-force,Force,Discraft,Distance drivers,12,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0207283.webp
+discraft-glide,Glide,Discraft,Midranges,6,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6995153.webp
+discraft-hades,Hades,Discraft,Distance drivers,12,6,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000009.webp
+discraft-hallux,Hallux,Discraft,Fairway drivers,10,5,0,3,,
+discraft-hawk,Hawk,Discraft,Midranges,4,3,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8285049.webp
+discraft-heat,Heat,Discraft,Fairway drivers,9,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6451075.webp
+discraft-hornet,Hornet,Discraft,Midranges,5,5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2932834.webp
+discraft-impact,Impact,Discraft,Midranges,5,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0470840.webp
+discraft-joy,Joy,Discraft,Midranges,4,5,-1,1,,
+discraft-kratos,Kratos,Discraft,Putters & approach,3,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000412.webp
+discraft-luna,Luna,Discraft,Putters & approach,3,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010339.webp
+discraft-machete,Machete,Discraft,Fairway drivers,11,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529006.webp
+discraft-magnet,Magnet,Discraft,Putters & approach,2,3,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9389862.webp
+discraft-malita,Malita,Discraft,Midranges,5,5,-1,1,,
+discraft-malta,Malta,Discraft,Midranges,5,4,1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000013.webp
+discraft-mantis,Mantis,Discraft,Fairway drivers,8,4,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010109.webp
+discraft-meteor,Meteor,Discraft,Midranges,5,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4699597.webp
+discraft-nebula,Nebula,Discraft,Midranges,5,4,-0.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9549965.webp
+discraft-nuke,Nuke,Discraft,Distance drivers,13,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2737082.webp
+discraft-nuke-os,Nuke OS,Discraft,Distance drivers,13,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2537405.webp
+discraft-nuke-ss,Nuke SS,Discraft,Distance drivers,13,5,-3,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3138324.webp
+discraft-passion,Passion,Discraft,Fairway drivers,8,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000416.webp
+discraft-predator,Predator,Discraft,Fairway drivers,9,4,1,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6206017.webp
+discraft-pulse,Pulse,Discraft,Fairway drivers,11,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9166489.webp
+discraft-punisher,Punisher,Discraft,Distance drivers,12,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2014211.webp
+discraft-puttr,Putt'r,Discraft,Putters & approach,2,2,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4621350.webp
+discraft-raptor,Raptor,Discraft,Fairway drivers,9,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010396.webp
+discraft-rattler,Rattler,Discraft,Putters & approach,2,2,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3672450.webp
+discraft-reaper,Reaper,Discraft,Fairway drivers,8,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0673978.webp
+discraft-roach,Roach,Discraft,Putters & approach,2,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9720863.webp
+discraft-roost,Roost,Discraft,Putters & approach,2,5,0,2,,
+discraft-scorch,Scorch,Discraft,Fairway drivers,11,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000359.webp
+discraft-sol,Sol,Discraft,Midranges,4,5,-3,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000010.webp
+discraft-stalker,Stalker,Discraft,Fairway drivers,7,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8269708.webp
+discraft-sting,Sting,Discraft,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4391599.webp
+discraft-stratus,Stratus,Discraft,Midranges,5,4,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1111307.webp
+discraft-surge,Surge,Discraft,Fairway drivers,11,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8842756.webp
+discraft-surge-ss,Surge SS,Discraft,Fairway drivers,11,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9155859.webp
+discraft-swarm,Swarm,Discraft,Midranges,5,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000433.webp
+discraft-talon,Talon,Discraft,Fairway drivers,8,3,1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1123778.webp
+discraft-thrasher,Thrasher,Discraft,Distance drivers,12,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3007247.webp
+discraft-undertaker,Undertaker,Discraft,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2662446.webp
+discraft-venom-old-version-oop,Venom (Old Version - OOP),Discraft,Fairway drivers,10,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7408747.webp
+discraft-venom-retooled,Venom (Retooled),Discraft,Distance drivers,13,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000312.webp
+discraft-vulture,Vulture,Discraft,Fairway drivers,10,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6833199.webp
+discraft-wasp,Wasp,Discraft,Midranges,5,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3449546.webp
+discraft-wildcat,Wildcat,Discraft,Distance drivers,11,5,-2,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9313639.webp
+discraft-xl,XL,Discraft,Fairway drivers,7,4,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0339437.webp
+discraft-xpress,Xpress,Discraft,Fairway drivers,8,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3860633.webp
+discraft-xs,XS,Discraft,Fairway drivers,8,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8893223.webp
+discraft-xtreme,Xtreme,Discraft,Fairway drivers,6,3,1,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2040913.webp
+discraft-zeppelin,Zeppelin,Discraft,Putters & approach,3,5,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0201104.webp
+discraft-zeus,Zeus,Discraft,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010354.webp
+discraft-zombee,Zombee,Discraft,Fairway drivers,6,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0420120.webp
+discraft-zone,Zone,Discraft,Midranges,4,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4859501.webp
+disctroyer-dd-13-starling,DD-13 Starling,Disctroyer,Distance drivers,13,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000174.webp
+disctroyer-fd-8-stork,FD-8 Stork,Disctroyer,Fairway drivers,8,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000175.webp
+disctroyer-mr-5-skylark,MR-5 Skylark,Disctroyer,Midranges,5,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000176.webp
+disctroyer-nightjar,Nightjar,Disctroyer,Fairway drivers,10,5,-0.5,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000161.webp
+disctroyer-pa-3-sparrow,PA-3 Sparrow,Disctroyer,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000087.webp
+divergent-alpas,Alpas,Divergent,Putters & approach,3,3,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000131.webp
+divergent-wyrm,Wyrm,Divergent,Fairway drivers,9,2,0,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000402.webp
+doomsday-discs-blackout,Blackout,Doomsday Discs,Fairway drivers,8,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000513.webp
+doomsday-discs-bleak,Bleak,Doomsday Discs,Putters & approach,2,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000518.webp
+doomsday-discs-cardiac-arrest,Cardiac Arrest,Doomsday Discs,Putters & approach,2,2,-3,1,,
+doomsday-discs-cataclysm,Cataclysm,Doomsday Discs,Distance drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000536.webp
+doomsday-discs-chemtrail,Chemtrail,Doomsday Discs,Fairway drivers,7,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000509.webp
+doomsday-discs-cyber-putter,Cyber Putter,Doomsday Discs,Putters & approach,3,3,0,2,,
+doomsday-discs-depth-charge,Depth Charge,Doomsday Discs,Putters & approach,2,2,0,1,,
+doomsday-discs-desolation,Desolation,Doomsday Discs,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000514.webp
+doomsday-discs-despair,Despair,Doomsday Discs,Midranges,5,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000512.webp
+doomsday-discs-dread,Dread,Doomsday Discs,Putters & approach,2,4,0,1,,
+doomsday-discs-dystopia,Dystopia,Doomsday Discs,Fairway drivers,10,5,-2,2,,
+doomsday-discs-famine,Famine,Doomsday Discs,Distance drivers,12,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000519.webp
+doomsday-discs-flat-earth,Flat Earth,Doomsday Discs,Midranges,5,5,-1,1,,
+doomsday-discs-ice-age,Ice Age,Doomsday Discs,Fairway drivers,7,4,0,3,,
+doomsday-discs-land-mine,Land Mine,Doomsday Discs,Putters & approach,2,2,0,2,,
+doomsday-discs-monstrosity,Monstrosity,Doomsday Discs,Fairway drivers,7,5,-3,2,,
+doomsday-discs-oblivion,Oblivion,Doomsday Discs,Distance drivers,12,4,-1,3,,
+doomsday-discs-pestilence,Pestilence,Doomsday Discs,Distance drivers,13,5,-4,1,,
+doomsday-discs-plague,Plague,Doomsday Discs,Distance drivers,12,5,-1,2.5,,
+doomsday-discs-psyop,Psyop,Doomsday Discs,Fairway drivers,9,4,-2,3,,
+doomsday-discs-rot,Rot,Doomsday Discs,Putters & approach,2,4,0,1,,
+doomsday-discs-scavenger,Scavenger,Doomsday Discs,Midranges,5,5,-2,1,,
+doomsday-discs-solar-death-ray,Solar Death Ray,Doomsday Discs,Fairway drivers,8,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000516.webp
+dynamic-discs-agent,Agent,Dynamic Discs,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000157.webp
+dynamic-discs-bounty,Bounty,Dynamic Discs,Midranges,4,5,-1.5,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000044.webp
+dynamic-discs-breakout,Breakout,Dynamic Discs,Fairway drivers,8,5,-1,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7321155.webp
+dynamic-discs-captain,Captain,Dynamic Discs,Distance drivers,13,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6929999.webp
+dynamic-discs-contender,Contender,Dynamic Discs,Fairway drivers,9,6,-1,1,,
+dynamic-discs-convict,Convict,Dynamic Discs,Fairway drivers,9,4,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1687774.webp
+dynamic-discs-criminal,Criminal,Dynamic Discs,Fairway drivers,10,3,1,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529009.webp
+dynamic-discs-defender,Defender,Dynamic Discs,Distance drivers,13,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7525647.webp
+dynamic-discs-deputy,Deputy,Dynamic Discs,Putters & approach,3,4,-1.5,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529005.webp
+dynamic-discs-emac-judge,EMAC Judge,Dynamic Discs,Putters & approach,2,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000272.webp
+dynamic-discs-enforcer,Enforcer,Dynamic Discs,Distance drivers,12,4,0.5,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0125006.webp
+dynamic-discs-escape,Escape,Dynamic Discs,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1130002.webp
+dynamic-discs-evader,Evader,Dynamic Discs,Fairway drivers,7,4,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000078.webp
+dynamic-discs-evidence,Evidence,Dynamic Discs,Midranges,5,5,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2674549.webp
+dynamic-discs-felon,Felon,Dynamic Discs,Fairway drivers,9,3,0.5,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3763431.webp
+dynamic-discs-fugitive,Fugitive,Dynamic Discs,Midranges,5,5,-0.5,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1130004.webp
+dynamic-discs-fugitive-supreme,Fugitive (Supreme),Dynamic Discs,Midranges,5,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000457.webp
+dynamic-discs-general,General,Dynamic Discs,Distance drivers,12,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000432.webp
+dynamic-discs-getaway,Getaway,Dynamic Discs,Fairway drivers,9,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0405799.webp
+dynamic-discs-guard,Guard,Dynamic Discs,Putters & approach,2,5,0,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010995.webp
+dynamic-discs-heist,Heist,Dynamic Discs,Distance drivers,12,5,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000510.webp
+dynamic-discs-intent,Intent,Dynamic Discs,Fairway drivers,9,4,0.5,3,,
+dynamic-discs-judge,Judge,Dynamic Discs,Putters & approach,2,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1130003.webp
+dynamic-discs-jury,Jury,Dynamic Discs,Putters & approach,2,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000438.webp
+dynamic-discs-justice,Justice,Dynamic Discs,Midranges,5,1,0.5,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1111828.webp
+dynamic-discs-marshal,Marshal,Dynamic Discs,Putters & approach,3,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8026096.webp
+dynamic-discs-maverick,Maverick,Dynamic Discs,Fairway drivers,7,4,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8996099.webp
+dynamic-discs-motive,Motive,Dynamic Discs,Fairway drivers,8,6,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000539.webp
+dynamic-discs-patrol,Patrol,Dynamic Discs,Midranges,5,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000000.webp
+dynamic-discs-raider,Raider,Dynamic Discs,Distance drivers,13,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010201.webp
+dynamic-discs-renegade,Renegade,Dynamic Discs,Fairway drivers,11,5,-1.5,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9197603.webp
+dynamic-discs-sergeant,Sergeant,Dynamic Discs,Fairway drivers,11,4,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000004.webp
+dynamic-discs-sheriff,Sheriff,Dynamic Discs,Distance drivers,13,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4312230.webp
+dynamic-discs-slammer,Slammer,Dynamic Discs,Putters & approach,3,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9662111.webp
+dynamic-discs-sockibomb-felon,Sockibomb Felon,Dynamic Discs,Fairway drivers,9,4,0.5,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000313.webp
+dynamic-discs-supreme-emac-truth,Supreme EMac Truth,Dynamic Discs,Midranges,5,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000380.webp
+dynamic-discs-supreme-trespass,Supreme Trespass,Dynamic Discs,Distance drivers,12,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000368.webp
+dynamic-discs-thief,Thief,Dynamic Discs,Fairway drivers,8,5,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3107249.webp
+dynamic-discs-treason,Treason,Dynamic Discs,Fairway drivers,10,5,-3,1,,
+dynamic-discs-trespass,Trespass,Dynamic Discs,Distance drivers,12,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1130001.webp
+dynamic-discs-truth,Truth,Dynamic Discs,Midranges,5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1130005.webp
+dynamic-discs-truth-emac,"Truth, EMAC",Dynamic Discs,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0125008.webp
+dynamic-discs-vandal,Vandal,Dynamic Discs,Fairway drivers,9,5,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010996.webp
+dynamic-discs-verdict,Verdict,Dynamic Discs,Midranges,5,4,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0603000.webp
+dynamic-discs-warant,Warant,Dynamic Discs,Midranges,5,5,-2,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2504592.webp
+dynamic-discs-warden,Warden,Dynamic Discs,Putters & approach,2,4,0,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9019019.webp
+dynamic-discs-witness,Witness,Dynamic Discs,Fairway drivers,8,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1802014.webp
+elevation-disc-golf-arowana,Arowana,Elevation Disc Golf,Putters & approach,3,3,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000307.webp
+elevation-disc-golf-binx-ecoflex,"Binx, ecoFlex",Elevation Disc Golf,Fairway drivers,8,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000298.webp
+elevation-disc-golf-binx-newcomer,"Binx, Newcomer",Elevation Disc Golf,Fairway drivers,8,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000298.webp
+elevation-disc-golf-capybara,Capybara,Elevation Disc Golf,Midranges,5,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000540.webp
+elevation-disc-golf-gecko,Gecko,Elevation Disc Golf,Fairway drivers,9,4,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000322.webp
+elevation-disc-golf-interceptor,Interceptor,Elevation Disc Golf,Midranges,5,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000297.webp
+elevation-disc-golf-koi,Koi,Elevation Disc Golf,Putters & approach,3,4,-2,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000296.webp
+elevation-disc-golf-nimbus,Nimbus,Elevation Disc Golf,Midranges,5,5,0,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000450.webp
+elevation-disc-golf-og-binx,OG Binx,Elevation Disc Golf,Fairway drivers,8,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000298.webp
+elevation-disc-golf-psychic,Psychic,Elevation Disc Golf,Distance drivers,12,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000411.webp
+elevation-disc-golf-uktena,Uktena,Elevation Disc Golf,Distance drivers,11,5,-2,2,,
+ev-7-agera,Agera,EV-7,Putters & approach,2,5,-2,1,,
+ev-7-ethos,Ethos,EV-7,Midranges,5,4,0,2,,
+ev-7-kairos,Kairos,EV-7,Distance drivers,12,5,-1,3,,
+ev-7-mobius,Mobius,EV-7,Putters & approach,2,4,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000134.webp
+ev-7-penrose,Penrose,EV-7,Putters & approach,2,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000075.webp
+ev-7-phi,Phi,EV-7,Putters & approach,3,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000283.webp
+ev-7-protos,Protos,EV-7,Fairway drivers,8,6,-3,1,,
+ev-7-telos,Telos,EV-7,Putters & approach,2,4,0,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000218.webp
+ev-7-yang,Yang,EV-7,Putters & approach,1,2,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000094.webp
+ev-7-yin,Yin,EV-7,Putters & approach,1,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000497.webp
+finish-line-daytona,Daytona,Finish Line,Distance drivers,12,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000393.webp
+finish-line-era,Era,Finish Line,Fairway drivers,10,5,-1,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000169.webp
+finish-line-interval,Interval,Finish Line,Distance drivers,12,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000392.webp
+finish-line-pace,Pace,Finish Line,Putters & approach,2,4,0,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000335.webp
+finish-line-rally,Rally,Finish Line,Fairway drivers,8,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000371.webp
+finish-line-sector,Sector,Finish Line,Midranges,5,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000484.webp
+finish-line-supra,Supra,Finish Line,Midranges,5,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000291.webp
+finish-line-torque,Torque,Finish Line,Fairway drivers,8,4,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000370.webp
+gateway-air-strike,Air Strike,Gateway,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0125500.webp
+gateway-amphibian,Amphibian,Gateway,Fairway drivers,10,6,-4,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000000.webp
+gateway-apache-oop,Apache (OOP),Gateway,Fairway drivers,9,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5101462.webp
+gateway-apache-retooled,Apache (retooled),Gateway,Fairway drivers,10,6,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000373.webp
+gateway-apex,Apex,Gateway,Distance drivers,12,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0577872.webp
+gateway-assassin,Assassin,Gateway,Fairway drivers,9,6,-1.5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9100613.webp
+gateway-aura,Aura,Gateway,Distance drivers,12,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000475.webp
+gateway-black-zombie-chainsaw,Black Zombie Chainsaw,Gateway,Putters & approach,3,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9906130.webp
+gateway-blade,Blade,Gateway,Fairway drivers,9,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010225.webp
+gateway-blaze,Blaze,Gateway,Fairway drivers,7,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2347253.webp
+gateway-chief,Chief,Gateway,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3757297.webp
+gateway-chief-os,Chief OS,Gateway,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3757295.webp
+gateway-demon,Demon,Gateway,Midranges,6,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1243771.webp
+gateway-devil-hawk,Devil Hawk,Gateway,Putters & approach,3,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2079720.webp
+gateway-diablo,Diablo,Gateway,Fairway drivers,9,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1842938.webp
+gateway-element,Element,Gateway,Midranges,5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0704282.webp
+gateway-ether,Ether,Gateway,Distance drivers,12,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000386.webp
+gateway-g-one,G-One,Gateway,Distance drivers,12,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000346.webp
+gateway-houdini,Houdini,Gateway,Putters & approach,3,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000324.webp
+gateway-hybrid,Hybrid,Gateway,Fairway drivers,7,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5867073.webp
+gateway-illusion,Illusion,Gateway,Distance drivers,12,5,-0.5,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1210901.webp
+gateway-journey,Journey,Gateway,Distance drivers,11.5,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3394605.webp
+gateway-magic,Magic,Gateway,Putters & approach,2,3,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8656430.webp
+gateway-morningstar,Morningstar,Gateway,Midranges,5,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0130116.webp
+gateway-mystic,Mystic,Gateway,Midranges,5,5,-3,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0591806.webp
+gateway-ninja,Ninja,Gateway,Fairway drivers,10,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1931997.webp
+gateway-odyssey,Odyssey,Gateway,Fairway drivers,8,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000491.webp
+gateway-prophecy,Prophecy,Gateway,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1187299.webp
+gateway-realm,Realm,Gateway,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000387.webp
+gateway-sabre,Sabre,Gateway,Fairway drivers,7,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1448948.webp
+gateway-samurai,Samurai,Gateway,Distance drivers,12,5,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8126901.webp
+gateway-scale,Scale,Gateway,Putters & approach,2,1,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2195881.webp
+gateway-serpent,Serpent,Gateway,Putters & approach,2,2,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7873139.webp
+gateway-shaman,Shaman,Gateway,Putters & approach,3,3,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3445756.webp
+gateway-slayer,Slayer,Gateway,Distance drivers,13,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9862111.webp
+gateway-spear,Spear,Gateway,Fairway drivers,9,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000069.webp
+gateway-speed-demon,Speed Demon,Gateway,Distance drivers,12,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3967096.webp
+gateway-spell,Spell,Gateway,Distance drivers,12,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000345.webp
+gateway-spirit,Spirit,Gateway,Distance drivers,12,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1070408.webp
+gateway-voodoo,Voodoo,Gateway,Putters & approach,2,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1224139.webp
+gateway-wand,Wand,Gateway,Putters & approach,1,7,0,1,,
+gateway-war-spear,War Spear,Gateway,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2079720.webp
+gateway-warlock,Warlock,Gateway,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8652258.webp
+gateway-warrior-gateway,Warrior (Gateway),Gateway,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2504593.webp
+gateway-witch-doctor,Witch Doctor,Gateway,Putters & approach,3,4,0,2.5,,
+gateway-wizard,Wizard,Gateway,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6140857.webp
+hooligan-discs-flip,Flip,Hooligan Discs,Midranges,5,6,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000336.webp
+hooligan-discs-thread,Thread,Hooligan Discs,Fairway drivers,9,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000290.webp
+hooligan-discs-vibe,Vibe,Hooligan Discs,Fairway drivers,11,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000289.webp
+infinite-discs-alpaca,Alpaca,Infinite Discs,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000079.webp
+infinite-discs-anubis,Anubis,Infinite Discs,Midranges,5,5,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000055.webp
+infinite-discs-artifact,Artifact,Infinite Discs,Putters & approach,2,3,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000537.webp
+infinite-discs-aztec,Aztec,Infinite Discs,Fairway drivers,10,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000061.webp
+infinite-discs-centurion,Centurion,Infinite Discs,Fairway drivers,7,5,-1,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000060.webp
+infinite-discs-chariot,Chariot,Infinite Discs,Midranges,5,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9906199.webp
+infinite-discs-cohort,Cohort,Infinite Discs,Putters & approach,3.5,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000053.webp
+infinite-discs-conqueror,Conqueror,Infinite Discs,Distance drivers,12,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000383.webp
+infinite-discs-czar,Czar,Infinite Discs,Fairway drivers,11,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000279.webp
+infinite-discs-dynasty,Dynasty,Infinite Discs,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000241.webp
+infinite-discs-emperor,Emperor,Infinite Discs,Distance drivers,12,5,-1,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000062.webp
+infinite-discs-exodus,Exodus,Infinite Discs,Fairway drivers,7,5,-0.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2674999.webp
+infinite-discs-galleon,Galleon,Infinite Discs,Fairway drivers,6,3,0,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000437.webp
+infinite-discs-glyph,Glyph,Infinite Discs,Putters & approach,1,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000448.webp
+infinite-discs-inca,Inca,Infinite Discs,Midranges,5,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000058.webp
+infinite-discs-khonsu,Khonsu,Infinite Discs,Midranges,5,5,-3,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000414.webp
+infinite-discs-kon-tiki,Kon Tiki,Infinite Discs,Midranges,4,5,-3,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000137.webp
+infinite-discs-maya,Maya,Infinite Discs,Fairway drivers,11,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000063.webp
+infinite-discs-myth,Myth,Infinite Discs,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9549999.webp
+infinite-discs-pharaoh,Pharaoh,Infinite Discs,Distance drivers,13,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9921999.webp
+infinite-discs-ra,RA,Infinite Discs,Midranges,5,4,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000057.webp
+infinite-discs-raze,Raze,Infinite Discs,Putters & approach,3,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000327.webp
+infinite-discs-roman,Roman,Infinite Discs,Fairway drivers,10,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000338.webp
+infinite-discs-ruin,Ruin,Infinite Discs,Putters & approach,3,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000056.webp
+infinite-discs-scarab,Scarab,Infinite Discs,Putters & approach,2,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000064.webp
+infinite-discs-scepter,Scepter,Infinite Discs,Fairway drivers,9,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000065.webp
+infinite-discs-slab,Slab,Infinite Discs,Distance drivers,12,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4677571.webp
+infinite-discs-sphinx,Sphinx,Infinite Discs,Fairway drivers,9,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3531799.webp
+infinite-discs-sultan,Sultan,Infinite Discs,Distance drivers,12,5,-2,2,,
+infinite-discs-tomb,Tomb,Infinite Discs,Putters & approach,3,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3235099.webp
+innova-aero,Aero,Innova,Midranges,3,6,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2470092.webp
+innova-alien,Alien,Innova,Midranges,4,2,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000365.webp
+innova-ape,Ape,Innova,Distance drivers,13,5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0522872.webp
+innova-arachnid,Arachnid,Innova,Midranges,5,6,-1,1,,
+innova-archangel,Archangel,Innova,Fairway drivers,8,6,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2997242.webp
+innova-archon,Archon,Innova,Fairway drivers,11,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7318363.webp
+innova-atlas,Atlas,Innova,Midranges,5,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3187912.webp
+innova-avatar,Avatar,Innova,Midranges,5,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000027.webp
+innova-aviar-classic,Aviar Classic,Innova,Putters & approach,2,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7781597.webp
+innova-aviar-driver,Aviar Driver,Innova,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2565503.webp
+innova-aviar-p-a,Aviar P&A,Innova,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6275754.webp
+innova-aviar3,Aviar3,Innova,Putters & approach,3,2,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6725754.webp
+innova-aviarx3,AviarX3,Innova,Putters & approach,3,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6725799.webp
+innova-banshee,Banshee,Innova,Fairway drivers,7,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5135032.webp
+innova-beast,Beast,Innova,Fairway drivers,10,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6110769.webp
+innova-birdie,Birdie,Innova,Putters & approach,1,2,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000000.webp
+innova-boss,Boss,Innova,Distance drivers,13,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6049208.webp
+innova-bullfrog,Bullfrog,Innova,Putters & approach,3,1,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010991.webp
+innova-caiman,Caiman,Innova,Midranges,5.5,2,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000000.webp
+innova-charger,Charger,Innova,Distance drivers,13,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000299.webp
+innova-cheetah,Cheetah,Innova,Fairway drivers,6,4,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3757296.webp
+innova-classic-roc,Classic Roc,Innova,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6881008.webp
+innova-cobra,Cobra,Innova,Midranges,4,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6673130.webp
+innova-colossus,Colossus,Innova,Distance drivers,14,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9711067.webp
+innova-colt,Colt,Innova,Putters & approach,3,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9711068.webp
+innova-condor,Condor,Innova,Midranges,3,4,0,2,,https://www.marshallstreetdiscgolf.com/?s=condor&post_type=product
+innova-corvette,Corvette,Innova,Distance drivers,14,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8258831.webp
+innova-coyote,Coyote,Innova,Midranges,4,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5369288.webp
+innova-cro,Cro,Innova,Midranges,5,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3593265.webp
+innova-croc,Croc,Innova,Midranges,5.5,2,0,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000263.webp
+innova-daedalus,Daedalus,Innova,Distance drivers,13,6,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1331828.webp
+innova-dart,Dart,Innova,Putters & approach,3,4,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4639880.webp
+innova-destroyer,Destroyer,Innova,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2079719.webp
+innova-dominator-oop,Dominator (OOP),Innova,Distance drivers,13,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7599234.webp
+innova-dragon,Dragon,Innova,Fairway drivers,8,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6568886.webp
+innova-eagle,Eagle,Innova,Fairway drivers,7,4,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5949893.webp
+innova-fairway-disc,Fairway Disc,Innova,Fairway drivers,7,6,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000250.webp
+innova-firebird,Firebird,Innova,Fairway drivers,9,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3763432.webp
+innova-firefly,Firefly,Innova,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010304.webp
+innova-firestorm,Firestorm,Innova,Distance drivers,14,4,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5634740.webp
+innova-fl,FL,Innova,Fairway drivers,9,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5632740.webp
+innova-fox,Fox,Innova,Midranges,5,6,-2,1,,
+innova-gator,Gator,Innova,Midranges,5,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8367344.webp
+innova-gator3,Gator3,Innova,Midranges,5,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3367344.webp
+innova-gazelle,Gazelle,Innova,Fairway drivers,6,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4493143.webp
+innova-gorgon,Gorgon,Innova,Fairway drivers,10,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000441.webp
+innova-gorgon-gstar,Gorgon (GStar),Innova,Fairway drivers,10,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000441.webp
+innova-groove,Groove,Innova,Distance drivers,13,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9756547.webp
+innova-hawkeye,Hawkeye,Innova,Fairway drivers,7,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000149.webp
+innova-hydra,Hydra,Innova,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1501114.webp
+innova-invader,Invader,Innova,Putters & approach,3,2,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000024.webp
+innova-invictus,Invictus,Innova,Fairway drivers,10,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000006.webp
+innova-it,IT,Innova,Fairway drivers,7,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000262.webp
+innova-jay,Jay,Innova,Midranges,5,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000270.webp
+innova-jk-pro-aviar-x,JK Pro Aviar-X,Innova,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5573012.webp
+innova-juggernaut,Juggernaut,Innova,Distance drivers,12,4,1,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000315.webp
+innova-katana,Katana,Innova,Distance drivers,13,5,-3,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8338610.webp
+innova-kc-pro-aviar,KC Pro Aviar,Innova,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2634977.webp
+innova-khan,Khan,Innova,Putters & approach,3,2,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000347.webp
+innova-krait,Krait,Innova,Fairway drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9818009.webp
+innova-leopard,Leopard,Innova,Fairway drivers,6,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6718915.webp
+innova-leopard3,Leopard3,Innova,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6718917.webp
+innova-lion,Lion,Innova,Midranges,5,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010127.webp
+innova-lynx,Lynx,Innova,Fairway drivers,7,6,-2,1,,
+innova-mako,Mako,Innova,Midranges,4,5,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3634535.webp
+innova-mako3,Mako3,Innova,Midranges,5,5,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3334535.webp
+innova-mamba,Mamba,Innova,Fairway drivers,11,6,-5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9410395.webp
+innova-manta,Manta,Innova,Midranges,5,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1001109.webp
+innova-max-oop,Max (OOP),Innova,Fairway drivers,11,3,0,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8026099.webp
+innova-mid-disc3,Mid-Disc3,Innova,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000247.webp
+innova-mirage,Mirage,Innova,Putters & approach,3,4,-3,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1999999.webp
+innova-monarch,Monarch,Innova,Fairway drivers,10,5,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1754993.webp
+innova-mystere,Mystere,Innova,Fairway drivers,11,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0591805.webp
+innova-nova,Nova,Innova,Putters & approach,2,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0943102.webp
+innova-orc,Orc,Innova,Fairway drivers,10,4,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2594490.webp
+innova-panther,Panther,Innova,Midranges,5,4,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0768090.webp
+innova-pegasus,Pegasus,Innova,Fairway drivers,7,4,-1,3,,
+innova-polecat,Polecat,Innova,Putters & approach,1,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0435624.webp
+innova-power-disc-phantom-sword,Power Disc (Phantom Sword),Innova,Fairway drivers,10,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000248.webp
+innova-power-disc2,Power Disc2,Innova,Distance drivers,12,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000248.webp
+innova-python,Python,Innova,Fairway drivers,7,3,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3788383.webp
+innova-racer,Racer,Innova,Distance drivers,12,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000424.webp
+innova-ram,Ram,Innova,Fairway drivers,6,4,1,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1386806.webp
+innova-roadrunner,Roadrunner,Innova,Fairway drivers,9,5,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9720864.webp
+innova-roc,Roc,Innova,Midranges,4,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6505160.webp
+innova-roc-x3,Roc X3,Innova,Midranges,5,4,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529012.webp
+innova-roc3,Roc3,Innova,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6305160.webp
+innova-rollo,Rollo,Innova,Midranges,5,6,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000377.webp
+innova-savant,Savant,Innova,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3133882.webp
+innova-shark,Shark,Innova,Midranges,4,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3445755.webp
+innova-shark3,Shark3,Innova,Midranges,5,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3345755.webp
+innova-shryke,Shryke,Innova,Distance drivers,13,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8018368.webp
+innova-sidewinder,Sidewinder,Innova,Fairway drivers,9,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8480489.webp
+innova-skeeter,Skeeter,Innova,Midranges,5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2157137.webp
+innova-sonic,Sonic,Innova,Putters & approach,1,2,-4,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6960216.webp
+innova-starfire,Starfire,Innova,Fairway drivers,10,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9896321.webp
+innova-starfire-l,Starfire L,Innova,Fairway drivers,10,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5841029.webp
+innova-stingray,Stingray,Innova,Midranges,4,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3900954.webp
+innova-stud,Stud,Innova,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4391594.webp
+innova-teebird,Teebird,Innova,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5536882.webp
+innova-teebird3,Teebird3,Innova,Fairway drivers,8,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8519770.webp
+innova-teedevil,Teedevil,Innova,Distance drivers,12,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2986113.webp
+innova-teerex,TeeRex,Innova,Fairway drivers,11,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9445760.webp
+innova-tern,Tern,Innova,Distance drivers,12,6,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4127027.webp
+innova-thunderbird,Thunderbird,Innova,Fairway drivers,9,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3107247.webp
+innova-tl,TL,Innova,Fairway drivers,7,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5085651.webp
+innova-tl3,TL3,Innova,Fairway drivers,8,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3335095.webp
+innova-valkyrie,Valkyrie,Innova,Fairway drivers,9,4,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8775593.webp
+innova-viking,Viking,Innova,Fairway drivers,9,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5697269.webp
+innova-viper,Viper,Innova,Fairway drivers,6,4,1,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0782502.webp
+innova-vroc,VRoc,Innova,Midranges,4,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6833106.webp
+innova-vulcan,Vulcan,Innova,Distance drivers,13,5,-4,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6833107.webp
+innova-wahoo,Wahoo,Innova,Distance drivers,12,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5402367.webp
+innova-wedge,Wedge,Innova,Putters & approach,3.5,3,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4077898.webp
+innova-whale,Whale,Innova,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0978689.webp
+innova-whippet,Whippet,Innova,Fairway drivers,6,3,1,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0978690.webp
+innova-wolf,Wolf,Innova,Midranges,4,3,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0520179.webp
+innova-wombat3,Wombat3,Innova,Midranges,5,6,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2000352.webp
+innova-wraith,Wraith,Innova,Fairway drivers,11,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8613388.webp
+innova-xcaliber,XCaliber,Innova,Distance drivers,12,5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4214852.webp
+innova-xd,XD,Innova,Putters & approach,3,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2075882.webp
+innova-xero,Xero,Innova,Putters & approach,2,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000201.webp
+innova-yeti-pro-aviar,Yeti Pro Aviar,Innova,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8109356.webp
+jester-disc-golf-dream-weaver,Dream Weaver,Jester Disc Golf,Fairway drivers,7,5,-1,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000431.webp
+jester-disc-golf-iris,Iris,Jester Disc Golf,Putters & approach,3,4,-2,0,,
+jester-disc-golf-love,Love,Jester Disc Golf,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000429.webp
+jester-disc-golf-peace-train,Peace Train,Jester Disc Golf,Midranges,5,4,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000430.webp
+kastaplast-alva,Alva,Kastaplast,Distance drivers,11,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000440.webp
+kastaplast-berg,Berg,Kastaplast,Putters & approach,1,1,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0125099.webp
+kastaplast-berg-x,Berg X,Kastaplast,Putters & approach,1,1,1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000378.webp
+kastaplast-falk,Falk,Kastaplast,Fairway drivers,9,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529010.webp
+kastaplast-gadd,Gadd,Kastaplast,Midranges,5,5,0,2,,
+kastaplast-gote,Gote,Kastaplast,Midranges,4,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000014.webp
+kastaplast-grym-oop,Grym (OOP),Kastaplast,Distance drivers,13,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9756546.webp
+kastaplast-grym-x-oop,Grym X (OOP),Kastaplast,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9756549.webp
+kastaplast-guld,Guld,Kastaplast,Distance drivers,13,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000243.webp
+kastaplast-idog,Idog,Kastaplast,Fairway drivers,7,5,-0.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000467.webp
+kastaplast-impa,Impa,Kastaplast,Distance drivers,11,6,-4,1,,
+kastaplast-kaxe-old-oop,Kaxe (Old - OOP),Kastaplast,Midranges,6,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8338611.webp
+kastaplast-kaxe-retooled,Kaxe (Retooled),Kastaplast,Midranges,6,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000381.webp
+kastaplast-kaxe-z-oop,Kaxe Z (OOP),Kastaplast,Midranges,6,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8338612.webp
+kastaplast-krut,Krut,Kastaplast,Distance drivers,12,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000339.webp
+kastaplast-lots,Lots,Kastaplast,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000003.webp
+kastaplast-malm,Malm,Kastaplast,Fairway drivers,10,4,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000501.webp
+kastaplast-nord,Nord,Kastaplast,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000422.webp
+kastaplast-rask,Rask,Kastaplast,Distance drivers,14,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4114035.webp
+kastaplast-reko,Reko,Kastaplast,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3067917.webp
+kastaplast-reko-x,Reko X,Kastaplast,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000197.webp
+kastaplast-stal,Stal,Kastaplast,Fairway drivers,9,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3217999.webp
+kastaplast-sten,Sten,Kastaplast,Putters & approach,1,1,0,2,,
+kastaplast-stig,Stig,Kastaplast,Midranges,6,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000328.webp
+kastaplast-svea,Svea,Kastaplast,Midranges,5,6,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000041.webp
+kastaplast-tuff,Tuff,Kastaplast,Putters & approach,3,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000522.webp
+kastaplast-vass,Vass,Kastaplast,Distance drivers,12,5,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000369.webp
+latitude-64-amber,Amber,Latitude 64,Distance drivers,11,6,-3,2,,
+latitude-64-anchor,Anchor,Latitude 64,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4139229.webp
+latitude-64-ballista,Ballista,Latitude 64,Distance drivers,14,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8821038.webp
+latitude-64-ballista-pro,Ballista Pro,Latitude 64,Distance drivers,14,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8821099.webp
+latitude-64-beetle,Beetle,Latitude 64,Putters & approach,1,7,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1221221.webp
+latitude-64-bolt,Bolt,Latitude 64,Distance drivers,13,6,-2,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1244844.webp
+latitude-64-brave,Brave,Latitude 64,Fairway drivers,7,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000410.webp
+latitude-64-claymore,Claymore,Latitude 64,Midranges,5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0110828.webp
+latitude-64-compass,Compass,Latitude 64,Midranges,5,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1687772.webp
+latitude-64-core,Core,Latitude 64,Midranges,6,5,-0.5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5887721.webp
+latitude-64-culverin,Culverin,Latitude 64,Fairway drivers,9,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4415040.webp
+latitude-64-cutlass,Cutlass,Latitude 64,Distance drivers,13,5,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4415041.webp
+latitude-64-dagger,Dagger,Latitude 64,Putters & approach,2,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4639881.webp
+latitude-64-diamond,Diamond,Latitude 64,Fairway drivers,8,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7940274.webp
+latitude-64-explorer,Explorer,Latitude 64,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2674599.webp
+latitude-64-faith,Faith,Latitude 64,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000507.webp
+latitude-64-fire,Fire,Latitude 64,Midranges,5,3,0,3,,
+latitude-64-flow,Flow,Latitude 64,Fairway drivers,11,6,-0.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2005314.webp
+latitude-64-fury,Fury,Latitude 64,Fairway drivers,9,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5020310.webp
+latitude-64-fuse,Fuse,Latitude 64,Midranges,5,6,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8822502.webp
+latitude-64-gladiator,Gladiator,Latitude 64,Distance drivers,13,5,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6959153.webp
+latitude-64-glory,Glory,Latitude 64,Fairway drivers,7,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000255.webp
+latitude-64-grace,Grace,Latitude 64,Fairway drivers,11,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000100.webp
+latitude-64-halo,Halo,Latitude 64,Distance drivers,13,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0070453.webp
+latitude-64-havoc,Havoc,Latitude 64,Distance drivers,13,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5576048.webp
+latitude-64-honor,Honor,Latitude 64,Fairway drivers,9,5,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000325.webp
+latitude-64-hope,Hope,Latitude 64,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000170.webp
+latitude-64-jade,Jade,Latitude 64,Fairway drivers,9,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1102014.webp
+latitude-64-keystone,Keystone,Latitude 64,Putters & approach,2,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010303.webp
+latitude-64-knight,Knight,Latitude 64,Distance drivers,14,4,-1.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9818008.webp
+latitude-64-mace,Mace,Latitude 64,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5628377.webp
+latitude-64-maul,Maul,Latitude 64,Fairway drivers,7,7,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8026097.webp
+latitude-64-mercy,Mercy,Latitude 64,Putters & approach,2,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4577289.webp
+latitude-64-mighty,Mighty,Latitude 64,Fairway drivers,7,5,-1,2,,
+latitude-64-missilen-oop,Missilen (OOP),Latitude 64,Distance drivers,14,3,0.5,4.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8968852.webp
+latitude-64-musket,Musket,Latitude 64,Fairway drivers,10,5,-0.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5494999.webp
+latitude-64-peak,Peak,Latitude 64,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000489.webp
+latitude-64-pearl,Pearl,Latitude 64,Midranges,4,6,-4,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9341387.webp
+latitude-64-pioneer,Pioneer,Latitude 64,Fairway drivers,9,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010998.webp
+latitude-64-pirate,Pirate,Latitude 64,Midranges,5,6,-2,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000105.webp
+latitude-64-pure,Pure,Latitude 64,Putters & approach,3,3,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1692215.webp
+latitude-64-raketen-oop,Raketen (OOP),Latitude 64,Distance drivers,15,4,-2,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1386805.webp
+latitude-64-rive,Rive,Latitude 64,Distance drivers,13,5,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000081.webp
+latitude-64-river,River,Latitude 64,Fairway drivers,7,7,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6524752.webp
+latitude-64-river-pro-oop,River Pro (OOP),Latitude 64,Fairway drivers,6,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529013.webp
+latitude-64-ruby,Ruby,Latitude 64,Putters & approach,3,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6480723.webp
+latitude-64-saint,Saint,Latitude 64,Fairway drivers,9,7,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5165206.webp
+latitude-64-saint-pro,Saint Pro,Latitude 64,Fairway drivers,8,5,-0.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5165207.webp
+latitude-64-sapphire,Sapphire,Latitude 64,Distance drivers,10,6,-2,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000025.webp
+latitude-64-sinus,Sinus,Latitude 64,Putters & approach,2,2,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3365192.webp
+latitude-64-spark,Spark,Latitude 64,Fairway drivers,7,4,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1247642.webp
+latitude-64-stiletto,Stiletto,Latitude 64,Distance drivers,13,3,0.5,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0322777.webp
+latitude-64-striker,Striker,Latitude 64,Fairway drivers,8,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4391592.webp
+latitude-64-strive,Strive,Latitude 64,Distance drivers,13,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000417.webp
+latitude-64-sweep,sweep,Latitude 64,Fairway drivers,9,6,-0.05,2,,
+latitude-64-trident,Trident,Latitude 64,Fairway drivers,6,4,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0887728.webp
+latitude-64-trust,Trust,Latitude 64,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000281.webp
+latitude-64-xxx,XXX,Latitude 64,Fairway drivers,7,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7570434.webp
+legacy-aftermath,Aftermath,Legacy,Distance drivers,13,5,-2,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1984394.webp
+legacy-badger,Badger,Legacy,Midranges,6,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000107.webp
+legacy-bandit,Bandit,Legacy,Fairway drivers,9,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9549966.webp
+legacy-cannon,Cannon,Legacy,Distance drivers,14,5,-3,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1451930.webp
+legacy-clozer,Clozer,Legacy,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6675281.webp
+legacy-clutch,Clutch,Legacy,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6675281.webp
+legacy-enemy,Enemy,Legacy,Fairway drivers,9,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0105000.webp
+legacy-fighter,Fighter,Legacy,Fairway drivers,10,3,0,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3763477.webp
+legacy-gauge,Gauge,Legacy,Midranges,5,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0310313.webp
+legacy-ghost,Ghost,Legacy,Midranges,4,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8109139.webp
+legacy-hunter,Hunter,Legacy,Putters & approach,2,3.5,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0583900.webp
+legacy-mongoose,Mongoose,Legacy,Fairway drivers,9,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0310413.webp
+legacy-nemesis,Nemesis,Legacy,Fairway drivers,10,6,-4,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9549966.webp
+legacy-outlaw,Outlaw,Legacy,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9525845.webp
+legacy-patriot,Patriot,Legacy,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9876123.webp
+legacy-phenom,Phenom,Legacy,Fairway drivers,8,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0615743.webp
+legacy-prowler,Prowler,Legacy,Putters & approach,2,2,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1187245.webp
+legacy-pursuit,Pursuit,Legacy,Midranges,5,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4627750.webp
+legacy-rampage,Rampage,Legacy,Distance drivers,14,5,-1,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5866731.webp
+legacy-rebel,Rebel,Legacy,Putters & approach,2,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000305.webp
+legacy-recluse,Recluse,Legacy,Midranges,5,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000117.webp
+legacy-recon,Recon,Legacy,Distance drivers,13,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000341.webp
+legacy-rival,Rival,Legacy,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0281200.webp
+legacy-valor,Valor,Legacy,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000077.webp
+legacy-vengeance,Vengeance,Legacy,Distance drivers,10,6,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000011.webp
+lightning-1-driver,#1 Driver,Lightning,Fairway drivers,6,4,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8994436.webp
+lightning-1-flyer,#1 Flyer,Lightning,Fairway drivers,8,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6680415.webp
+lightning-1-helix,#1 Helix,Lightning,Fairway drivers,8,4,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2141916.webp
+lightning-1-hookshot,#1 Hookshot,Lightning,Fairway drivers,6,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2141916.webp
+lightning-1-hyzer,#1 Hyzer,Lightning,Fairway drivers,7,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2215228.webp
+l-ft-discs-bohrium,Bohrium,Løft Discs,Distance drivers,14,6,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000215.webp
+l-ft-discs-hydrogen,Hydrogen,Løft Discs,Putters & approach,1,2,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000132.webp
+l-ft-discs-silicon,Silicon,Løft Discs,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000236.webp
+l-ft-discs-titanium,Titanium,Løft Discs,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000474.webp
+l-ft-discs-xenon,Xenon,Løft Discs,Fairway drivers,9,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000317.webp
+lone-star-discs-armadillo,Armadillo,Lone Star Discs,Putters & approach,1,2,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000156.webp
+lone-star-discs-bash,Bash,Lone Star Discs,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000477.webp
+lone-star-discs-bayonet,Bayonet,Lone Star Discs,Distance drivers,13,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000293.webp
+lone-star-discs-bb6,BB6,Lone Star Discs,Midranges,4,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000116.webp
+lone-star-discs-bearkat,Bearkat,Lone Star Discs,Midranges,5,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000382.webp
+lone-star-discs-benny,Benny,Lone Star Discs,Putters & approach,3,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000337.webp
+lone-star-discs-bluebonnet,Bluebonnet,Lone Star Discs,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000267.webp
+lone-star-discs-bowie,Bowie,Lone Star Discs,Distance drivers,13,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000119.webp
+lone-star-discs-brazos,Brazos,Lone Star Discs,Fairway drivers,7,5,0,3,,
+lone-star-discs-bull-snake,Bull Snake,Lone Star Discs,Putters & approach,3,2,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000223.webp
+lone-star-discs-cactus,Cactus,Lone Star Discs,Fairway drivers,10,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000476.webp
+lone-star-discs-chuck,Chuck,Lone Star Discs,Midranges,5,5,-2,1,,
+lone-star-discs-chupacabra,Chupacabra,Lone Star Discs,Fairway drivers,9,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000221.webp
+lone-star-discs-copperhead,Copperhead,Lone Star Discs,Putters & approach,3,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000295.webp
+lone-star-discs-crockett,Crockett,Lone Star Discs,Distance drivers,13,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000366.webp
+lone-star-discs-curl,Curl,Lone Star Discs,Fairway drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000114.webp
+lone-star-discs-desperado,Desperado,Lone Star Discs,Fairway drivers,9,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000478.webp
+lone-star-discs-dos-x,Dos X,Lone Star Discs,Fairway drivers,8,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000185.webp
+lone-star-discs-frio,Frio,Lone Star Discs,Fairway drivers,7,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000320.webp
+lone-star-discs-growler,Growler,Lone Star Discs,Distance drivers,12,6,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000391.webp
+lone-star-discs-guadalupe,Guadalupe,Lone Star Discs,Fairway drivers,7,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000193.webp
+lone-star-discs-harrier,Harrier,Lone Star Discs,Distance drivers,12,6,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000367.webp
+lone-star-discs-houston,Houston,Lone Star Discs,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000444.webp
+lone-star-discs-jack-rabbit,Jack Rabbit,Lone Star Discs,Putters & approach,3,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000154.webp
+lone-star-discs-lariat,Lariat,Lone Star Discs,Fairway drivers,9,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000204.webp
+lone-star-discs-lone-wolf,Lone Wolf,Lone Star Discs,Midranges,5,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000294.webp
+lone-star-discs-mad-cat,Mad Cat,Lone Star Discs,Fairway drivers,9,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000282.webp
+lone-star-discs-middy,Middy,Lone Star Discs,Midranges,5,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000118.webp
+lone-star-discs-mockingbird,Mockingbird,Lone Star Discs,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000112.webp
+lone-star-discs-nimitz,Nimitz,Lone Star Discs,Fairway drivers,11,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000292.webp
+lone-star-discs-penny-putter-premium,Penny Putter (Premium),Lone Star Discs,Putters & approach,3,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000128.webp
+lone-star-discs-penny-putter-victor,Penny Putter (Victor),Lone Star Discs,Putters & approach,3,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000128.webp
+lone-star-discs-prickly-pear,Prickly Pear,Lone Star Discs,Putters & approach,3,3,-1,1,,
+lone-star-discs-rig,Rig,Lone Star Discs,Midranges,6,6,-2,2,,
+lone-star-discs-rio-grande,Rio Grande,Lone Star Discs,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000479.webp
+lone-star-discs-seguin,Seguin,Lone Star Discs,Distance drivers,13,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000321.webp
+lone-star-discs-spur,Spur,Lone Star Discs,Fairway drivers,9,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000427.webp
+lone-star-discs-tex,Tex,Lone Star Discs,Fairway drivers,6,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000445.webp
+lone-star-discs-texas-ranger,Texas Ranger,Lone Star Discs,Midranges,5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000194.webp
+lone-star-discs-the-dome,The Dome,Lone Star Discs,Fairway drivers,8,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000222.webp
+lone-star-discs-tombstone,Tombstone,Lone Star Discs,Distance drivers,13,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000259.webp
+lone-star-discs-trinity,Trinity,Lone Star Discs,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000446.webp
+lone-star-discs-tumbleweed,Tumbleweed,Lone Star Discs,Fairway drivers,10,6,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000184.webp
+lone-star-discs-walker,Walker,Lone Star Discs,Midranges,5,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000205.webp
+lone-star-discs-warbird,Warbird,Lone Star Discs,Distance drivers,12,6,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000155.webp
+lone-star-discs-wrangler,Wrangler,Lone Star Discs,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000428.webp
+lone-star-discs-yellow-rose,Yellow Rose,Lone Star Discs,Putters & approach,2,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000443.webp
+millennium-aquarius,Aquarius,Millennium,Fairway drivers,8,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7318361.webp
+millennium-aries,Aries,Millennium,Fairway drivers,11,6,-4,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2014205.webp
+millennium-astra,Astra,Millennium,Fairway drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7569533.webp
+millennium-astra-x,Astra-X,Millennium,Fairway drivers,11,5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7569534.webp
+millennium-auroraqms,Aurora/QMS,Millennium,Midranges,4,5,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7170628.webp
+millennium-draco,Draco,Millennium,Fairway drivers,9,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000045.webp
+millennium-falcon,Falcon,Millennium,Distance drivers,13,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010120.webp
+millennium-helio-vela,Helio Vela,Millennium,Fairway drivers,7,4,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000340.webp
+millennium-jls,JLS,Millennium,Fairway drivers,7,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0663850.webp
+millennium-mars-rover,Mars Rover,Millennium,Midranges,5,6,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000488.webp
+millennium-moab,Moab,Millennium,Fairway drivers,6,4,1,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1754992.webp
+millennium-mortar,Mortar,Millennium,Midranges,5,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0131016.webp
+millennium-omega,Omega,Millennium,Putters & approach,2,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0659634.webp
+millennium-omega-4,Omega 4,Millennium,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000271.webp
+millennium-omega-big-bead,Omega Big Bead,Millennium,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6900159.webp
+millennium-orion-lf,Orion LF,Millennium,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4329112.webp
+millennium-orion-ls,Orion LS,Millennium,Fairway drivers,9,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9525844.webp
+millennium-polaris-lf-oop,Polaris LF (OOP),Millennium,Fairway drivers,9,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7747873.webp
+millennium-polaris-ls,Polaris LS,Millennium,Fairway drivers,6,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3226668.webp
+millennium-quasar,Quasar,Millennium,Distance drivers,13,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0580791.webp
+millennium-sabot,Sabot,Millennium,Fairway drivers,11,4,0,5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000202.webp
+millennium-scorpius,Scorpius,Millennium,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3328593.webp
+millennium-sentinel,Sentinel,Millennium,Midranges,5,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2345890.webp
+millennium-solstice,Solstice,Millennium,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000168.webp
+millennium-vela,Vela,Millennium,Fairway drivers,7,4,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000340.webp
+millennium-zodiac,Zodiac,Millennium,Fairway drivers,10,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000520.webp
+mint-discs-alpha,Alpha,Mint Discs,Fairway drivers,8,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4193239.webp
+mint-discs-bobcat,Bobcat,Mint Discs,Midranges,5,4,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010301.webp
+mint-discs-bullet,Bullet,Mint Discs,Putters & approach,2,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000029.webp
+mint-discs-diamondback,Diamondback,Mint Discs,Fairway drivers,9,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000268.webp
+mint-discs-freetail,Freetail,Mint Discs,Fairway drivers,10,5,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000017.webp
+mint-discs-goat,Goat,Mint Discs,Distance drivers,12,4,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000167.webp
+mint-discs-goat-eternal,Goat (Eternal),Mint Discs,Distance drivers,12,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000167.webp
+mint-discs-grackle,Grackle,Mint Discs,Fairway drivers,7,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000260.webp
+mint-discs-idol,Idol,Mint Discs,Distance drivers,13,5,-1,3,,
+mint-discs-jackalope,Jackalope,Mint Discs,Fairway drivers,8,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000195.webp
+mint-discs-lasso,Lasso,Mint Discs,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000389.webp
+mint-discs-lobster,Lobster,Mint Discs,Midranges,5,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000233.webp
+mint-discs-longhorn,Longhorn,Mint Discs,Fairway drivers,11,4,-1,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000039.webp
+mint-discs-mustang,Mustang,Mint Discs,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000030.webp
+mint-discs-phoenix,Phoenix,Mint Discs,Fairway drivers,9,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000278.webp
+mint-discs-pickle,Pickle,Mint Discs,Putters & approach,2,3.5,0,1.5,,
+mint-discs-pizza,Pizza,Mint Discs,Fairway drivers,8,5,-1,2,,
+mint-discs-profit,Profit,Mint Discs,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010102.webp
+mint-discs-rodeo,Rodeo,Mint Discs,Midranges,5,5,-1,3,,
+mint-discs-salamander,Salamander,Mint Discs,Fairway drivers,6,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000486.webp
+mint-discs-taco,Taco,Mint Discs,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000413.webp
+mint-discs-ufo,UFO,Mint Discs,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000372.webp
+mvp-atom,Atom,MVP,Putters & approach,3,3,-0.5,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3769211.webp
+mvp-catalyst,Catalyst,MVP,Distance drivers,13,5.5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6926628.webp
+mvp-control,Control,MVP,Fairway drivers,10,5,-0.5,2,,
+mvp-deflector,Deflector,MVP,Midranges,5,3.5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7595648.webp
+mvp-detour,Detour,MVP,Midranges,5,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000439.webp
+mvp-dimension,Dimension,MVP,Distance drivers,14.5,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7940277.webp
+mvp-energy,Energy,MVP,Distance drivers,13,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0125007.webp
+mvp-entropy,Entropy,MVP,Putters & approach,4,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010202.webp
+mvp-glitch,Glitch,MVP,Putters & approach,1,7,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000264.webp
+mvp-impulse,Impulse,MVP,Fairway drivers,9,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0470841.webp
+mvp-inertia,Inertia,MVP,Distance drivers,9,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000037.webp
+mvp-ion,Ion,MVP,Putters & approach,2.5,3,0,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4316873.webp
+mvp-matrix,Matrix,MVP,Midranges,5,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8062097.webp
+mvp-motion,Motion,MVP,Fairway drivers,9,3.5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0131017.webp
+mvp-nitro,Nitro,MVP,Distance drivers,13,4,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1931995.webp
+mvp-nomad,Nomad,MVP,Putters & approach,2,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000101.webp
+mvp-octane,Octane,MVP,Distance drivers,13,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0666744.webp
+mvp-ohm,Ohm,MVP,Putters & approach,2,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000008.webp
+mvp-orbital,Orbital,MVP,Fairway drivers,11,5,-4.5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2594489.webp
+mvp-phase,Phase,MVP,Fairway drivers,11,3.5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9921911.webp
+mvp-photon,Photon,MVP,Fairway drivers,11,5,-1,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0615744.webp
+mvp-reactor,Reactor,MVP,Midranges,5,5,-0.5,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000028.webp
+mvp-relativity,Relativity,MVP,Distance drivers,14.5,5.5,-3,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3607915.webp
+mvp-relay,Relay,MVP,Fairway drivers,6,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3067915.webp
+mvp-resistor,Resistor,MVP,Fairway drivers,6.5,4,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0310113.webp
+mvp-servo,Servo,MVP,Fairway drivers,6.5,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7873140.webp
+mvp-signal,Signal,MVP,Fairway drivers,6,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3635192.webp
+mvp-spin,Spin,MVP,Putters & approach,2.5,4,-2,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1060408.webp
+mvp-teleport,Teleport,MVP,Distance drivers,14.5,5,-1.5,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529015.webp
+mvp-terra,Terra,MVP,Fairway drivers,8,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000136.webp
+mvp-tesla,Tesla,MVP,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4127028.webp
+mvp-trail,Trail,MVP,Fairway drivers,10,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000456.webp
+mvp-volt,Volt,MVP,Fairway drivers,8,5,-0.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8675309.webp
+mvp-watt,Watt,MVP,Putters & approach,2,5,-0.5,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000344.webp
+mvp-wave,Wave,MVP,Fairway drivers,11,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3449547.webp
+mvp-zenith,Zenith,MVP,Fairway drivers,11,5,-0.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000253.webp
+neptune-discs-marlin,Marlin,Neptune Discs,Fairway drivers,7,5,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000403.webp
+neptune-discs-nautilus,Nautilus,Neptune Discs,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000404.webp
+neptune-discs-splash,Splash,Neptune Discs,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000405.webp
+neptune-discs-squid,Squid,Neptune Discs,Distance drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000451.webp
+other-andro-c,Andro C,Other,Fairway drivers,6,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4193233.webp
+other-andro-c-retooled,Andro C (Retooled),Other,Fairway drivers,6,4,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4193234.webp
+other-apollo,Apollo,Other,Midranges,5,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000110.webp
+other-cypress,Cypress,Other,Distance drivers,12,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0529011.webp
+other-flying-squirrel,Flying Squirrel,Other,Midranges,5,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7580389.webp
+other-golem,Golem,Other,Putters & approach,4,3,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000153.webp
+other-i-one,I-One,Other,Midranges,5,5,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000083.webp
+other-kgb,KGB,Other,Midranges,5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9240894.webp
+other-kraken,Kraken,Other,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000072.webp
+other-lawin,Lawin,Other,Distance drivers,12,6,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000150.webp
+other-leviathan,Leviathan,Other,Midranges,5,4,-4,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000071.webp
+other-minotaur,Minotaur,Other,Fairway drivers,8,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000151.webp
+other-narwhal,Narwhal,Other,Putters & approach,3,3,-2,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000070.webp
+other-nice,Nice!,Other,Fairway drivers,8,7,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000108.webp
+other-pure-og,Pure OG,Other,Midranges,6,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1692216.webp
+other-strike,Strike,Other,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000274.webp
+other-tiyanak,Tiyanak,Other,Fairway drivers,8,5,-5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000152.webp
+other-tyrant,Tyrant,Other,Fairway drivers,7,3,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4214219.webp
+other-ultra,Ultra,Other,Midranges,5,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000357.webp
+other-zeal,Zeal,Other,Putters & approach,3,4,-2,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000183.webp
+prodigy-archive,Archive,Prodigy,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000360.webp
+prodigy-d-model-os,D Model OS,Prodigy,Distance drivers,13,5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000016.webp
+prodigy-d-model-s,D Model S,Prodigy,Distance drivers,13,6,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000018.webp
+prodigy-d-model-us,D Model US,Prodigy,Distance drivers,13,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000019.webp
+prodigy-d1,D1,Prodigy,Distance drivers,12,5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000396.webp
+prodigy-d1-max,D1 Max,Prodigy,Distance drivers,13,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010229.webp
+prodigy-d2,D2,Prodigy,Distance drivers,12,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000397.webp
+prodigy-d2-max,D2 Max,Prodigy,Distance drivers,13,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010301.webp
+prodigy-d2-pro,D2 Pro,Prodigy,Distance drivers,13,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000395.webp
+prodigy-d2-signature-falcor,D2 Signature (Falcor),Prodigy,Distance drivers,13,6,-1,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000142.webp
+prodigy-d3,D3,Prodigy,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4031647.webp
+prodigy-d3-max,D3 Max,Prodigy,Distance drivers,13,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010320.webp
+prodigy-d4,D4,Prodigy,Distance drivers,12,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2613404.webp
+prodigy-d4-max,D4 Max,Prodigy,Distance drivers,13,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010226.webp
+prodigy-d6,D6,Prodigy,Distance drivers,12,6,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2613406.webp
+prodigy-f-model-os,F Model OS,Prodigy,Fairway drivers,10,5,2,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000051.webp
+prodigy-f-model-s,F Model S,Prodigy,Fairway drivers,10,5,1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000020.webp
+prodigy-f-model-us,F Model US,Prodigy,Fairway drivers,10,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000052.webp
+prodigy-f1,F1,Prodigy,Fairway drivers,8,4,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5011647.webp
+prodigy-f2,F2,Prodigy,Fairway drivers,8,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5021647.webp
+prodigy-f3,F3,Prodigy,Fairway drivers,8,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5031647.webp
+prodigy-f5,F5,Prodigy,Fairway drivers,8,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5051647.webp
+prodigy-f7,F7,Prodigy,Fairway drivers,8,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5071647.webp
+prodigy-f9,F9,Prodigy,Fairway drivers,8,6,-4,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000349.webp
+prodigy-feedback,Feedback,Prodigy,Fairway drivers,9,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000348.webp
+prodigy-fx-2,FX-2,Prodigy,Fairway drivers,9,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8822502.webp
+prodigy-fx-3,FX-3,Prodigy,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000186.webp
+prodigy-fx-4,FX-4,Prodigy,Fairway drivers,9,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000200.webp
+prodigy-h1-v2,H1 (V2),Prodigy,Fairway drivers,10,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7797971.webp
+prodigy-h2-v2,H2 (V2),Prodigy,Fairway drivers,10,4,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7797970.webp
+prodigy-h3-v2,H3 (V2),Prodigy,Fairway drivers,10,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7797973.webp
+prodigy-h4-v2,H4 (V2),Prodigy,Fairway drivers,10,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000217.webp
+prodigy-h5,H5,Prodigy,Fairway drivers,10,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/L7997975.webp
+prodigy-h6,h6,Prodigy,Distance drivers,11,5,-3,1,,
+prodigy-h7,H7,Prodigy,Fairway drivers,10,5,-4,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000245.webp
+prodigy-m-model-s,M Model S,Prodigy,Midranges,6,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000022.webp
+prodigy-m-model-us,M Model US,Prodigy,Midranges,4,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000047.webp
+prodigy-m1,M1,Prodigy,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1928201.webp
+prodigy-m2,M2,Prodigy,Midranges,5,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1821647.webp
+prodigy-m3,M3,Prodigy,Midranges,5,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1028291.webp
+prodigy-m4,M4,Prodigy,Midranges,5,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1841647.webp
+prodigy-m5,M5,Prodigy,Midranges,5,5,-3,1,,
+prodigy-mx-1,MX-1,Prodigy,Midranges,5,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5494901.webp
+prodigy-mx-2,MX-2,Prodigy,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000435.webp
+prodigy-mx-3,MX-3,Prodigy,Midranges,5,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010108.webp
+prodigy-nerf-driver,NERF Driver,Prodigy,Fairway drivers,9,4,-2,2,,
+prodigy-nerf-midrange,NERF Midrange,Prodigy,Midranges,4,5,-2,1,,
+prodigy-nerf-putter,NERF Putter,Prodigy,Putters & approach,2,2,0,1,,
+prodigy-nerf-ultimate,NERF Ultimate,Prodigy,Putters & approach,1,2,-3,0.5,,
+prodigy-p-model-os,P Model OS,Prodigy,Putters & approach,3,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010589.webp
+prodigy-p-model-s,P Model S,Prodigy,Putters & approach,3,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000188.webp
+prodigy-p-model-us,P Model US,Prodigy,Putters & approach,3,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000046.webp
+prodigy-pa1,PA1,Prodigy,Putters & approach,3,3,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2111647.webp
+prodigy-pa2,PA2,Prodigy,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2121647.webp
+prodigy-pa3,PA3,Prodigy,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2131647.webp
+prodigy-pa4,PA4,Prodigy,Putters & approach,3,3,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2141647.webp
+prodigy-pa5,PA5,Prodigy,Putters & approach,3,4,-2,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000256.webp
+prodigy-pivot,Pivot,Prodigy,Putters & approach,3,4,0,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000505.webp
+prodigy-px-3,PX-3,Prodigy,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000118.webp
+prodigy-reverb,Reverb,Prodigy,Distance drivers,13,5,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000141.webp
+prodigy-shadowfax,Shadowfax,Prodigy,Fairway drivers,9,5,-1,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000234.webp
+prodigy-stryder,Stryder,Prodigy,Midranges,6,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000244.webp
+prodigy-waco,Waco,Prodigy,Midranges,5,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000496.webp
+prodigy-x2,X2,Prodigy,Distance drivers,12,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2121380.webp
+prodigy-x3,X3,Prodigy,Distance drivers,12,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2121381.webp
+prodigy-x4,X4,Prodigy,Distance drivers,12,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2121382.webp
+prodigy-x5,X5,Prodigy,Distance drivers,12,6,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2121383.webp
+prodiscus-amulet,Amulet,Prodiscus,Midranges,5,4,1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000409.webp
+prodiscus-empire,Empire,Prodiscus,Distance drivers,13,5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000407.webp
+prodiscus-fasti,Fasti,Prodiscus,Distance drivers,12,4,-3,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000000.webp
+prodiscus-flipperi,Flipperi,Prodiscus,Fairway drivers,9,3,-3,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000000.webp
+prodiscus-jokeri,Jokeri,Prodiscus,Putters & approach,3,3,1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3194605.webp
+prodiscus-jokerix,JokeriX,Prodiscus,Putters & approach,3,3,1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000394.webp
+prodiscus-laseri,Laseri,Prodiscus,Fairway drivers,10,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8502320.webp
+prodiscus-legenda,Legenda,Prodiscus,Distance drivers,13,4,-1,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2992592.webp
+prodiscus-midari,Midari,Prodiscus,Midranges,5,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9037031.webp
+prodiscus-origo,Origo,Prodiscus,Putters & approach,3,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000246.webp
+prodiscus-razeri,Razeri,Prodiscus,Distance drivers,12,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0148615.webp
+prodiscus-respecti,RESPECTi,Prodiscus,Fairway drivers,7,2,1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9382566.webp
+prodiscus-slaidi,Slaidi,Prodiscus,Distance drivers,11,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4655571.webp
+prodiscus-sparta,Sparta,Prodiscus,Putters & approach,3,3,0,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1247643.webp
+prodiscus-stari,Stari,Prodiscus,Midranges,4,4,-2,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0841029.webp
+prodiscus-talisman,Talisman,Prodiscus,Fairway drivers,9,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000408.webp
+prodiscus-titan,Titan,Prodiscus,Fairway drivers,9,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3235093.webp
+rpm-huia,Huia,RPM,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010230.webp
+rpm-kahu,Kahu,RPM,Distance drivers,13,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3252025.webp
+rpm-kahu-os,Kahu OS,RPM,Distance drivers,13,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000000.webp
+rpm-kahu-xg,Kahu XG,RPM,Distance drivers,13,5,-2.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3252025.webp
+rpm-kea,Kea,RPM,Midranges,4,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9240899.webp
+rpm-kiwi,Kiwi,RPM,Fairway drivers,10,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000080.webp
+rpm-kotare,Kotare,RPM,Distance drivers,12,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000005.webp
+rpm-kotuku,Kotuku,RPM,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000048.webp
+rpm-pekapeka,Pekapeka,RPM,Fairway drivers,9,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000146.webp
+rpm-piwakawaka,Piwakawaka,RPM,Midranges,4,5,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0165749.webp
+rpm-ruru,Ruru,RPM,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6487799.webp
+rpm-takapu,Takapu,RPM,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000199.webp
+rpm-tara-iti,Tara iti,RPM,Fairway drivers,10,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000331.webp
+rpm-tui,Tui,RPM,Putters & approach,3,4,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9458079.webp
+sacred-discs-arrowhead,Arrowhead,Sacred Discs,Midranges,4,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000363.webp
+sacred-discs-gnome,Gnome,Sacred Discs,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000364.webp
+sacred-discs-oracle,Oracle,Sacred Discs,Fairway drivers,7,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000362.webp
+sacred-discs-starship,Starship,Sacred Discs,Distance drivers,13,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000361.webp
+stokely-discs-cardinal,Cardinal,Stokely Discs,Midranges,5,4,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000460.webp
+stokely-discs-ching-juju,CHING Juju,Stokely Discs,Putters & approach,2,4,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4672719.webp
+stokely-discs-finch,Finch,Stokely Discs,Putters & approach,3,3,0,1.5,,
+stokely-discs-lark,Lark,Stokely Discs,Fairway drivers,7,5,-1.5,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000511.webp
+stokely-discs-peregrine,Peregrine,Stokely Discs,Distance drivers,12,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000541.webp
+stokely-discs-precision,Precision,Stokely Discs,Midranges,4.5,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0459659.webp
+stokely-discs-robin,Robin,Stokely Discs,Fairway drivers,7,5,0,2,,
+stokely-discs-wren,Wren,Stokely Discs,Putters & approach,3,3.5,-0.5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000461.webp
+storm-abyss,Abyss,Storm,Fairway drivers,8,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000178.webp
+storm-radar,Radar,Storm,Putters & approach,2,5,0,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000182.webp
+storm-the-crater,The Crater,Storm,Putters & approach,3,2,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000181.webp
+storm-the-eye,The Eye,Storm,Midranges,6,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000179.webp
+storm-wall-cloud,Wall Cloud,Storm,Midranges,5,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000180.webp
+streamline-ascend,Ascend,Streamline,Fairway drivers,6,5,-3,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000206.webp
+streamline-boost,Boost,Streamline,Fairway drivers,9.5,4,0,2.5,,
+streamline-drift,Drift,Streamline,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9432299.webp
+streamline-echo,Echo,Streamline,Midranges,5,5,-1.5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000333.webp
+streamline-engine,Engine,Streamline,Distance drivers,13,5,-0.5,2,,
+streamline-flare,Flare,Streamline,Fairway drivers,9,4,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010125.webp
+streamline-jet,Jet,Streamline,Fairway drivers,11,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000198.webp
+streamline-lift,Lift,Streamline,Fairway drivers,9,5,-2,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010113.webp
+streamline-parachute,Parachute,Streamline,Putters & approach,1,7,0,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000469.webp
+streamline-pilot,Pilot,Streamline,Putters & approach,2,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5444845.webp
+streamline-range,Range,Streamline,Putters & approach,2,1,-0.5,0.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000487.webp
+streamline-runway,Runway,Streamline,Midranges,5,4,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6777799.webp
+streamline-shift,Shift,Streamline,Fairway drivers,9,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000470.webp
+streamline-stabilizer,Stabilizer,Streamline,Putters & approach,3,3.5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010111.webp
+streamline-trace,Trace,Streamline,Fairway drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3045756.webp
+streamline-turbulence,Turbulence,Streamline,Fairway drivers,7,2,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000535.webp
+thought-space-athletics-alter,Alter,Thought Space Athletics,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000257.webp
+thought-space-athletics-animus,Animus,Thought Space Athletics,Fairway drivers,11,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000043.webp
+thought-space-athletics-coalesce,Coalesce,Thought Space Athletics,Fairway drivers,9,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000192.webp
+thought-space-athletics-construct,Construct,Thought Space Athletics,Fairway drivers,10,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000258.webp
+thought-space-athletics-crux,Crux,Thought Space Athletics,Midranges,5,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000472.webp
+thought-space-athletics-expanse,Expanse,Thought Space Athletics,Distance drivers,11,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000490.webp
+thought-space-athletics-mana,Mana,Thought Space Athletics,Midranges,5,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000190.webp
+thought-space-athletics-mantra,Mantra,Thought Space Athletics,Fairway drivers,9,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000076.webp
+thought-space-athletics-mellow,Mellow,Thought Space Athletics,Putters & approach,1,5,0,1,,
+thought-space-athletics-muse,Muse,Thought Space Athletics,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000115.webp
+thought-space-athletics-nuance,Nuance,Thought Space Athletics,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000471.webp
+thought-space-athletics-omen,Omen,Thought Space Athletics,Fairway drivers,9,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000191.webp
+thought-space-athletics-pathfinder,Pathfinder,Thought Space Athletics,Midranges,5,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000042.webp
+thought-space-athletics-persona,Persona,Thought Space Athletics,Fairway drivers,8,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000502.webp
+thought-space-athletics-pneuma,Pneuma,Thought Space Athletics,Putters & approach,2,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000385.webp
+thought-space-athletics-praxis,Praxis,Thought Space Athletics,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000139.webp
+thought-space-athletics-requiem,Requiem,Thought Space Athletics,Distance drivers,12,5,-1,2,,
+thought-space-athletics-synapse,Synapse,Thought Space Athletics,Distance drivers,12,5,-1.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000147.webp
+thought-space-athletics-votum,Votum,Thought Space Athletics,Fairway drivers,7,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000189.webp
+trash-panda-dune,Dune,Trash Panda,Midranges,5,5,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000350.webp
+trash-panda-inner-core,Inner Core,Trash Panda,Putters & approach,2,4,-0.5,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000302.webp
+trash-panda-outer-core,Outer Core,Trash Panda,Putters & approach,2,4,0,1,,
+trash-panda-ozone,Ozone,Trash Panda,Fairway drivers,8,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000442.webp
+trash-panda-procyon,Procyon,Trash Panda,Distance drivers,11.5,5,-1,2,,
+vibram-arch,Arch,Vibram,Fairway drivers,8,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7318362.webp
+vibram-crag,Crag,Vibram,Midranges,4,3,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3383102.webp
+vibram-ibex,Ibex,Vibram,Midranges,5,4,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5957606.webp
+vibram-lace,Lace,Vibram,Distance drivers,14,6,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4217523.webp
+vibram-launch,Launch,Vibram,Midranges,5,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2142826.webp
+vibram-notch,Notch,Vibram,Fairway drivers,7,3,0,4.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0943101.webp
+vibram-o-lace,O-Lace,Vibram,Distance drivers,13,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9090001.webp
+vibram-obex,Obex,Vibram,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0666743.webp
+vibram-onyx,Onyx,Vibram,Fairway drivers,8,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6800158.webp
+vibram-ridge,Ridge,Vibram,Putters & approach,2,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4248334.webp
+vibram-solace,Solace,Vibram,Distance drivers,13,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2210014.webp
+vibram-sole,Sole,Vibram,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7247416.webp
+vibram-summit,Summit,Vibram,Putters & approach,2,3,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2353867.webp
+vibram-unlace,UnLace,Vibram,Distance drivers,14,6,-5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9090002.webp
+vibram-valley,Valley,Vibram,Fairway drivers,7,5,-1,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8775594.webp
+vibram-vamp,Vamp,Vibram,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8775595.webp
+vibram-vp,VP,Vibram,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5951270.webp
+viking-axe,Axe,Viking,Midranges,4,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6383035.webp
+viking-barbarian,Barbarian,Viking,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000050.webp
+viking-berserker,Berserker,Viking,Fairway drivers,10,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0152099.webp
+viking-cosmos,Cosmos,Viking,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3639673.webp
+viking-fenrir,Fenrir,Viking,Fairway drivers,10,4,0,3,,   https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000000.webp
+viking-knife,Knife,Viking,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9881008.webp
+viking-odin,Odin,Viking,Distance drivers,12,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000114.webp
+viking-ragnarok,Ragnarok,Viking,Fairway drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000098.webp
+viking-rune,Rune,Viking,Putters & approach,2,4,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6487723.webp
+viking-thor,Thor,Viking,Distance drivers,14,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3102747.webp
+viking-warrior-viking,Warrior (Viking),Viking,Midranges,4,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3641119.webp
+westside-discs-adder,Adder,Westside Discs,Distance drivers,13,5,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000454.webp
+westside-discs-ahti,Ahti,Westside Discs,Fairway drivers,9,3,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1205500.webp
+westside-discs-anvil,Anvil,Westside Discs,Midranges,4,2,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1312199.webp
+westside-discs-bard,Bard,Westside Discs,Midranges,5,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9782382.webp
+westside-discs-bear,Bear,Westside Discs,Fairway drivers,8,6,-0.5,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000239.webp
+westside-discs-boatman,Boatman,Westside Discs,Fairway drivers,11,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5677771.webp
+westside-discs-catapult,Catapult,Westside Discs,Distance drivers,14,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6926630.webp
+westside-discs-crown,Crown,Westside Discs,Putters & approach,3,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3454803.webp
+westside-discs-destiny,Destiny,Westside Discs,Distance drivers,14,6,-2,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2079718.webp
+westside-discs-fortress,Fortress,Westside Discs,Fairway drivers,10,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/2012013.webp
+westside-discs-gatekeeper,Gatekeeper,Westside Discs,Midranges,4,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1010334.webp
+westside-discs-giant,Giant,Westside Discs,Distance drivers,13,4,0,3.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8363222.webp
+westside-discs-giant-reborn,Giant Reborn,Westside Discs,Distance drivers,12,6,-0.5,2,,
+westside-discs-harp,Harp,Westside Discs,Midranges,4,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1110113.webp
+westside-discs-hatchet,Hatchet,Westside Discs,Fairway drivers,9,6,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1110114.webp
+westside-discs-king,King,Westside Discs,Distance drivers,14,5,-1.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9240895.webp
+westside-discs-longbowman,Longbowman,Westside Discs,Fairway drivers,9,4,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8258814.webp
+westside-discs-maiden,Maiden,Westside Discs,Putters & approach,3,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9398899.webp
+westside-discs-northman,Northman,Westside Discs,Fairway drivers,10,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3614119.webp
+westside-discs-pine,Pine,Westside Discs,Midranges,5,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0091212.webp
+westside-discs-prince,Prince,Westside Discs,Distance drivers,13,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000426.webp
+westside-discs-queen,Queen,Westside Discs,Distance drivers,14,5,-3,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/7166865.webp
+westside-discs-sampo,Sampo,Westside Discs,Fairway drivers,10,4,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8126900.webp
+westside-discs-seer,Seer,Westside Discs,Fairway drivers,7,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1283468.webp
+westside-discs-shield,Shield,Westside Discs,Putters & approach,3,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4321231.webp
+westside-discs-sling,Sling,Westside Discs,Midranges,5,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3777619.webp
+westside-discs-sorcerer,Sorcerer,Westside Discs,Distance drivers,13,5,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1110112.webp
+westside-discs-stag,Stag,Westside Discs,Fairway drivers,8,6,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3217900.webp
+westside-discs-swan-1-reborn,Swan 1 Reborn,Westside Discs,Putters & approach,3,3,-2.5,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3034274.webp
+westside-discs-swan-2,Swan 2,Westside Discs,Putters & approach,3,3,-1,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5732093.webp
+westside-discs-sword,Sword,Westside Discs,Distance drivers,12,5,-0.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/6718262.webp
+westside-discs-tide,Tide,Westside Discs,Distance drivers,12,6,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000504.webp
+westside-discs-tursas,Tursas,Westside Discs,Midranges,5,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4214217.webp
+westside-discs-underworld,Underworld,Westside Discs,Fairway drivers,7,6,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1001002.webp
+westside-discs-vellamo,Vellamo,Westside Discs,Midranges,5,5.5,0,1.5,,
+westside-discs-war-horse,War Horse,Westside Discs,Distance drivers,13,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9019099.webp
+westside-discs-warship,Warship,Westside Discs,Midranges,5,6,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3655161.webp
+westside-discs-world,World,Westside Discs,Distance drivers,14,4,-0.5,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1110111.webp
+wild-discs-addax,Addax,Wild Discs,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000067.webp
+wild-discs-addax-reborn,Addax Reborn,Wild Discs,Midranges,5,5,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000277.webp
+wild-discs-angler,Angler,Wild Discs,Midranges,4,3,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000164.webp
+wild-discs-hyena,Hyena,Wild Discs,Fairway drivers,9,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000275.webp
+wild-discs-orca,Orca,Wild Discs,Distance drivers,12,5,-1.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000066.webp
+wild-discs-sea-otter,Sea Otter,Wild Discs,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000166.webp
+wild-discs-tasmanian-devil-v2,Tasmanian Devil V2,Wild Discs,Fairway drivers,9,4,0,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000304.webp
+yikun-bai-ze,Bai Ze,Yikun,Fairway drivers,7,6,-0.5,1,,
+yikun-bi,Bi,Yikun,Fairway drivers,9,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000226.webp
+yikun-claws,Claws,Yikun,Putters & approach,1,3,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0110827.webp
+yikun-crossbow,Crossbow,Yikun,Midranges,4,1.5,0.5,4,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/5376611.webp
+yikun-dae,Da'E,Yikun,Distance drivers,13,5,0,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1331827.webp
+yikun-frey-ja,Frey Ja,Yikun,Putters & approach,3,3,0,1,,
+yikun-fu,Fu,Yikun,Fairway drivers,7,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000096.webp
+yikun-fu-xi,Fu Xi,Yikun,Distance drivers,12,6,-1,2,,
+yikun-gou,Gou,Yikun,Fairway drivers,8,5,-3.5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0165753.webp
+yikun-gui,Gui,Yikun,Putters & approach,2,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/9756548.webp
+yikun-hou-yi,Hou Yi,Yikun,Fairway drivers,10,6,-1,2,,
+yikun-hu,Hu,Yikun,Fairway drivers,9,5,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0583901.webp
+yikun-jiao,Jiao,Yikun,Fairway drivers,6,5,-2,1.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1083795.webp
+yikun-jun,Jun,Yikun,Fairway drivers,11,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/1111827.webp
+yikun-kang,Kang,Yikun,Putters & approach,3,5,-2,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000229.webp
+yikun-kui,Kui,Yikun,Midranges,5,5,0,2.5,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/3647455.webp
+yikun-ling,Ling,Yikun,Putters & approach,2,3,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000228.webp
+yikun-long,Long,Yikun,Fairway drivers,10,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000225.webp
+yikun-lu,Lu,Yikun,Distance drivers,14,5,-1,3,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/8458813.webp
+yikun-meteor-hammer,Meteor Hammer,Yikun,Putters & approach,2,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4444446.webp
+yikun-ne-zha,Ne Zha,Yikun,Midranges,5,5,-2,0,,
+yikun-qi,Qi,Yikun,Distance drivers,13,6,-2,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000097.webp
+yikun-rong,Rong,Yikun,Distance drivers,13,5,-3,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000227.webp
+yikun-she-gong,She Gong,Yikun,Distance drivers,13,5,-1.5,2,,
+yikun-shu,Shu,Yikun,Midranges,4,5,-2,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000095.webp
+yikun-tomahawk,Tomahawk,Yikun,Midranges,5,6,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/L1010101.webp
+yikun-twin-swords,Twin Swords,Yikun,Distance drivers,12,5,-1,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4214299.webp
+yikun-view,View,Yikun,Fairway drivers,7,6,-3.5,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0660827.webp
+yikun-wei,Wei,Yikun,Fairway drivers,10,5,-2.5,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/4077899.webp
+yikun-wings,Wings,Yikun,Putters & approach,3,3,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0330827.webp
+yikun-xing,Xing,Yikun,Putters & approach,2,4,0,1,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000093.webp
+yikun-yan,Yan,Yikun,Midranges,3,6,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000094.webp
+yikun-yao,Yao,Yikun,Midranges,4,4,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0440827.webp
+yikun-yi,Yi,Yikun,Putters & approach,3,3,0,0,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000230.webp
+yikun-zheng,Zheng,Yikun,Midranges,5,5,0,2,,https://s3.amazonaws.com/media.marshallstreetdiscgolf.com/inbounds/0000224.webp
