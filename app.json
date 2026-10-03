@@ -13,9 +13,19 @@
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Birdie Finder uses your location to sort courses by distance and show live GPS-to-basket during a round."
       },
-      "config": { "usesNonExemptEncryption": false }
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
-    "plugins": ["expo-router", "expo-location", "expo-font"],
-    "assetBundlePatterns": ["data/*", "assets/**/*"]
+    "plugins": [
+      "expo-router",
+      "expo-location",
+      "expo-font",
+      "expo-sqlite"
+    ],
+    "assetBundlePatterns": [
+      "data/*",
+      "assets/**/*"
+    ]
   }
 }

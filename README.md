@@ -1,53 +1,23 @@
-# Birdie Finder — iPhone App (Expo / React Native)
+# Birdie Finder iPhone app
 
-Native iPhone app for Birdie Finder, built from the handoff spec (README UI spec + BUILD_PLAN)
-and matching the web app's design system exactly (paper / forest / clay tokens, Spectral +
-Archivo + IBM Plex Mono, birdie-circle / bogey-square score language, provenance badges).
+The current route set presents approved catalog facts, an offline-first solo scorecard, private account rounds, and a synced bag of approved disc molds. The previous prototype screens are preserved in `demo_archive/` and are not imported into the app bundle. The source CSVs remain in `data/` for internal comparison; the public iOS export does not include them.
 
-## Screens (all 7 from the spec)
-1. **Home** — greeting + live weather line, Resume-round card, quick actions, courses near you, recent rounds.
-2. **Find courses** — full-bleed map (react-native-maps), clay user dot + accuracy circle, forest markers,
-   draggable 3-snap bottom sheet, distance-sorted list, filters modal (distance / holes / difficulty / terrain),
-   location-fix provenance pill, recenter.
-3. **Live scorecard** — 18-segment progress, forest hole card with giant hole number + live **GPS-to-basket**,
-   swipe-to-change-hole, 44×44 haptic steppers (you score yourself), live group pill with the throwing ring,
-   teammate score flash + toast (real Supabase realtime when configured, simulated otherwise), screen kept awake,
-   "Finish round →" on the last hole.
-4. **Round summary** — winner chip, 4 stat cards, horizontally scrolling scorecard grid with sticky name column
-   and the birdie/bogey/double visual language, legend, Save to profile, **Share round image** (view-shot export).
-5. **Stats & profile** — forest hero, stat strip, 8-bar rating trend, season 2×2 grid, recent rounds,
-   friends leaderboard (your row highlighted clay), in-the-bag preview.
-6. **Course detail** — hero, stat bar, live Open-Meteo conditions with graceful offline fallback, about + amenities,
-   hole-by-hole table with OSM ● / estimated provenance and OSM attribution, reviews with category bars, details,
-   sticky "Start a scorecard ▸" + Directions (opens Apple Maps).
-7. **In the bag** — grouped by category, flight-number boxes (SPD/GLD/TRN/FAD), live remove, "+ Add a disc"
-   → searchable disc catalog seeded from `all_discs.csv`.
+## Local development
 
-Plus: **Login** (email + Apple Sign In via Supabase; demo mode until configured).
+1. In `../birdie_finder_backend/`, run `npm ci`, `npm run start`, and `npm run reset`. This creates only synthetic **local** test courses.
+2. Copy `.env.example` to ignored `.env` and set the local public API URL and anon key. For a physical phone, use a reachable LAN host rather than `127.0.0.1`.
+3. Run `npm ci` and `npx expo start` here. Open the solo scorecard while online once to cache the synthetic test layout, then turn connectivity off for the offline/restart smoke. Local synthetic data is fetched in development and is never hardcoded in a public build.
 
-## Architecture (per BUILD_PLAN)
-- **Offline-first:** all round + bag state persists to AsyncStorage (`bf_rounds_v1`, `bf_bag_v1`) via zustand/persist;
-  a live round survives kill/relaunch and drives the Home Resume card. Courses + discs load from bundled CSVs
-  (PapaParse) as the offline fallback.
-- **One backend, two clients:** `src/lib/supabase.ts` is the shared client. Set `.env` from `.env.example` to enable
-  auth + realtime; `supabase/schema.sql` creates the full data model with RLS and realtime on `hole_scores`.
-- **Realtime shared scorecard:** each player scores only themselves; strokes upsert to `hole_scores` and broadcast
-  on `round:{id}`. Unconfigured builds run the prototype's simulation so the UI is fully exercised.
-- **Provenance everywhere:** GPS vs IP location fix, OSM vs estimated hole data — never implied accuracy you don't have.
+Production routes read `search_courses_v1`, `get_course_detail_v1`, and `search_disc_molds_v1`. Only reviewed, non-synthetic records are returned. A user can request nearby sorting; the app stores only a rounded nearby coordinate on the device. `birdie_catalog_v1.db` keeps up to 50 nearby/recent or explicitly saved playable details for offline use; unknown par and distances remain null. The scorecard's separate `birdie_rounds_v2.db` partitions rounds/outbox by signed-in UID or this device's anonymous namespace. Anonymous rounds upload only after the owner explicitly claims them from My rounds and account.
 
-## Run it
-```bash
-npm install
-npm install @expo-google-fonts/spectral @expo-google-fonts/archivo @expo-google-fonts/ibm-plex-mono expo-asset expo-file-system react-native-url-polyfill
-cp .env.example .env   # optional: add Supabase creds
-npx expo prebuild -p ios && npx expo run:ios   # or: npx expo start (Expo Go, maps limited)
+The old `bf_rounds_v1` and `bf_bag_v1` AsyncStorage keys are read-only. My rounds and account requires an explicit one-account claim before preview/import/export of those stores. Each old record receives a stable manifest UUID based on its device, position, and raw content. Unmatched records remain local and exportable; matched records use canonical course/disc crosswalks and server receipts to make retries idempotent. Account export includes server data and the claimed local legacy stores. Account deletion removes server data after confirmation; it does not silently delete old device stores.
+
+## Verification
+
+```sh
+npm run typecheck
+npx expo export --platform ios --output-dir /tmp/birdie-c-public-export
+node scripts/check-public-export.mjs /tmp/birdie-c-public-export
 ```
 
-## Seeding the backend
-1. Run `supabase/schema.sql` in the Supabase SQL editor.
-2. Import the full `data/courses.csv` and `data/all_discs.csv` from the web repo into `courses` / `discs`
-   (the bundled CSVs here are a working subset; swap in the repo's full files for production).
-3. Enable Apple Sign In under Supabase Auth providers.
-
-## Deferred (per BUILD_PLAN §9)
-Shop/commerce and event registration are intentionally out of scope for the app — ship the round loop and social first.
+The export checker rejects bundled legacy course, hole, or disc CSV assets. Device verification still requires a phone or simulator for offline kill/relaunch, cache access, cross-client refresh, legacy import, and account switching. Release gates and source rights are tracked in `../birdie_finder_backend/docs/RELEASE_RUNBOOK.md` and `../DATA_DESIGN_TODOS.md`.

@@ -1,223 +1,95 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Animated, PanResponder, Pressable, ScrollView, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { AppState, Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { useIsFocused } from '@react-navigation/native';
-import { useKeepAwake } from 'expo-keep-awake';
-import * as Haptics from 'expo-haptics';
 import { Serif, Body, Mono } from '@/components/Type';
-import { Avatar } from '@/components/Avatar';
-import { Stepper } from '@/components/Stepper';
-import { ScoreChip } from '@/components/ScoreChip';
-import { ProvenancePill } from '@/components/Provenance';
-import { useToast } from '@/components/Toast';
-import { C, GUTTER, shadow } from '@/theme/tokens';
-import { useRound, playerTotals } from '@/state/round';
-import { loadCourses, holesFor } from '@/lib/seed';
-import { subscribeToRound, supabaseEnabled } from '@/lib/supabase';
-import { watchToBasket, resolveLocation } from '@/lib/location';
-import { haversineMi } from '@/lib/prng';
-import { Player } from '@/lib/types';
-
-const AVATAR_BG = [C.clay, C.forest2, C.moss, C.gold];
+import { C, GUTTER, R } from '@/theme/tokens';
+import { useRound, type PlayableCourse } from '@/state/round';
+import { internalCourses, loadSoloCourses } from '@/lib/soloCatalog';
+import { supabase } from '@/lib/supabase';
 
 export default function Play() {
-  useKeepAwake(); // screen stays awake during a live round
   const router = useRouter();
-  const toast = useToast();
-  const focused = useIsFocused();
-  const { live, startRound, setScore, applyRemoteScore, setHole, setThrowing, finishRound } = useRound();
-  const [gpsFt, setGpsFt] = useState<number | null>(null);
-  const flash = useRef<Record<string, Animated.Value>>({}).current;
-
-  // No live round yet: start one at the nearest course with a default group.
-  // Only while this tab is focused — the tab stays mounted, so without the guard
-  // finishing a round would immediately auto-start a phantom new one.
+  const live = useRound(s => s.live);
+  const hydrated = useRound(s => s.hydrated);
+  const [courses, setCourses] = useState<PlayableCourse[]>(internalCourses);
+  const [signedIn, setSignedIn] = useState(false);
+  const [error, setError] = useState('');
   useEffect(() => {
-    if (live || !focused) return;
-    let cancelled = false;
-    (async () => {
-      const [fix, courses] = await Promise.all([resolveLocation(), loadCourses()]);
-      if (cancelled || useRound.getState().live) return;
-      const course = [...courses].sort(
-        (a, b) => haversineMi(fix.lat, fix.lng, a.lat, a.lng) - haversineMi(fix.lat, fix.lng, b.lat, b.lng)
-      )[0];
-      const players: Player[] = [
-        { id: 'you', name: 'Evan', initials: 'EW' },
-        { id: 'g1', name: 'Maya', initials: 'MK', guest: true },
-        { id: 'g2', name: 'Sam', initials: 'SR', guest: true },
-        { id: 'g3', name: 'Cole', initials: 'CB', guest: true },
-      ];
-      startRound(course, 'Blue', holesFor(course), players);
-    })();
-    return () => { cancelled = true; };
-  }, [live, focused]);
-
-  // Realtime shared scorecard: real Supabase channel when configured,
-  // otherwise the prototype's simulation (rotating "throwing" + teammate scores).
-  useEffect(() => {
-    if (!live) return;
-    if (supabaseEnabled) {
-      return subscribeToRound(live.id, (row) => {
-        const pid = row.player_id ?? live.players.find((p) => p.name === row.guest_name)?.id;
-        if (pid && pid !== 'you') {
-          applyRemoteScore(pid, row.hole, row.strokes);
-          pulse(pid);
-          toast(`${live.players.find((p) => p.id === pid)?.name} scored hole ${row.hole}`);
-        }
-      });
-    }
-    if (!focused) return; // the simulation only runs while the Play screen is visible
-    const t = setInterval(() => {
-      const others = live.players.filter((p) => p.id !== 'you');
-      const p = others[Math.floor(Math.random() * others.length)];
-      setThrowing(p.id);
-      if (Math.random() > 0.5) {
-        const par = live.pars[live.cur - 1];
-        const s = par + [-1, 0, 0, 1][Math.floor(Math.random() * 4)];
-        applyRemoteScore(p.id, live.cur, s);
-        pulse(p.id);
-        toast(`${p.name} carded a ${s} on hole ${live.cur}`);
+    void loadSoloCourses().then(setCourses).catch(() => {});
+    void supabase?.auth.getSession().then(({ data }) => setSignedIn(!!data.session));
+    const auth = supabase?.auth.onAuthStateChange((_event, session) => setSignedIn(!!session));
+    const app = AppState.addEventListener('change', state => {
+      if (state === 'active') {
+        void useRound.getState().refreshAll();
       }
-    }, 7000);
-    return () => clearInterval(t);
-  }, [live?.id, live?.cur, focused]);
-
-  // Live GPS-to-basket readout for the current hole (target = course pin as placeholder for the OSM basket pin)
-  useEffect(() => {
-    if (!live || !focused) return;
-    let stop = () => {};
-    loadCourses().then((cs) => {
-      const c = cs.find((x) => x.id === live.courseId);
-      if (c) stop = watchToBasket({ lat: c.lat, lng: c.lng }, setGpsFt);
     });
-    return () => stop();
-  }, [live?.courseId, live?.cur, focused]);
+    return () => { auth?.data.subscription.unsubscribe(); app.remove(); };
+  }, []);
 
-  const pulse = (pid: string) => {
-    if (!flash[pid]) flash[pid] = new Animated.Value(0);
-    Animated.sequence([
-      Animated.timing(flash[pid], { toValue: 1, duration: 150, useNativeDriver: false }),
-      Animated.timing(flash[pid], { toValue: 0, duration: 900, useNativeDriver: false }),
-    ]).start();
+  const start = (course: PlayableCourse) => {
+    if (!hydrated) { setError('Opening saved rounds. Try again in a moment.'); return; }
+    try { useRound.getState().startRound(course); setError(''); }
+    catch (e) { setError(e instanceof Error ? e.message : 'Could not start round'); }
   };
+  if (!hydrated) return <SafeAreaView style={{ flex: 1, backgroundColor: C.paper, padding: GUTTER }}><Body>Opening saved rounds…</Body></SafeAreaView>;
+  if (!live) return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: C.paper }} edges={['top']}>
+      <ScrollView contentContainerStyle={{ padding: GUTTER, gap: 14 }}>
+        <Mono size={11}>{__DEV__ ? 'Internal solo scorecard' : 'Solo scorecard'}</Mono>
+        <Serif size={28} weight="800">Start a round</Serif>
+        <Body size={13} color={C.muted2}>{__DEV__ ? 'Synthetic test courses are available in development. ' : ''}Scores save on this phone first and sync when you sign in and reconnect.</Body>
+        {!courses.length && <Body size={13} color={C.muted2}>No approved playable courses are available yet. Connect to refresh the catalog.</Body>}
+        {!signedIn && <Pressable onPress={() => router.push('/login')} style={{ padding: 14, backgroundColor: C.clay, borderRadius: R.card }}>
+          <Body size={15} weight="700" color={C.paper}>Sign in to sync across devices</Body>
+        </Pressable>}
+        {courses.map(course => <Pressable key={course.id} onPress={() => start(course)}
+          style={{ padding: 18, backgroundColor: C.card, borderRadius: R.card, borderWidth: 1, borderColor: C.border, gap: 5 }}>
+          <Serif size={20}>{course.name}</Serif>
+          <Body size={12} color={C.muted2}>{course.layout} · {course.holes.length} holes · {course.holes.some(h => h.par === null) ? 'some par unknown' : 'par known'}</Body>
+          <Body size={13} color={C.clay}>Start →</Body>
+        </Pressable>)}
+        {!!error && <Body color={C.clay}>{error}</Body>}
+      </ScrollView>
+    </SafeAreaView>
+  );
 
-  // Swipe left/right on the hole card changes hole
-  const pan = useMemo(() => PanResponder.create({
-    onMoveShouldSetPanResponder: (_, g) => Math.abs(g.dx) > 24 && Math.abs(g.dy) < 30,
-    onPanResponderRelease: (_, g) => {
-      if (!live) return;
-      if (g.dx < -40) setHole(live.cur + 1);
-      if (g.dx > 40) setHole(live.cur - 1);
-      Haptics.selectionAsync();
-    },
-  }), [live?.cur]);
-
-  if (!live) return <View style={{ flex: 1, backgroundColor: C.paper }} />;
-
-  const n = live.pars.length;
-  const par = live.pars[live.cur - 1];
-  // Real hole layout stored at startRound (same data course detail shows);
-  // fallback covers live rounds persisted before holes were stored.
-  const holeInfo = live.holes?.[live.cur - 1] ?? { distFt: 300 + par * 40, source: 'estimated' as const };
-  const last = live.cur === n;
-
-  const finish = () => {
-    finishRound();
-    router.push('/summary');
-  };
-
+  const hole = live.holes[live.cur - 1];
+  const strokes = live.scores[live.participantId][hole.hole];
+  const played = live.holes.filter(h => live.scores[live.participantId][h.hole] != null).length;
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: C.paper }} edges={['top']}>
-      {/* app bar */}
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 11, paddingHorizontal: GUTTER, paddingVertical: 6 }}>
-        <Pressable onPress={() => router.push('/')} style={{ width: 32, height: 32, borderRadius: 10, backgroundColor: C.tile, alignItems: 'center', justifyContent: 'center' }}>
-          <Body size={18} weight="700">‹</Body>
+      <ScrollView contentContainerStyle={{ padding: GUTTER, gap: 16 }}>
+        <Mono size={11}>Solo round · {played}/{live.holes.length} holes scored</Mono>
+        <Serif size={26} weight="800">{live.courseName}</Serif>
+        <Body size={13} color={C.muted2}>{live.layout}</Body>
+        <View style={{ backgroundColor: C.card, padding: 20, borderRadius: R.card, gap: 12 }}>
+          <Serif size={32} weight="800">Hole {hole.hole}</Serif>
+          <Body size={15}>Par {hole.par ?? 'unknown'} · {hole.distFt == null ? 'distance unknown' : `${hole.distFt} ft`}</Body>
+          <Body size={20} weight="700">{strokes == null ? 'No score yet' : `${strokes} strokes`}</Body>
+          <View style={{ flexDirection: 'row', gap: 12 }}>
+            <Pressable onPress={() => useRound.getState().setScore(hole.hole, strokes == null ? 1 : Math.max(1, strokes - 1))}
+              style={{ flex: 1, padding: 16, alignItems: 'center', backgroundColor: C.tile, borderRadius: 10 }}><Body size={18}>−</Body></Pressable>
+            <Pressable onPress={() => useRound.getState().setScore(hole.hole, strokes == null ? 1 : Math.min(12, strokes + 1))}
+              style={{ flex: 1, padding: 16, alignItems: 'center', backgroundColor: C.tile, borderRadius: 10 }}><Body size={18}>+</Body></Pressable>
+          </View>
+          {strokes == null && <Body size={12} color={C.muted2}>Tap + to record your first stroke.</Body>}
+        </View>
+        <View style={{ flexDirection: 'row', gap: 10 }}>
+          <Pressable disabled={live.cur === 1} onPress={() => useRound.getState().setHole(live.cur - 1)}
+            style={{ flex: 1, padding: 14, backgroundColor: C.tile, borderRadius: 10, opacity: live.cur === 1 ? 0.4 : 1 }}><Body>← Previous</Body></Pressable>
+          <Pressable disabled={live.cur === live.holes.length} onPress={() => useRound.getState().setHole(live.cur + 1)}
+            style={{ flex: 1, padding: 14, backgroundColor: C.tile, borderRadius: 10, opacity: live.cur === live.holes.length ? 0.4 : 1 }}><Body>Next →</Body></Pressable>
+        </View>
+        <Body size={12} color={live.syncError ? C.clay : C.muted2}>
+          {live.syncError ? `Sync needs attention: ${live.syncError}` : signedIn ? 'Saved on phone; pending changes sync when connected.' : 'Saved on phone only. Sign in to sync new rounds.'}
+        </Body>
+        <Pressable disabled={played !== live.holes.length} onPress={() => {
+          if (useRound.getState().finishRound()) router.push('/summary');
+        }} style={{ padding: 16, borderRadius: 12, backgroundColor: C.clay, opacity: played === live.holes.length ? 1 : 0.4, alignItems: 'center' }}>
+          <Body color={C.paper} weight="700">Finish round</Body>
         </Pressable>
-        <View style={{ flex: 1 }}>
-          <Serif size={17}>{live.courseName}</Serif>
-          <Body size={11} color={C.muted2}>{live.layout} · Par {live.pars.reduce((a, b) => a + b, 0)}</Body>
-        </View>
-        {/* live group pill */}
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: C.tintGreen, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 6 }}>
-          <View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: C.birdieFg }} />
-          <View style={{ flexDirection: 'row' }}>
-            {live.players.map((p, i) => (
-              <View key={p.id} style={{ marginLeft: i ? -8 : 0 }}>
-                <Avatar initials={p.initials} size={22} bg={AVATAR_BG[i % 4]} ring={live.throwing === p.id} />
-              </View>
-            ))}
-          </View>
-        </View>
-      </View>
-
-      {/* 18-segment progress: past moss / current clay / upcoming tan */}
-      <View style={{ flexDirection: 'row', gap: 3, paddingHorizontal: GUTTER, marginVertical: 6 }}>
-        {live.pars.map((_, i) => (
-          <View key={i} style={{ flex: 1, height: 5, borderRadius: 3, backgroundColor: i + 1 < live.cur ? C.moss : i + 1 === live.cur ? C.clay : C.tile }} />
-        ))}
-      </View>
-
-      {/* hole card */}
-      <View {...pan.panHandlers} style={[{ marginHorizontal: GUTTER, backgroundColor: C.forest, borderRadius: 24, padding: 18 }, shadow.card]}>
-        <View style={{ flexDirection: 'row' }}>
-          <View style={{ flex: 1 }}>
-            <Mono size={10} color={C.moss}>Hole</Mono>
-            <Serif size={74} weight="800" color={C.paper} style={{ lineHeight: 78 }}>{String(live.cur)}</Serif>
-            <Body size={15} weight="700" color={C.paper}>Par {par}</Body>
-            <Body size={12} color="#cfc9b8">{holeInfo.distFt} ft · {live.layout} tee → basket</Body>
-          </View>
-          <View style={{ alignItems: 'flex-end', justifyContent: 'center' }}>
-            {/* Only meaningful when you're actually on the course — beyond ~1 mi show a dash */}
-            <Serif size={40} weight="800" color={C.paper}>{gpsFt != null && gpsFt <= 5280 ? String(gpsFt) : '—'}</Serif>
-            <Body size={13} color="#cfc9b8">ft</Body>
-            <Mono size={9} color={C.moss}>GPS to basket</Mono>
-          </View>
-        </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 12 }}>
-          <ProvenancePill kind={holeInfo.source === 'osm' ? 'real' : 'est'} label={holeInfo.source === 'osm' ? 'OSM layout' : 'Estimated distance'} />
-          <Mono size={9} color="#cfc9b8">‹ swipe holes ›</Mono>
-        </View>
-      </View>
-
-      {/* player rows */}
-      <ScrollView style={{ flex: 1, marginTop: 10 }} contentContainerStyle={{ paddingHorizontal: GUTTER, gap: 8, paddingBottom: 8 }}>
-        {live.players.map((p, i) => {
-          const t = playerTotals(live.scores[p.id], live.pars);
-          const s = live.scores[p.id][live.cur] ?? par;
-          if (!flash[p.id]) flash[p.id] = new Animated.Value(0);
-          const bg = flash[p.id].interpolate({ inputRange: [0, 1], outputRange: [C.card, C.tintGreen] });
-          return (
-            <Animated.View key={p.id} style={[{ flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: bg, borderRadius: 16, borderWidth: 1, borderColor: C.border, padding: 10 }, shadow.card]}>
-              <Avatar initials={p.initials} size={36} bg={AVATAR_BG[i % 4]} ring={live.throwing === p.id} />
-              <View style={{ flex: 1 }}>
-                <Body size={14} weight="600" color={C.textStrong}>{p.name}{p.id === 'you' ? ' (you)' : ''}</Body>
-                <Mono size={10} color={C.muted}>Thru {t.thru} · {t.rel === 0 ? 'E' : t.rel > 0 ? `+${t.rel}` : t.rel}</Mono>
-              </View>
-              {live.scores[p.id][live.cur] != null && <ScoreChip strokes={live.scores[p.id][live.cur]} par={par} />}
-              {p.id === 'you'
-                ? <Stepper value={s} onChange={(v) => setScore('you', live.cur, v)} />
-                : <Serif size={22}>{live.scores[p.id][live.cur] != null ? String(live.scores[p.id][live.cur]) : '·'}</Serif>}
-            </Animated.View>
-          );
-        })}
-        <Mono size={9} color={C.muted} style={{ textAlign: 'center', marginTop: 4 }}>
-          Offline · saved locally · screen stays awake · haptics on
-        </Mono>
       </ScrollView>
-
-      {/* footer nav */}
-      <View style={{ flexDirection: 'row', gap: 10, paddingHorizontal: GUTTER, paddingBottom: 8 }}>
-        <Pressable onPress={() => setHole(live.cur - 1)} style={{ width: 52, height: 52, borderRadius: 14, backgroundColor: C.tile2, borderWidth: 1, borderColor: C.border, alignItems: 'center', justifyContent: 'center' }}>
-          <Body size={20} weight="700">‹</Body>
-        </Pressable>
-        <Pressable onPress={() => (last ? finish() : setHole(live.cur + 1))} style={{ flex: 1, height: 52, borderRadius: 14, backgroundColor: C.clay, alignItems: 'center', justifyContent: 'center' }}>
-          <Body size={16} weight="700" color={C.paper}>{last ? 'Finish round →' : 'Next hole →'}</Body>
-        </Pressable>
-        <Pressable onPress={() => setHole(live.cur + 1)} style={{ width: 52, height: 52, borderRadius: 14, backgroundColor: C.tile2, borderWidth: 1, borderColor: C.border, alignItems: 'center', justifyContent: 'center' }}>
-          <Body size={20} weight="700">›</Body>
-        </Pressable>
-      </View>
     </SafeAreaView>
   );
 }
